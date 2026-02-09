@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthLab Limited | Premier Digital Marketing Agency in Nairobi</title>
+    <meta name="description"
+        content="GrowthLab Limited is a top-tier digital marketing agency in Westlands, Nairobi. We specialize in SEO, UI/UX design, and web development for modern brands.">
+    <meta name="keywords"
+        content="Digital Marketing Nairobi, SEO Agency Westlands, Web Development Kenya, GrowthLab Limited">
+    <meta name="author" content="GrowthLab Limited">
+    <link rel="canonical" href="https://growthlablimited.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://growthlablimited.com/">
+    <meta property="og:title" content="GrowthLab Limited | Digital Excellence in Nairobi">
+    <meta property="og:description"
+        content="Elevate your brand with data-driven marketing and world-class design from Nairobi's premier agency.">
+    <meta property="og:image" content="media/hero.png">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "GrowthLab Limited",
+      "image": "media/hero.png",
+      "@id": "https://growthlablimited.com/",
+      "url": "https://growthlablimited.com/",
+      "telephone": "+254 743 990 479",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ABC Place, Westlands",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.2633,
+        "longitude": 36.8041
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "sameAs": [
+        "https://linkedin.com/company/growthlablimited",
+        "https://instagram.com/growthlablimited"
+      ]
+    }
+    </script>
+
+    <!-- Importing Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET (The Black/White/Gray Palette) --- */
+        :root {
+            --bg-white: #ffffff;
+            --bg-light: #f8faff;
+            --bg-dark: #0a192f;
+            --text-main: #0a192f;
+            --text-muted: #556b8e;
+            --border-color: #e2e8f0;
+            --primary-navy: #0a192f;
+            --accent-orange: #ff6b00;
+            --accent-orange-hover: #e65a00;
+            --spacing-section: 100px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Container for centering content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 2. HEADER / NAVIGATION --- */
+        /* --- DARK NAVY HEADER STYLES --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* Dark Navy Blue Background */
+            background-color: #0A192F;
+            /* Subtle lighter blue border for separation */
+            border-bottom: 1px solid #172a46;
+            padding: 20px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navigation Links - Turned White to pop against Navy */
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: #FFFFFF;
+            /* White Text */
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: #FF6B00;
+            /* Hover effect turns Orange */
+        }
+
+        /* Update Mobile Menu Icon color if needed */
+        .fa-bars {
+            color: #ffffff;
+        }
+
+        /* Optional: Make the "Get a Quote" button Orange to match the theme */
+        header .btn-black {
+            background-color: #FF6B00;
+            color: white;
+        }
+
+        header .btn-black:hover {
+            background-color: #e55e00;
+        }
+
+        .btn-black {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-black:hover {
+            background-color: var(--accent-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange);
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 4px;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-white);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            color: var(--primary-navy);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 90%;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Hero Image Representation */
+        .hero-visual {
+            height: 400px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.15);
+        }
+
+        /* Floating Badge */
+        .badge-float {
+            position: absolute;
+            bottom: 40px;
+            left: -30px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .badge-float h4 {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .badge-float span {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* --- 4. LOGO STRIP --- */
+        .logo-strip {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            background: white;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .logo-track {
+            display: flex;
+            width: calc(250px * 10);
+            /* Adjust based on logo width/count */
+            animation: scroll 20s linear infinite;
+        }
+
+        .logo-track .logo-item {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0.8;
+            /* Higher default visibility */
+            color: var(--primary-navy);
+            flex-shrink: 0;
+            transition: 0.3s;
+        }
+
+        /* Original Brand Colors */
+        .fa-google {
+            color: #4285F4;
+        }
+
+        .fa-microsoft {
+            color: #00A4EF;
+        }
+
+        .fa-spotify {
+            color: #1DB954;
+        }
+
+        .fa-uber {
+            color: #000000;
+        }
+
+        .fa-note-sticky {
+            color: #000000;
+        }
+
+        .logo-track .logo-item i {
+            font-size: 32px;
+        }
+
+        .logo-track .logo-item span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .logo-track .logo-item:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-250px * 5));
+                /* Move by half the track length */
+            }
+        }
+
+        /* Gradient overlays for smooth fade edges */
+        .logo-strip::before,
+        .logo-strip::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .logo-strip::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .logo-strip::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        /* --- 5. SERVICES SECTION --- */
+        .services {
+            padding: var(--spacing-section) 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 100px 40px 40px 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 400px;
+            border: none;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.2), rgba(10, 25, 47, 0.95));
+            z-index: 1;
+            transition: 0.5s;
+        }
+
+        .service-card:hover::before {
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.98));
+        }
+
+        .service-card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .service-card p {
+            color: #d1d5db;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .learn-more {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 2px;
+        }
+
+        /* --- 6. ABOUT / STATS --- */
+        .about-section {
+            padding: var(--spacing-section) 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-img {
+            background: #ccc;
+            height: 500px;
+            width: 100%;
+            background-image: url('media/about.png');
+            background-size: cover;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box h3 {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            color: var(--text-muted);
+        }
+
+        /* --- 7. FOOTER --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 80px 0 30px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: #999;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* --- 8. CONTACT SECTION --- */
+        .contact {
+            padding: var(--spacing-section) 0;
+            background-color: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 15px;
+            background: var(--bg-light);
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--text-main);
+            background: white;
+        }
+
+        #submit-msg {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        #submit-msg.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            display: block;
+        }
+
+        #submit-msg.error {
+            background-color: #ffebee;
+            color: #c62828;
+            display: block;
+        }
+
+        /* --- 10. SERVICE MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 12px;
+            position: relative;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-orange);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 60px 40px;
+        }
+
+        .modal-body h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+        }
+
+        .modal-body h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--accent-orange);
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .modal-body ul {
+            margin-bottom: 25px;
+            list-style: none;
+        }
+
+        .modal-body ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .modal-body ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        .modal-cta {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+
+        /* --- 9. FLOATING CONTACT BUTTONS --- */
+        .whatsapp-float,
+        .email-float {
+            position: fixed;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 99999;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: white;
+            text-decoration: none;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .whatsapp-float {
+            bottom: 40px;
+            background-color: #25d366;
+        }
+
+        .email-float {
+            bottom: 110px;
+            background-color: var(--accent-orange);
+        }
+
+        .whatsapp-float:hover,
+        .email-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+        }
+
+        .email-float:hover {
+            background-color: var(--accent-orange-hover);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+            color: white;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+
+            .hero-grid,
+            .about-grid,
+            .footer-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Hidden for simplicity in this demo */
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="#hero" aria-label="GrowthLab Home">
+                    <!-- GrowthLab Custom SVG Logo -->
+                    <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="30" font-family="'Inter', sans-serif" font-weight="800" font-size="28"
+                            letter-spacing="-1">
+                            <!-- "Growth" in White -->
+                            <tspan fill="#FFFFFF">Growth</tspan>
+                            <!-- "Lab" in Orange -->
+                            <tspan fill="#FF6B00">Lab</tspan>
+                            <!-- Optional Orange Dot for style (remove if unwanted) -->
+                            <tspan fill="#FF6B00">.</tspan>
+                        </text>
+                    </svg>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-black">Get a Quote</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Digital Excellence for Modern Brands.</h1>
+                    <p>GrowthLab Limited crafts high-end digital experiences using data-driven marketing and
+                        monochromatic aesthetics.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-black">Start Project</a>
+                        <a href="#portfolio" class="btn-outline">View Portfolio</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="media/hero_v2.png" alt="GrowthLab Digital Excellence"
+                        style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+
+                    <div class="badge-float" style="left: 10px; bottom: 20px; padding: 12px 20px;">
+                        <h4 style="font-size: 20px; color: var(--accent-orange);">98%</h4>
+                        <span style="font-size: 12px;">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGO STRIP -->
+        <div class="logo-strip">
+            <div class="logo-track">
+                <!-- Set 1 -->
+                <div class="logo-item"><i class="fa-brands fa-google"></i><span>Google</span></div>
+                <div class="logo-item"><i class="fa-brands fa-microsoft"></i><span>Microsoft</span></div>
+                <div class="logo-item"><i class="fa-brands fa-spotify"></i><span>Spotify</span></div>
+                <div class="logo-item"><i class="fa-brands fa-uber"></i><span>Uber</span></div>
+                <div class="logo-item"><i class="fa-solid fa-note-sticky"></i><span>Notion</span></div>
+                <!-- Set 2 (Duplicate for seamless loop) -->
+                <div class="logo-item"><i class="fa-brands fa-google"></i><span>Google</span></div>
+                <div class="logo-item"><i class="fa-brands fa-microsoft"></i><span>Microsoft</span></div>
+                <div class="logo-item"><i class="fa-brands fa-spotify"></i><span>Spotify</span></div>
+                <div class="logo-item"><i class="fa-brands fa-uber"></i><span>Uber</span></div>
+                <div class="logo-item"><i class="fa-solid fa-note-sticky"></i><span>Notion</span></div>
+            </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <p style="color:var(--text-muted); font-weight:600; margin-bottom:10px;">OUR EXPERTISE</p>
+                    <h2>What We Do</h2>
+                </div>
+
+                <div class="service-grid">
+                    <!-- Card 1 -->
+                    <article class="service-card" style="background-image: url('media/service_marketing.png');">
+                        <h3>Digital Marketing</h3>
+                        <p>SEO, PPC, and social strategies that drive real traffic and measurable ROI.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                    <!-- Card 2 -->
+                    <article class="service-card" style="background-image: url('media/service_uiux.png');">
+                        <h3>UI/UX Design</h3>
+                        <p>Creating clean, intuitive interfaces that convert visitors into loyal customers.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                    <!-- Card 3 -->
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80');">
+                        <h3>Web Development</h3>
+                        <p>Robust, scalable websites built on the latest technologies.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                    <!-- Card 4 -->
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80');">
+                        <h3>Data Analytics</h3>
+                        <p>In-depth reporting and insights to help you make smarter business decisions.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                    <!-- Card 5 -->
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80');">
+                        <h3>Email Automation</h3>
+                        <p>Nurture leads automatically with personalized email sequences.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                    <!-- Card 6 -->
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');">
+                        <h3>AI Solutions</h3>
+                        <p>Chatbots and process automation to streamline your operations.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT / STATS SECTION -->
+        <section class="about-section" id="about">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <div class="section-header">
+                        <p style="color:var(--text-muted); font-weight:600; margin-bottom:10px;">WHY CHOOSE US</p>
+                        <h2>We Drive Growth Through Precision.</h2>
+                    </div>
+                    <p style="color:var(--text-muted); margin-bottom: 30px;">
+                        Unlike other agencies that focus on vanity metrics, we focus on revenue. Our precision-driven
+                        approach reflects our philosophy: clear, measurable results with no gray areas.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <h3 style="color: var(--accent-orange);">500+</h3>
+                            <p>Projects Delivered</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 style="color: var(--accent-orange);">$10M+</h3>
+                            <p>Revenue Generated</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 style="color: var(--accent-orange);">10yrs</h3>
+                            <p>Industry Experience</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 style="color: var(--accent-orange);">24/7</h3>
+                            <p>Support Team</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <!-- Background Image set in CSS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section class="portfolio" id="portfolio"
+            style="padding: var(--spacing-section) 0; background-color: var(--bg-light);">
+            <div class="container">
+                <div class="section-header">
+                    <p style="color:var(--text-muted); font-weight:600; margin-bottom:10px;">OUR WORK</p>
+                    <h2>Recent Projects</h2>
+                </div>
+                <div class="service-grid">
+                    <article class="service-card" style="background-image: url('media/portfolio1.png');">
+                        <h3>Luxury Brand UI</h3>
+                        <p>E-commerce experience for a high-end watchmaker.</p>
+                    </article>
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1543286386-231d636774f7?auto=format&fit=crop&w=800&q=80');">
+                        <h3>Fintech Dashboard</h3>
+                        <p>Real-time analytics platform for investment firms.</p>
+                    </article>
+                    <article class="service-card"
+                        style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80');">
+                        <h3>Social App Design</h3>
+                        <p>Mobile-first UI/UX for a modern networking platform.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <p style="color:var(--text-muted); font-weight:600; margin-bottom:10px;">GET IN TOUCH</p>
+                    <h2>Request a Quote</h2>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p style="color:var(--text-muted); margin-bottom: 30px;">
+                            Ready to take your brand to the next level? Fill out the form and our team will get back to
+                            you
+                            within 24 hours with a custom strategy.
+                        </p>
+                        <div style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-location-dot"
+                                style="margin-right: 10px; color: var(--accent-orange);"></i> ABC Place, Westlands,
+                            Nairobi
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-envelope"
+                                style="margin-right: 10px; color: var(--accent-orange);"></i>
+                            creativemind@stellarleack.co.ke
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-phone" style="margin-right: 10px; color: var(--accent-orange);"></i>
+                            +254 743 990 479
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="quote-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interested Service</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="marketing">Digital Marketing</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="dev">Web Development</option>
+                                <option value="ai">AI Solutions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-black">Send Message</button>
+                        <div id="submit-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">GROWTHLAB</div>
+                    <p>GrowthLab Limited: A premium digital marketing agency in Nairobi focused on minimalist design and
+                        maximum ROI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Our Work</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">SEO & PPC</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 GrowthLab Limited. All rights reserved. | Nairobi, Westlands
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('quote-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const form = e.target;
+            const msgDiv = document.getElementById('submit-msg');
+            const submitBtn = form.querySelector('button');
+
+            // Capture data
+            const name = form.name.value;
+            const email = form.email.value;
+            const service = form.service.value;
+            const message = form.message.value;
+
+            // 1. Prepare WhatsApp message
+            const waMessage = `Hello GrowthLab! I'm interested in ${service}.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+            const waUrl = `https://wa.me/254743990479?text=${encodeURIComponent(waMessage)}`;
+
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // 2. Submit to Formspree (direct email endpoint)
+                const response = await fetch('https://formspree.io/creativemind@stellarleack.co.ke', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: new FormData(form)
+                });
+
+                if (response.ok) {
+                    msgDiv.innerHTML = `
+                        <p class="success">Message sent! We will contact you at ${email} within 24 hours.</p>
+                        <div style="margin-top:15px;">
+                            <p style="font-size:14px; margin-bottom:10px;">Want to chat right now?</p>
+                            <a href="${waUrl}" target="_blank" class="btn-outline" style="background:#25D361; color:white; border:none; padding:10px 20px;">
+                                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    `;
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    msgDiv.textContent = data.errors ? data.errors.map(err => err.message).join(', ') : 'Something went wrong. Please try again.';
+                    msgDiv.className = 'error';
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                // If email fails, still offer WhatsApp fallback
+                msgDiv.innerHTML = `
+                    <p class="error">Email service is currently unavailable.</p>
+                    <div style="margin-top:10px;">
+                        <a href="${waUrl}" target="_blank" class="btn-black" style="background:#25D361; border:none;">
+                            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp instead
+                        </a>
+                    </div>
+                `;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
+    <a href="mailto:creativemind@stellarleack.co.ke?subject=Inquiry%20from%20GrowthLab%20Website" class="email-float"
+        title="Email Us">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+    <div class="modal-overlay" id="service-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const serviceData = {
+            marketing: {
+                title: "Digital Marketing Strategy",
+                content: `
+                    <p>In today's crowded digital landscape, being seen is not enough. You need to be seen by the <strong>right people</strong> at the <strong>right time</strong>. Our digital marketing approach goes beyond simple ads; we build comprehensive ecosystems that drive sustainable growth.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>Advanced SEO:</strong> Dominate search results and capture high-intent traffic without paying for every click.</li>
+                        <li><strong>Targeted PPC:</strong> High-precision Google and Social Ads designed to convert from day one.</li>
+                        <li><strong>Content Authority:</strong> Positioning your brand as the expert voice in your industry.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>Without a data-driven strategy, your marketing budget is a guessing game. <strong>GrowthLab Limited</strong> turns your spend into an investment. We've helped brands increase their lead volume by up to 200% within the first six months.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Ready to outpace your competition?</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Secure Your Free Strategy Session</a>
+                    </div>
+                `
+            },
+            design: {
+                title: "Premium UI/UX Design",
+                content: `
+                    <p>Your website or app is your digital storefront. If it's confusing, slow, or dated, you're losing money every second. We combine psychology-based design with high-end aesthetics to create interfaces that users love.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>User Journey Mapping:</strong> Analyzing exactly how users interact with your brand to remove friction.</li>
+                        <li><strong>Minimalist Aesthetics:</strong> Modern, clean designs that scream professionalism and trust.</li>
+                        <li><strong>Responsive Excellence:</strong> Flawless performance across all devices, from mobile to ultra-wide displays.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>First impressions are made in less than 50 milliseconds. A premium UI/UX doesn't just look good—it <strong>increases conversion rates</strong> and lowers customer acquisition costs by making the buying process effortless.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Give your brand the visual edge it deserves.</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Start Your Design Project</a>
+                    </div>
+                `
+            },
+            dev: {
+                title: "Full-Stack Web Development",
+                content: `
+                    <p>A beautiful design is useless if the site is slow or broken. We build robust, scalable, and lightning-fast web solutions using the latest technologies. Our code is clean, our sites are secure, and our performance is unrivaled.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>Custom Web Apps:</strong> Tailor-made tools that solve your specific business challenges.</li>
+                        <li><strong>E-commerce Powerhouses:</strong> High-performance stores built to handle massive traffic and complex transactions.</li>
+                        <li><strong>Performance Optimization:</strong> Shaving seconds off load times to boost SEO rankings and user satisfaction.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>A 1-second delay in page load time can lead to a 7% reduction in conversions. We ensure your business is fast enough to keep every visitor and strong enough to grow with you.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Build a foundation for digital success.</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Request a Technical Audit</a>
+                    </div>
+                `
+            },
+            analytics: {
+                title: "Advanced Data Analytics",
+                content: `
+                    <p>Data is the new oil, but only if you know how to refine it. Most businesses are drowning in data but starving for insights. We turn your raw numbers into a clear roadmap for growth.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>Conversion Tracking:</strong> Knowing exactly which marketing dollar is bringing in the most profit.</li>
+                        <li><strong>Customer Behavior Analysis:</strong> Identifying why people buy and, more importantly, why they don't.</li>
+                        <li><strong>Predictive Reporting:</strong> Anticipating market trends before they happen.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>Stop making decisions based on "gut feelings." We provide the <strong>hard evidence</strong> you need to scale confidently, cut wasted spend, and double down on what works.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Start making data-driven decisions today.</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Get Your Growth Roadmap</a>
+                    </div>
+                `
+            },
+            email: {
+                title: "Strategic Email Automation",
+                content: `
+                    <p>Email marketing still has the highest ROI of any digital channel—if done correctly. We don't just "send emails"; we build automated nurturing sequences that turn cold leads into loyal customers while you sleep.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>Drip Campaigns:</strong> Personalized journeys that guide customers from awareness to purchase.</li>
+                        <li><strong>Segmentation:</strong> Delivering the right message to the right person based on their behavior.</li>
+                        <li><strong>Recovery Sequences:</strong> Bringing back abandoned carts and lost leads automatically.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>It's much cheaper to sell to an existing lead than to find a new one. Automation ensures no opportunity falls through the cracks, maximizing the lifetime value of every customer.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Multiply your revenue on autopilot.</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Automate Your Sales Funnel</a>
+                    </div>
+                `
+            },
+            ai: {
+                title: "Custom AI Solutions",
+                content: `
+                    <p>Artificial Intelligence is no longer a luxury—it's a necessity for staying competitive. We integrate smart AI tools into your existing workflows to save time, reduce costs, and provide a 24/7 service experience.</p>
+                    
+                    <h3>What this entails:</h3>
+                    <ul>
+                        <li><strong>Intelligent Chatbots:</strong> Automated customer support that handles 80% of inquiries instantly.</li>
+                        <li><strong>Process Automation:</strong> Eliminating repetitive manual tasks so your team can focus on growth.</li>
+                        <li><strong>AI Content Frameworks:</strong> Scaling your content production without losing quality or brand voice.</li>
+                    </ul>
+
+                    <h3>Why consider this for your business?</h3>
+                    <p>AI allows you to scale your operations without scaling your headcount. It's the ultimate multiplier for lean, ambitious brands ready to lead their industry.</p>
+                    
+                    <div class="modal-cta">
+                        <p style="margin-bottom:20px;"><strong>Future-proof your business with AI.</strong></p>
+                        <a href="#contact" class="btn-black" onclick="closeModal()">Explore AI for Your Brand</a>
+                    </div>
+                `
+            }
+        };
+
+        const modal = document.getElementById('service-modal');
+        const modalBody = document.getElementById('modal-body-content');
+        const closeBtn = document.getElementById('close-modal');
+
+        function openModal(serviceKey) {
+            const data = serviceData[serviceKey];
+            if (!data) return;
+
+            modalBody.innerHTML = `<h2>${data.title}</h2>${data.content}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        closeBtn.onclick = closeModal;
+        window.onclick = (event) => {
+            if (event.target == modal) closeModal();
+        };
+
+        // Update existing "Learn More" links
+        document.addEventListener('DOMContentLoaded', () => {
+            const learnMoreLinks = document.querySelectorAll('.service-card .learn-more');
+            const services = ['marketing', 'design', 'dev', 'analytics', 'email', 'ai'];
+
+            learnMoreLinks.forEach((link, index) => {
+                link.setAttribute('href', 'javascript:void(0)');
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    openModal(services[index]);
+                };
+            });
+        });
+    </script>
+    <a href="https://wa.me/254743990479" class="whatsapp-float" target="_blank" title="WhatsApp Us">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>

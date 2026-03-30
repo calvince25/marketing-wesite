@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
+import { Analytics } from "@vercel/analytics/next";
 
 export const revalidate = 60;
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppIcon />
+        <Analytics />
       </body>
     </html>
   );

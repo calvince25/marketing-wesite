@@ -2,86 +2,98 @@ import { MetadataRoute } from 'next';
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 
+const DOMAIN = 'https://growthlab.co.ke';
+
+// Hardcoded pillar service slugs as reliable fallback if Sanity has no pillarPage docs yet
+const FALLBACK_PILLAR_SLUGS = [
+  'web-development',
+  'seo-digital-marketing',
+  'business-automation',
+  'ai-systems-integration',
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const domain = 'https://growthlab.co.ke';
-
-  // Fetch all slugs dynamically from Sanity
-  const [pillars, clusters, posts, projects, services] = await Promise.all([
+  // Fetch all dynamic content simultaneously from Sanity
+  const [pillars, clusters, posts, projects] = await Promise.all([
     client.fetch(groq`*[_type == "pillarPage"]{ "slug": slug.current }`),
-    client.fetch(groq`*[_type == "clusterPage"]{ "slug": slug.current, "pillarSlug": parentPillar->slug.current }`),
-    client.fetch(groq`*[_type == "post"]{ "slug": slug.current, "publishedAt": publishedAt }`),
-    client.fetch(groq`*[_type == "project"]{ "slug": slug.current }`),
-    client.fetch(groq`*[_type == "service"]{ "slug": slug.current }`)
-  ]).catch(() => [[], [], [], [], []]);
+    client.fetch(groq`*[_type == "clusterPage"]{
+      "slug": slug.current,
+      "pillarSlug": parentPillar->slug.current
+    }`),
+    client.fetch(groq`*[_type == "post"] | order(publishedAt desc) {
+      "slug": slug.current,
+      "publishedAt": publishedAt,
+      "updatedAt": _updatedAt,
+      "categorySlug": categories[0]->slug.current
+    }`),
+    client.fetch(groq`*[_type == "project"]{
+      "slug": slug.current,
+      "updatedAt": _updatedAt
+    }`),
+  ]).catch(() => [[], [], [], []]);
 
-  const sitemapEntries: MetadataRoute.Sitemap = [
-    { url: `${domain}`, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },
-    { url: `${domain}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${domain}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
-    { url: `${domain}/services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${domain}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${domain}/portfolio`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  // ─── STATIC PAGES ────────────────────────────────────────────────────────────
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: `${DOMAIN}`,           lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${DOMAIN}/services`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${DOMAIN}/blog`,      lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${DOMAIN}/portfolio`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/about`,     lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/contact`,   lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.7 },
   ];
 
-  // Map Legacy Services
-  services?.forEach((service: any) => {
-    if (service?.slug) {
-      sitemapEntries.push({
-        url: `${domain}/services/${service.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      });
-    }
-  });
+  // ─── PILLAR SERVICE PAGES  (e.g. /services/web-development) ──────────────────
+  const pillarSlugs: string[] =
+    pillars && pillars.length > 0
+      ? pillars.map((p: any) => p.slug).filter(Boolean)
+      : FALLBACK_PILLAR_SLUGS;
 
-  // Map Pillar Pages (e.g. /services/web-development)
-  pillars?.forEach((pillar: any) => {
-    if (pillar?.slug) {
-      sitemapEntries.push({
-        url: `${domain}/services/${pillar.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      });
-    }
-  });
+  const pillarPages: MetadataRoute.Sitemap = pillarSlugs.map((slug: string) => ({
+    url: `${DOMAIN}/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
 
-  // Map Cluster Sub-Services (e.g. /services/web-development/ecommerce)
-  clusters?.forEach((cluster: any) => {
-    if (cluster?.slug && cluster?.pillarSlug) {
-      sitemapEntries.push({
-        url: `${domain}/services/${cluster.pillarSlug}/${cluster.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      });
-    }
-  });
+  // ─── CLUSTER SUB-SERVICE PAGES  (e.g. /services/web-development/ecommerce-solutions) ─
+  const clusterPages: MetadataRoute.Sitemap = (clusters || [])
+    .filter((c: any) => c?.slug && c?.pillarSlug)
+    .map((cluster: any) => ({
+      url: `${DOMAIN}/services/${cluster.pillarSlug}/${cluster.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    }));
 
-  // Map Blog Posts
-  posts?.forEach((post: any) => {
-    if (post?.slug) {
-      sitemapEntries.push({
-        url: `${domain}/blog/${post.slug}`,
-        lastModified: post?.publishedAt ? new Date(post.publishedAt) : new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      });
-    }
-  });
+  // ─── BLOG POST PAGES  (e.g. /blog/seo/how-to-rank-on-google) ─────────────────
+  const blogPages: MetadataRoute.Sitemap = (posts || [])
+    .filter((p: any) => p?.slug)
+    .map((post: any) => ({
+      url: `${DOMAIN}/blog/${post.categorySlug || 'general'}/${post.slug}`,
+      lastModified: post.updatedAt
+        ? new Date(post.updatedAt)
+        : post.publishedAt
+        ? new Date(post.publishedAt)
+        : new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    }));
 
-  // Map Projects
-  projects?.forEach((project: any) => {
-    if (project?.slug) {
-      sitemapEntries.push({
-        url: `${domain}/portfolio/${project.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      });
-    }
-  });
+  // ─── PORTFOLIO PAGES  (e.g. /portfolio/modern-fashion-store) ─────────────────
+  const portfolioPages: MetadataRoute.Sitemap = (projects || [])
+    .filter((p: any) => p?.slug)
+    .map((project: any) => ({
+      url: `${DOMAIN}/portfolio/${project.slug}`,
+      lastModified: project.updatedAt ? new Date(project.updatedAt) : new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }));
 
-  return sitemapEntries;
+  return [
+    ...staticPages,
+    ...pillarPages,
+    ...clusterPages,
+    ...blogPages,
+    ...portfolioPages,
+  ];
 }

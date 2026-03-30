@@ -1,0 +1,128 @@
+.footer {
+    background-color: var(--primary-navy);
+    color: var(--text-light);
+    padding: 100px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient Accent */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-orange), transparent);
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.footerBrand p {
+    color: var(--text-muted);
+    margin-top: 25px;
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footerCol h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footerCol ul li {
+    margin-bottom: 15px;
+}
+
+.footerCol ul li a {
+    color: var(--text-muted);
+    font-size: 14px;
+    display: inline-block;
+    transition: var(--transition-normal);
+}
+
+.footerCol ul li a:hover {
+    color: var(--accent-orange);
+    transform: translateX(5px);
+}
+
+.copyright {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.glassCard {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+@media (max-width: 992px) {
+    .footerGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footerBrand {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 60px 0 30px 0;
+    }
+
+    .footerGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footerBrand {
+        grid-column: span 1;
+        text-align: center;
+    }
+    
+    .footerBrand p {
+        margin: 15px auto 0;
+    }
+
+    .footerCol {
+        text-align: center;
+    }
+
+    .footerCol h4 {
+        margin-bottom: 20px;
+    }
+
+    .footerCol ul li a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 0;
+    }
+    
+    .copyright {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding-top: 30px;
+    }
+}

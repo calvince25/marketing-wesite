@@ -1,0 +1,82 @@
+{
+    "records": [
+        {
+            "id": "rec1",
+            "fields": {
+                "Title": "The Future of Digital Marketing in 2026",
+                "Slug": "future-digital-marketing-2026",
+                "Featured Image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                "Category": "Digital Marketing",
+                "Short Description": "Discover the emerging trends that will define the marketing landscape in the coming years, from AI-driven personalization to immersive experiences.",
+                "Content": "<p>The digital marketing landscape is shifting rapidly. As we move into 2026, the focus is turning towards hyper-personalization and AI-driven strategies.</p><h3>1. AI is the new normal</h3><p>Artificial Intelligence is no longer a buzzword; it's the engine behind successful campaigns.</p><h3>2. Voice Search Optimization</h3><p>With smart speakers in every home, optimizing for voice search is critical.</p>",
+                "Date": "2026-02-10",
+                "Author": "Sarah Johnson"
+            }
+        },
+        {
+            "id": "rec2",
+            "fields": {
+                "Title": "Why SEO is More Important Than Ever",
+                "Slug": "why-seo-important",
+                "Featured Image": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=800&q=80",
+                "Category": "SEO",
+                "Short Description": "With search engines becoming smarter, traditional SEO tactics are evolving. Learn how to stay ahead of the algorithm updates.",
+                "Content": "<p>SEO is dead? Far from it. It has just evolved.</p><p>Modern SEO is about <strong>User Intent</strong> and <strong>Content Velocity</strong>.</p>",
+                "Date": "2026-02-05",
+                "Author": "David Kim"
+            }
+        },
+        {
+            "id": "rec3",
+            "fields": {
+                "Title": "Designing for Accessibility",
+                "Slug": "designing-for-accessibility",
+                "Featured Image": "https://images.unsplash.com/photo-1586717791821-3f44a5638d48?auto=format&fit=crop&w=800&q=80",
+                "Category": "UI/UX Design",
+                "Short Description": "Inclusive design isn't just ethical—it's good for business. Explore key principles for creating accessible web experiences.",
+                "Content": "<p>Accessibility ensures that everyone, including people with disabilities, can use your website.</p>",
+                "Date": "2026-01-28",
+                "Author": "Emily Chen"
+            }
+        },
+        {
+            "id": "rec4",
+            "fields": {
+                "Title": "The Rise of No-Code Development",
+                "Slug": "rise-no-code",
+                "Featured Image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+                "Category": "Web Development",
+                "Short Description": "How no-code and low-code platforms are democratizing software creation and speeding up MVP launches.",
+                "Content": "<p>Building software used to require a team of engineers. Now, it just requires an idea and the right tools.</p>",
+                "Date": "2026-01-15",
+                "Author": "Michael Brown"
+            }
+        },
+        {
+            "id": "rec5",
+            "fields": {
+                "Title": "AI Agents in Customer Support",
+                "Slug": "ai-agents-support",
+                "Featured Image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80",
+                "Category": "Artificial Intelligence",
+                "Short Description": "Automating customer interactions without losing the human touch. How AI agents are revolutionizing support.",
+                "Content": "<p>Customers expect instant answers. AI agents provide 24/7 support with human-like accuracy.</p>",
+                "Date": "2026-01-10",
+                "Author": "Sarah Johnson"
+            }
+        },
+        {
+            "id": "rec6",
+            "fields": {
+                "Title": "Mastering Google Analytics 4",
+                "Slug": "mastering-ga4",
+                "Featured Image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                "Category": "Digital Marketing",
+                "Short Description": "A comprehensive guide to understanding your data and making better decisions with GA4.",
+                "Content": "<p>Data is only useful if you can understand it. GA4 offers powerful new event-based tracking.</p>",
+                "Date": "2026-01-02",
+                "Author": "David Kim"
+            }
+        }
+    ]
+}

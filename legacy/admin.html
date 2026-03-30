@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | GrowthLab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --admin-primary: #FF6B00;
+            --admin-dark: #0A0E14;
+            --admin-gray: #f4f4f4;
+            --admin-border: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--admin-gray);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .admin-sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: var(--admin-dark);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .admin-main {
+            margin-left: 250px;
+            padding: 40px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .admin-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .post-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .post-table th,
+        .post-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .post-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-admin {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--admin-primary);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--admin-border);
+            color: var(--primary-navy);
+        }
+
+        .btn-danger {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 16px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Login Screen */
+        #login-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--admin-dark);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <div class="login-box">
+            <h2 style="margin-bottom: 10px;">Admin Login</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Enter password to access dashboard</p>
+            <input type="password" id="admin-password" placeholder="Password">
+            <button class="btn-admin btn-primary" onclick="checkAuth()" style="width: 100%;">Login</button>
+            <p id="login-error" style="color: red; margin-top: 15px; font-size: 14px; display: none;">Invalid password
+            </p>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+        <div class="logo" style="margin-bottom: 40px;">
+            <a href="index.html" style="text-decoration: none;">
+                <span style="color: white; font-weight: 800; font-size: 24px;">Growth</span><span
+                    style="color: var(--admin-primary); font-weight: 800; font-size: 24px;">Lab</span>
+            </a>
+        </div>
+        <nav>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 20px;">
+                    <a href="#" style="color: white; text-decoration: none; font-weight: 600;">
+                        <i class="fa-solid fa-house-chimney" style="margin-right: 10px;"></i> Dashboard
+                    </a>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <a href="blog.html" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none;">
+                        <i class="fa-solid fa-globe" style="margin-right: 10px;"></i> View Site
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div style="position: absolute; bottom: 20px;">
+            <button onclick="logout()" class="btn-admin btn-outline"
+                style="color: white; border-color: rgba(255,255,255,0.2);">
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <div class="admin-header">
+            <h1>Blog Management</h1>
+            <button class="btn-admin btn-primary" onclick="openModal()">
+                <i class="fa-solid fa-plus"></i> New Post
+            </button>
+        </div>
+
+        <div class="admin-card">
+            <table class="post-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-posts-list">
+                    <!-- Posts will be loaded here -->
+                </tbody>
+            </table>
+            <div id="admin-loader" style="text-align: center; padding: 40px; display: none;">
+                <i class="fa-solid fa-circle-notch fa-spin fa-2xl" style="color: var(--admin-primary);"></i>
+            </div>
+        </div>
+    </div>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- Edit/Add Modal -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 id="modal-title">Create New Post</h2>
+                <button onclick="closeModal()"
+                    style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            </div>
+            <form id="post-form">
+                <input type="hidden" id="post-id">
+                <div class="form-group">
+                    <label>Post Title</label>
+                    <input type="text" id="post-title" required placeholder="e.g. How to scale your SEO">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="post-category">
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="SEO">SEO</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Featured Image URL</label>
+                    <input type="url" id="post-image" placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Short Excerpt</label>
+                    <textarea id="post-excerpt" placeholder="A brief summary for the grid view..."></textarea>
+                </div>
+                <div class="form-group" style="padding-bottom: 50px;">
+                    <label>Content (<span style="font-weight: 400;">format automatically using the editor</span>)</label>
+                    <div id="editor-container" style="height: 300px;"></div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px;">
+                    <button type="button" class="btn-admin btn-outline" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-admin btn-primary" id="save-btn">Save Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

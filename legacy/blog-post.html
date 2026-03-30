@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | GrowthLab Limited</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html" aria-label="GrowthLab Home">
+                    <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="30" font-family="'Inter', sans-serif" font-weight="800" font-size="28"
+                            letter-spacing="-1">
+                            <tspan fill="#FFFFFF">Growth</tspan>
+                            <tspan fill="#FF6B00">Lab</tspan>
+                            <tspan fill="#FF6B00">.</tspan>
+                        </text>
+                    </svg>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="website-development.html">Web Development</a></li>
+                    <li><a href="seo-services.html">SEO Services</a></li>
+                    <li><a href="ai-systems-integration.html">AI Solutions</a></li>
+                    <li><a href="blog.html" class="active" style="color:#FF6B00;">Blog</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="btn-black">Get a Quote</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ARTICLE CONTENT -->
+        <article class="blog-section" style="padding-top: 60px;">
+            <div class="container" id="blog-post-content">
+
+                <!-- Header -->
+                <div class="post-header">
+                    <a href="blog.html" class="learn-more" style="margin-bottom: 20px; display: inline-block;">&larr;
+                        Back to Blog</a>
+                    <div class="post-meta">
+                        <span id="post-category" class="post-category-badge">Category</span>
+                        <span id="post-date">Date</span>
+                        <span id="post-author">By Author</span>
+                    </div>
+                    <h1 id="post-title" style="font-size: 42px; line-height: 1.2; margin-bottom: 30px;">Post Title</h1>
+                </div>
+
+                <!-- Featured Image -->
+                <img id="post-image" src="" alt="" class="post-featured-image" style="display: none;">
+
+                <!-- Body -->
+                <div id="post-body" class="post-content">
+                    <!-- Content injected via JS -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Share -->
+                <div class="share-buttons">
+                    <span style="font-weight: 600; color: var(--text-muted);">Share this article:</span>
+                    <a href="#" id="share-linkedin" target="_blank" class="share-btn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" id="share-twitter" target="_blank" class="share-btn"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" id="share-facebook" target="_blank" class="share-btn"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- CTA SECTION -->
+        <section class="contact" style="background-color: var(--bg-light); padding: 80px 0;">
+            <div class="container" style="text-align: center;">
+                <h2 style="font-size: 32px; margin-bottom: 15px;">Need help with this?</h2>
+                <p style="margin-bottom: 30px; font-size: 16px; color: var(--text-muted);">Our team of experts can
+                    implement these strategies for your business.</p>
+                <a href="index.html#contact" class="btn-black">Get a Free Audit</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">GROWTHLAB</div>
+                    <p>GrowthLab Limited: A premium digital marketing agency in Nairobi focused on minimalist design and
+                        maximum ROI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="website-development.html">Web Development</a></li>
+                        <li><a href="seo-services.html">SEO Services</a></li>
+                        <li><a href="ai-systems-integration.html">AI Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 GrowthLab Limited. All rights reserved. | Nairobi, Westlands
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/blog.js"></script>
+
+
+</body>
+
+</html>

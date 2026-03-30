@@ -1,0 +1,67 @@
+.portfolioPage {
+    padding-bottom: 80px;
+}
+
+.hero {
+    padding: 80px 0;
+    background-color: var(--primary-navy);
+    color: white;
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.projects {
+    padding: var(--spacing-section) 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.imageWrapper {
+    position: relative;
+    height: 300px;
+}
+
+.content {
+    padding: 30px;
+}
+
+.content span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-orange);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    font-size: 24px;
+}

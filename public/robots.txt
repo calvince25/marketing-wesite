@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://growthlablimited.com
+
+# Sitemaps
+Sitemap: https://growthlablimited.com/sitemap.xml

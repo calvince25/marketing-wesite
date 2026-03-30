@@ -1,0 +1,77 @@
+.servicesPage {
+    padding-bottom: 80px;
+}
+
+.hero {
+    padding: 80px 0;
+    background-color: var(--bg-dark);
+    color: white;
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.serviceList {
+    padding: var(--spacing-section) 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.serviceCard {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.serviceCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.05);
+}
+
+.serviceCard h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.serviceCard p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.subList {
+    margin-bottom: 30px;
+}
+
+.subList li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.subList li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-orange);
+    font-weight: bold;
+}

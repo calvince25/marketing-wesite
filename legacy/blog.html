@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | GrowthLab Limited</title>
+    <meta name="description" content="Insights, trends, and strategies from GrowthLab's digital marketing experts.">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html" aria-label="GrowthLab Home">
+                    <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="30" font-family="'Inter', sans-serif" font-weight="800" font-size="28"
+                            letter-spacing="-1">
+                            <tspan fill="#FFFFFF">Growth</tspan>
+                            <tspan fill="#FF6B00">Lab</tspan>
+                            <tspan fill="#FF6B00">.</tspan>
+                        </text>
+                    </svg>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="website-development.html">Web Development</a></li>
+                    <li><a href="seo-services.html">SEO Services</a></li>
+                    <li><a href="ai-systems-integration.html">AI Solutions</a></li>
+                    <li><a href="blog.html" class="active" style="color:#FF6B00; opacity:1;">Blog</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="btn-black">Get a Quote</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- BLOG HERO -->
+        <section class="hero" style="padding: 60px 0; background: var(--bg-light);">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-size: 48px; margin-bottom: 20px; color: var(--primary-navy);">Growth Insights</h1>
+                <p style="font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                    Expert advice on SEO, Digital Marketing, and Web Development to help you scale.
+                </p>
+            </div>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section class="blog-section">
+            <div class="container">
+
+                <!-- Controls -->
+                <div class="blog-controls">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search articles...">
+                    </div>
+                    <div class="category-filter">
+                        <select id="category-select">
+                            <option value="">All Categories</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="UI/UX Design">UI/UX Design</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Loader -->
+                <div id="loading-spinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+
+                <!-- Grid -->
+                <div id="blog-grid" class="blog-grid">
+                    <!-- Posts injected via JS -->
+                </div>
+
+                <!-- Load More -->
+                <div style="text-align: center; margin-top: 50px;">
+                    <button id="load-more-btn" class="btn-outline" style="display: none;">Load More</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="contact" style="background-color: var(--primary-navy); color: white; padding: 80px 0;">
+            <div class="container" style="text-align: center;">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">Ready to implement these strategies?</h2>
+                <p style="margin-bottom: 30px; font-size: 18px; opacity: 0.9;">Get a free audit of your current digital
+                    presence.</p>
+                <a href="index.html#contact" class="btn-black"
+                    style="background: white; color: var(--primary-navy);">Get Free Audit</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">GROWTHLAB</div>
+                    <p>GrowthLab Limited: A premium digital marketing agency in Nairobi focused on minimalist design and
+                        maximum ROI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="website-development.html">Web Development</a></li>
+                        <li><a href="seo-services.html">SEO Services</a></li>
+                        <li><a href="ai-systems-integration.html">AI Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 GrowthLab Limited. All rights reserved. | Nairobi, Westlands
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/blog.js"></script>
+
+
+</body>
+
+</html>

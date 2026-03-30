@@ -1,0 +1,37 @@
+.breadcrumbs {
+    margin-bottom: 30px;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+}
+
+.item a {
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+
+.item a:hover {
+    color: var(--accent-orange);
+}
+
+.separator {
+    margin: 0 10px;
+    font-size: 12px;
+    color: var(--border-color);
+}
+
+.current {
+    color: var(--accent-orange);
+}

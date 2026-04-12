@@ -11,7 +11,7 @@ export default function CaseStudiesIndex() {
     <div className="container" style={{ padding: '80px 0' }}>
       <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Proven Results. Documented.</h1>
       <p style={{ maxWidth: '800px', fontSize: '1.2rem', lineHeight: '1.6', color: '#555', marginBottom: '50px' }}>
-        We don't just build websites; we build revenue engines. Discover how our technical implementations and digital strategies have directly impacted our clients' bottom lines across East Africa.
+        We don&apos;t just build websites; we build revenue engines. Discover how our technical implementations and digital strategies have directly impacted our clients&apos; bottom lines across East Africa.
       </p>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>

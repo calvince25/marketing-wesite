@@ -10,7 +10,7 @@ export default function TestimonialsPage() {
     <div className="container" style={{ padding: '80px 0' }}>
       <h1>Client Testimonials</h1>
       <p style={{ maxWidth: '800px', margin: '20px auto 40px', fontSize: '1.2rem', lineHeight: '1.6' }}>
-        Don't just take our word for it. Here's what our partners across Kenya and East Africa have experienced when working with GrowthLab Limited.
+        Don&apos;t just take our word for it. Here&apos;s what our partners across Kenya and East Africa have experienced when working with GrowthLab Limited.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px', maxWidth: '800px', margin: '0 auto' }}>
         <blockquote style={{ padding: '30px', background: '#f9f9f9', borderRadius: '8px', borderLeft: '4px solid #0056b3' }}>

@@ -31,10 +31,10 @@ export default function POSCaseStudy() {
 
       <div style={{ lineHeight: '1.8', fontSize: '1.1rem', color: '#333' }}>
         <h2 style={{ fontSize: '2rem', marginTop: '40px', marginBottom: '20px' }}>The Challenge</h2>
-        <p>A thriving restaurant in Nairobi's CBD was hitting an operational ceiling. Their online orders were handled via direct messages on Instagram and phone calls, resulting in dropped tickets, chaotic delivery dispatching, and exhausted staff. Without a centralized booking or ordering system, scaling customer acquisition through digital marketing simply wasn't viable—the existing manual infrastructure would break under the pressure.</p>
+        <p>A thriving restaurant in Nairobi&apos;s CBD was hitting an operational ceiling. Their online orders were handled via direct messages on Instagram and phone calls, resulting in dropped tickets, chaotic delivery dispatching, and exhausted staff. Without a centralized booking or ordering system, scaling customer acquisition through digital marketing simply wasn&apos;t viable—the existing manual infrastructure would break under the pressure.</p>
 
         <h2 style={{ fontSize: '2rem', marginTop: '40px', marginBottom: '20px' }}>Our Approach</h2>
-        <p>GrowthLab recognized that the bottleneck wasn't demand, but systems. We deployed an end-to-end cloud-based <strong>Point-Of-Sale (POS) Integration</strong>. This system mapped the restaurant's menu aggressively to an optimized web-portal built for rapid mobile purchasing.</p>
+        <p>GrowthLab recognized that the bottleneck wasn&apos;t demand, but systems. We deployed an end-to-end cloud-based <strong>Point-Of-Sale (POS) Integration</strong>. This system mapped the restaurant&apos;s menu aggressively to an optimized web-portal built for rapid mobile purchasing.</p>
         <p>Additionally, we developed localized <strong>"Food Delivery Nairobi"</strong> SEO funnels directly targeting intent-driven search traffic, pushing customers into the new friction-free ordering environment instead of a crowded WhatsApp inbox.</p>
 
         <h2 style={{ fontSize: '2rem', marginTop: '40px', marginBottom: '20px' }}>The Results</h2>

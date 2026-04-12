@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 export default function Page() {
   const service = pillarServices["web-development"];
   if (!service) notFound();
-  return <PillarTemplate service={service} />;
+  return <PillarTemplate service={service as any} />;
 }

@@ -99,5 +99,123 @@ We follow a "Human-In-The-Loop" AI approach. We believe AI should empower your t
 ### Long-Term Strategic Results
 Our AI integration clients benefit from massive increases in operational efficiency, superior customer satisfaction through instant AI support, and data-driven insights that allow for more accurate business forecasting and revenue growth.
     `
+  },
+  "graphic-design": {
+    h1: "Graphic Design & Branding Nairobi — Visual Identities That Command Respect",
+    overview: `
+In a crowded Nairobi marketplace, aesthetics matter. Before a customer reads your copy or checks your pricing, they judge your brand by its visual identity. GrowthLab Limited offers premium graphic design and branding services in Kenya, creating cohesive, professional, and memorable visual assets that communicate trust and authority. We don't just design "pretty pictures"; we architect visual communication that aligns with your business goals and resonates with your target audience.
+
+From corporate rebrands in Westlands to dynamic social media creative for FMCG brands, our design team combines international design standards with deep, local market understanding. We believe that premium design is a critical business asset that justifies premium pricing for your own services.
+
+### Our Design & Branding Ecosystem
+- [Logo Design & Branding](/services/graphic-design/logo-design-branding): The foundational visual identity of your business.
+- [Company Profile Design](/services/graphic-design/company-profile-design): High-end corporate documentation that wins tenders.
+- [Packaging Design](/services/graphic-design/packaging-design-kenya): Retail-ready packaging that stands out on Kenyan shelves.
+- [Social Media Graphics](/services/graphic-design/social-media-graphics): Consistent, engaging templates for your digital channels.
+- [Billboard & Print Design](/services/graphic-design/billboard-print-design): Large-scale advertising formats.
+- [Annual Report Design](/services/graphic-design/annual-report-design): Professional corporate reporting and investor decks.
+- [Brand Guidelines](/services/graphic-design/brand-guidelines-creation): Rulebooks to ensure your brand is consistent across all touchpoints.
+- [Pitch Deck Design](/services/graphic-design/pitch-deck-design): Investor-ready presentations for startups and corporates.
+
+### Who This Is For
+- **New Enterprises**: Needing to launch with a brand identity that rivals established legacy competitors.
+- **Established Brands**: Undergoing digital transformation and needing a modernized visual refresh.
+- **B2B Service Providers**: Who need high-quality pitch decks and company profiles to close high-ticket clients.
+
+### GrowthLab's Methodology
+Our design process is highly strategic. We start by unpacking your brand psychology—understanding the specific emotions and perceptions you want to evoke in your Kenyan target audience. We iterate through mood boards and typography selections before finalizing the creative deliverables, ensuring every pixel supports your overarching marketing strategy.
+    `
+  },
+  "social-media-management": {
+    h1: "Social Media Management Kenya — Building Communities & Driving Commerce",
+    overview: `
+Kenyans are among the most active social media users in Africa. Platforms like Instagram, TikTok, Facebook, and LinkedIn are no longer just for brand awareness; they are primary customer acquisition and customer service channels. GrowthLab Limited provides comprehensive social media management services in Kenya, transforming your social profiles from static billboards into active, engaging communities that drive real business results.
+
+We move beyond vanity metrics. A million followers mean nothing if they aren't your target customers. Our Nairobi-based team creates high-quality, culturally relevant content designed to capture attention, build trust, and ultimately funnel users to your website or WhatsApp to convert.
+
+### Our Social Media Ecosystem
+- [Instagram Marketing](/services/social-media-management/instagram-marketing-kenya): Highly visual, engagement-driven strategies for B2C brands.
+- [LinkedIn B2B Marketing](/services/social-media-management/linkedin-b2b-marketing): Lead generation and authority building for corporate Kenya.
+- [TikTok Marketing](/services/social-media-management/tiktok-marketing-kenya): Short-form video strategies for high-growth viral reach.
+- [Facebook Page Management](/services/social-media-management/facebook-page-management): Community building and customer service integration.
+- [Social Media Strategy](/services/social-media-management/social-media-strategy-audit): Comprehensive audits and strategic roadmaps.
+- [Influencer Marketing](/services/social-media-management/influencer-marketing-kenya): Connecting brands with vetted Kenyan digital creators.
+- [Community Management](/services/social-media-management/community-management-moderation): Active response and moderation to build brand loyalty.
+
+### Who This Is For
+- **Lifestyle & Retail Brands**: Relying on visual storytelling to move products.
+- **B2B Companies & Executives**: Using LinkedIn to capture leads and establish thought leadership.
+- **Hospitality & Real Estate**: Showcasing properties and experiences to high-net-worth audiences.
+
+### GrowthLab's Methodology
+We treat social media as a full-funnel marketing channel. Our content pillars are built around educating, entertaining, and converting. We combine high-end graphic design with culturally nuanced copywriting, scheduling content for optimal times, and actively managing the community to ensure high engagement rates. Every strategy is backed by monthly data analysis.
+    `
+  },
+  "google-ads-ppc": {
+    h1: "Google Ads & PPC Management Kenya — Instant ROI, Scalable Growth",
+    overview: `
+While SEO is a long-term investment, sometimes your business needs leads today. Google Ads (Pay-Per-Click) places your business at the very top of Google the moment a customer searches for your services. GrowthLab Limited offers elite Google Ads and PPC Management in Kenya, managing your ad spend with surgical precision to ensure maximum Return on Ad Spend (ROAS) and minimal wasted budget.
+
+In the highly competitive Nairobi market, poorly managed Google Ads accounts bleed money on irrelevant clicks. Our certified PPC specialists build highly structured, data-driven campaigns focused exclusively on high-intent commercial keywords.
+
+### Our PPC & Advertising Ecosystem
+- [Search Ads Management](/services/google-ads-ppc/search-ads-management-kenya): Capturing "ready-to-buy" traffic at the bottom of the funnel.
+- [Display & Retargeting](/services/google-ads-ppc/display-retargeting-campaigns): Staying top-of-mind by following past website visitors.
+- [YouTube Advertising](/services/google-ads-ppc/youtube-advertising-kenya): High-impact video ad placements for brand awareness.
+- [E-commerce Google Shopping](/services/google-ads-ppc/ecommerce-google-shopping): Direct product listings in search results for high conversion.
+- [PPC Audit & Optimization](/services/google-ads-ppc/ppc-audit-optimization): Rescuing underperforming ad accounts and stopping budget waste.
+- [Landing Page Design](/services/google-ads-ppc/landing-page-design-optimization): High-converting pages built specifically to receive ad traffic.
+
+### Who This Is For
+- **Professional Services**: Law firms, clinics, and consultants needing high-value leads immediately.
+- **E-commerce Stores**: Looking for scalable ROAS through Google Shopping and Performance Max campaigns.
+- **B2B Enterprises**: Running highly targeted campaigns to capture corporate procurement searches.
+
+### GrowthLab's Methodology
+We are obsessive about tracking. Before spending a single shilling, we ensure robust conversion tracking is set up (via Google Analytics 4 and Tag Manager) so we can tie every lead and sale back to the specific keyword that generated it. We utilize advanced bidding strategies, negative keyword sculpting, and continuous A/B testing of ad copy to drive down your Cost Per Acquisition (CPA) month over month.
+    `
+  },
+  "website-management": {
+    h1: "Website Management & Security Kenya — Protecting Your Digital Investment",
+    overview: `
+A website is not a "set-it-and-forget-it" asset; it is living software that requires ongoing maintenance, updates, and security monitoring. Neglected websites become slow, vulnerable to hackers, and eventually break. GrowthLab Limited offers comprehensive Website Management and Security services in Kenya, acting as your dedicated external IT team to ensure your digital presence is always online, secure, and functioning flawlessly.
+
+We handle the technical headaches so you can focus on running your business. From daily backups to malware protection and content updates, our maintenance plans provide total peace of mind for Kenyan business owners.
+
+### Our Website Management Ecosystem
+- [Monthly Maintenance Packages](/services/website-management/monthly-maintenance-kenya): Proactive, all-inclusive technical support.
+- [Website Security & Malware Removal](/services/website-management/website-security-kenya): Fixing hacked sites and preventing future breaches.
+- [Website Hosting Nairobi](/services/website-management/website-hosting-nairobi): Blazing fast, ultra-secure cloud hosting specifically optimized for Kenyan traffic.
+- [Website Migration Services](/services/website-management/website-migration-services): Seamlessly moving your site to superior infrastructure with zero downtime.
+
+### Who This Is For
+- **Growing SMEs**: Who don't have an in-house technical team to handle website updates and server management.
+- **High-Traffic Sites**: E-commerce stores and publishers who cannot afford a single minute of downtime.
+- **Corporate Enterprises**: Requiring enterprise-grade security and strict uptime SLAs.
+
+### GrowthLab's Methodology
+Our management philosophy is proactive, not reactive. We implement 24/7 uptime monitoring, automated daily off-site backups, and web application firewalls (WAF) to block malicious traffic before it reaches your site. We also provide highly responsive content update services, ensuring your website always reflects your latest services, team members, and pricing.
+    `
+  },
+  "email-marketing": {
+    h1: "Email Marketing Services Kenya — Nurturing Leads to Conversion",
+    overview: `
+Despite the rise of social media, email marketing remains one of the highest-converting digital channels available, offering an average ROI of 36:1. GrowthLab Limited provides comprehensive Email Marketing services in Kenya, helping you bypass algorithmic feeds and speak directly to your audience in their inbox. We build sophisticated, automated email strategies that turn cold prospects into loyal, repeat customers.
+
+In a market where many businesses rely entirely on WhatsApp or Instagram, a professional, well-segmented email list is a massive competitive advantage. It is digital real estate that you actually own.
+
+### Our Email Marketing Ecosystem
+- [Email Campaign Management](/services/email-marketing/email-campaign-management): Designing and executing monthly newsletters and promotional blasts.
+- [Email Automation & Drip Campaigns](/services/email-marketing/email-automation-sequences): Building automated sequences that nurture leads while you sleep.
+- [Lead Generation & List Building](/services/email-marketing/lead-generation-list-building): Developing lead magnets and strategies to capture high-quality emails.
+
+### Who This Is For
+- **B2B Companies**: Nurturing long sales cycles through educational, value-driven email sequences.
+- **E-commerce Stores**: Driving repeat purchases and recovering abandoned carts through automated triggers.
+- **Service Providers**: Keeping their brand top-of-mind with past clients to encourage referrals and repeat business.
+
+### GrowthLab's Methodology
+We focus heavily on deliverability, segmentation, and personalization. We don't blast generic messages to thousands of people; we segment your audience based on their behavior and interests, sending highly targeted emails that command high open and click-through rates. Our copywriting is designed to engage and drive action, utilizing A/B testing to continually refine subject lines, cadences, and calls-to-action.
+    `
   }
 };

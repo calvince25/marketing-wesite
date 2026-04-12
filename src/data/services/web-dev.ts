@@ -155,5 +155,174 @@ Professional website development at GrowthLab starts from **KES 100,000** for hi
 ### Elevate Your Brand
 Ready to build a website that actually grows your business? [Contact our Nairobi team today](/contact) for a free consultation.
     `
+  },
+  "mobile-app-development": {
+    h1: "Mobile App Development Kenya — Native & Cross-Platform Solutions",
+    content: `
+In a mobile-first market like Kenya, your business needs to be in your customers' pockets. GrowthLab Limited builds high-performance mobile applications for iOS and Android that drive engagement, loyalty, and revenue. Whether you need a consumer-facing app or an internal tool for your field team, we deliver robust, scalable mobile solutions.
+
+### What's Included
+- **Cross-Platform Development**: Using React Native or Flutter to build for both iOS and Android simultaneously, saving you time and budget.
+- **Native Performance**: Ensuring smooth animations, offline capabilities, and deep integration with device hardware (camera, GPS, biometrics).
+- **UI/UX Design**: Crafting intuitive mobile interfaces that prioritize user retention and ease of use.
+- **Backend Integration**: Connecting your app to your existing databases and APIs.
+- **App Store Optimization (ASO)**: Helping you get discovered on the Apple App Store and Google Play Store.
+
+### Why GrowthLab?
+We don't just write code; we build products that users love. Our mobile team focuses on performance, battery efficiency, and seamless connectivity, even in areas with fluctuating network speeds.
+
+### Pricing Context
+Mobile app development starts from **KES 600,000**. We provide detailed scoping to ensure your app meets your specific business goals.
+
+### FAQ
+- **Q: Do you build for both iOS and Android?**
+  - A: Yes, we specialize in cross-platform development to ensure your app reaches all your users.
+- **Q: Can my app work offline?**
+  - A: Yes, we can implement local caching so your app remains functional without an internet connection.
+    `
+  },
+  "saas-product-development": {
+    h1: "SaaS Product Development — Building Scalable Software as a Service",
+    content: `
+Transform your business idea into a scalable SaaS platform. GrowthLab Limited partners with startups and enterprises to build, launch, and scale SaaS products that solve real-world problems. From multi-tenant architecture to subscription billing integration, we handle the technical heavy lifting.
+
+### What's Included
+- **Multi-Tenant Architecture**: Securely isolating data for different clients on a single platform.
+- **Subscription & Billing**: Integration with Stripe, M-Pesa, and other payment gateways for recurring revenue.
+- **Scalable Infrastructure**: Cloud-native design using AWS or Google Cloud to handle rapid user growth.
+- **Admin & User Portals**: Comprehensive dashboards for managing users, subscriptions, and analytics.
+
+### Why GrowthLab?
+We understand the SaaS lifecycle. We help you build an MVP (Minimum Viable Product) quickly, gather user feedback, and iterate to achieve product-market fit.
+
+### Pricing Context
+SaaS development projects are highly custom. We offer discovery workshops to define your roadmap, with development starting from **KES 800,000**.
+
+### FAQ
+- **Q: Can you help with the product roadmap?**
+  - A: Yes, our team acts as your technical partner, helping you prioritize features for your MVP.
+- **Q: Is my data secure?**
+  - A: Security is our priority. We implement industry-standard encryption and compliance protocols from day one.
+    `
+  },
+  "api-integration-services": {
+    h1: "API Integration Services — Connecting Your Business Ecosystem",
+    content: `
+Stop working in silos. GrowthLab Limited provides expert API integration services to connect your disparate software systems, automating data flow and eliminating manual entry. Whether it's connecting your CRM to your accounting software or integrating M-Pesa into your legacy systems, we make your tools talk to each other.
+
+### What's Included
+- **Custom API Development**: Building secure, RESTful or GraphQL APIs for your internal or public use.
+- **Third-Party Integration**: Connecting to popular services like Salesforce, HubSpot, Xero, QuickBooks, and M-Pesa.
+- **Data Synchronization**: Real-time or batch processing to ensure your data is consistent across all platforms.
+- **Legacy System Modernization**: Wrapping old systems in modern APIs to extend their lifespan and functionality.
+
+### Why GrowthLab?
+We specialize in "glue code"—the complex logic required to make different systems communicate reliably. We prioritize security, error handling, and performance.
+
+### Pricing Context
+Integration projects are scoped based on the complexity of the systems involved. Packages start from **KES 150,000**.
+
+### FAQ
+- **Q: Can you integrate with custom legacy software?**
+  - A: Yes, we have extensive experience working with older, proprietary systems.
+- **Q: Is the integration secure?**
+  - A: We use OAuth2, API keys, and encrypted tunnels to ensure your data remains safe during transit.
+    `
+  },
+  "cloud-infrastructure-devops": {
+    h1: "Cloud Infrastructure & DevOps — Reliable, Scalable Hosting",
+    content: `
+Your application is only as good as the infrastructure it runs on. GrowthLab Limited provides expert Cloud Infrastructure and DevOps services to ensure your digital assets are fast, secure, and always online. We manage the complexity of the cloud so you can focus on your business.
+
+### What's Included
+- **Cloud Migration**: Moving your on-premise servers to AWS, Azure, or Google Cloud.
+- **CI/CD Pipelines**: Automating your deployment process to ensure rapid, bug-free updates.
+- **Monitoring & Alerting**: Real-time tracking of your system health to prevent downtime before it happens.
+- **Security Hardening**: Implementing firewalls, DDoS protection, and automated backups.
+
+### Why GrowthLab?
+We are cloud-agnostic and focus on finding the most cost-effective and performant architecture for your specific needs. We help you optimize your cloud spend while maximizing uptime.
+
+### Pricing Context
+DevOps and infrastructure management services are offered as project-based setups or monthly retainers starting from **KES 50,000/month**.
+
+### FAQ
+- **Q: Can you help reduce my cloud hosting costs?**
+  - A: Yes, we perform infrastructure audits to identify and eliminate wasteful resource usage.
+- **Q: Do you provide 24/7 monitoring?**
+  - A: We offer managed service packages that include proactive monitoring and rapid incident response.
+    `
+  },
+  "ui-ux-design-services": {
+    h1: "UI/UX Design Services — Human-Centric Digital Experiences",
+    content: `
+Great design is not just about how it looks; it's about how it works. GrowthLab Limited provides professional UI/UX design services that turn complex business requirements into intuitive, beautiful, and high-converting digital interfaces.
+
+### What's Included
+- **User Research & Personas**: Understanding your users to design solutions that solve their actual problems.
+- **Wireframing & Prototyping**: Creating interactive mockups to test the flow before a single line of code is written.
+- **Design Systems**: Building a consistent library of components to ensure your brand looks professional across all platforms.
+- **Usability Testing**: Observing real users to identify and fix friction points in your interface.
+
+### Why GrowthLab?
+We combine aesthetic excellence with data-driven design. Our goal is to reduce user effort and increase conversion rates through thoughtful, minimalist, and functional design.
+
+### Pricing Context
+UI/UX design projects are scoped based on the number of screens and complexity. Standalone design projects start from **KES 120,000**.
+
+### FAQ
+- **Q: Do I get the source files?**
+  - A: Yes, we provide all design assets, including Figma files, style guides, and exported assets.
+- **Q: Can you redesign an existing app?**
+  - A: Absolutely. We specialize in modernizing legacy interfaces to improve user satisfaction and engagement.
+    `
+  },
+  "digital-transformation-consulting": {
+    h1: "Digital Transformation Consulting — Future-Proofing Your Business",
+    content: `
+Digital transformation is more than just adopting new technology; it's about changing how your business operates to deliver more value to customers. GrowthLab Limited acts as your strategic partner, helping you navigate the complexities of the digital age.
+
+### What's Included
+- **Technology Audit**: Assessing your current tech stack and identifying gaps or inefficiencies.
+- **Strategy Roadmap**: A step-by-step plan to modernize your operations and leverage new technologies.
+- **Change Management**: Helping your team adopt new digital tools and workflows.
+- **Innovation Workshops**: Brainstorming sessions to identify new digital revenue streams.
+
+### Why GrowthLab?
+We bridge the gap between business strategy and technical execution. We don't just recommend tools; we help you implement them and ensure they deliver measurable ROI.
+
+### Pricing Context
+Consulting engagements are tailored to your business size and goals. We offer discovery sessions starting from **KES 80,000**.
+
+### FAQ
+- **Q: How do I know if I need digital transformation?**
+  - A: If you feel your current processes are slowing you down or you're struggling to compete with digital-native rivals, it's time to talk.
+- **Q: Do you implement the solutions you recommend?**
+  - A: Yes, we can handle the entire implementation process, from strategy to deployment.
+    `
+  },
+  "maintenance-support-packages": {
+    h1: "Maintenance & Support — Keeping Your Digital Assets Healthy",
+    content: `
+Your digital products require ongoing care to remain secure, fast, and relevant. GrowthLab Limited offers comprehensive maintenance and support packages to ensure your websites and applications continue to perform at their peak.
+
+### What's Included
+- **Security Patching**: Keeping your CMS, frameworks, and plugins updated to prevent vulnerabilities.
+- **Performance Optimization**: Regular audits to ensure your site remains fast as your content grows.
+- **Content Updates**: Handling text, image, and feature updates so you don't have to.
+- **Technical Support**: Priority access to our team for troubleshooting and quick fixes.
+
+### Why GrowthLab?
+We treat your business as our own. Our maintenance packages provide peace of mind, knowing that a team of experts is watching over your digital infrastructure 24/7.
+
+### Pricing Context
+Maintenance packages are billed monthly, starting from **KES 25,000/month** depending on the complexity of your system.
+
+### FAQ
+- **Q: What happens if my site goes down?**
+  - A: Our support packages include guaranteed response times to get your site back online as quickly as possible.
+- **Q: Can I upgrade my package later?**
+  - A: Yes, we can scale your support package as your business and technical needs grow.
+    `
   }
 };

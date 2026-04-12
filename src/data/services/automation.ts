@@ -133,6 +133,231 @@ Lead management automation starts from **KES 90,000** for core capture and follo
 Ready to turn more inquiries into income? [Set up your lead management system today](/contact).
     `
   },
+  "email-marketing-automation": {
+    h1: "Email Marketing Automation Kenya — Grow Revenue While You Sleep",
+    content: `
+Email marketing remains one of the highest-ROI digital marketing channels available — generating an average return of KES 4,200 for every KES 100 spent when done correctly. But the old approach of manually sending broadcast emails every few weeks is dead. Modern email marketing is automated, personalised, and behaviour-driven — sending the right message to the right person at the exact right moment in their customer journey. GrowthLab Limited provides expert Email Marketing Automation services in Kenya, building sophisticated email systems that nurture leads, convert customers, and maximise the lifetime value of your subscriber base.
+
+### What Is Email Marketing Automation?
+Email marketing automation is the process of setting up pre-built email sequences that trigger and send automatically based on specific user behaviour or time intervals — without manual sending. A welcome email when someone subscribes, a follow-up sequence when someone downloads a lead magnet, a cart abandonment email when someone leaves your store without buying, a re-engagement campaign for inactive subscribers — all happening automatically, 24/7.
+
+### Why Kenyan Businesses Need Email Automation
+- **Consistent lead nurturing**: Research shows that 80% of Kenyan B2B buyers need 5-8 touch points before making a purchase decision. Automated sequences ensure every lead receives those touch points consistently.
+- **Massive ROI**: Email has significantly lower cost per conversion than Google Ads, Facebook Ads, or any other paid channel.
+- **Owned audience**: Unlike social media followers or ad audiences, your email list is an asset you own — it cannot be taken away by algorithm changes.
+- **Personalisation at scale**: Automated sequences deliver personalised content based on what subscribers have clicked, downloaded, or purchased — impossible to replicate manually.
+
+### Email Automation Flows We Build
+1. **Welcome Sequence**: A 4-7 email series introducing new subscribers to your brand and setting up your relationship.
+2. **Lead Nurture Sequences**: Educational email series that move prospects from "interested" to "ready to buy" over a defined timeline.
+3. **Cart Abandonment Recovery**: 3-email sequences triggered when an e-commerce visitor abandons their cart.
+4. **Post-Purchase Sequences**: Onboarding, cross-sell, and review request emails sent after a purchase.
+5. **Re-engagement Campaigns**: Win-back campaigns targeting subscribers who haven't opened emails in 90+ days.
+6. **Event-Triggered Campaigns**: Automated emails triggered by specific actions (webinar signup, lead form completion, service enquiry).
+7. **Birthday & Anniversary Campaigns**: Personalised automated emails on key subscriber dates to build loyalty.
+
+### What You Get
+- Email platform setup and configuration (Mailchimp, ActiveCampaign, HubSpot, or Klaviyo)
+- Audience segmentation strategy
+- Up to 5 automated email sequences designed and written
+- Email template design (branded, mobile-responsive)
+- List cleaning and deliverability optimisation
+- A/B testing setup for subject lines and CTAs
+- Monthly email performance report
+
+### Pricing
+Email marketing automation setup starts from **KES 90,000** for platform setup and 3 core sequences. Ongoing campaign management from **KES 40,000** per month.
+
+### FAQ
+**Q: Which email platform do you work with?**
+A: We work with Mailchimp, ActiveCampaign, HubSpot, Klaviyo, Brevo (formerly Sendinblue), and others.
+
+**Q: Do you write the emails?**
+A: Yes. Copywriting for all automated sequences is included in our setup packages.
+
+**Q: How do I build an email list?**
+A: We create lead magnet strategies (free guides, checklists, discount codes) that grow your list with qualified Kenyan subscribers.
+
+**Q: Is email marketing GDPR/KIDO compliant?**
+A: Yes. We configure all systems to comply with Kenya's Data Protection Act and international email marketing regulations.
+
+### Launch Your Email Automation System
+[Contact GrowthLab today](/contact) to discuss your email marketing automation strategy.
+
+**Related Services**: [Lead Management Automation](/services/business-automation/lead-management-automation) | [CRM Automation Kenya](/services/business-automation/crm-automation) | [Content Writing Kenya](/services/seo-digital-marketing/content-writing-kenya)
+    `
+  },
+  "social-media-automation": {
+    h1: "Social Media Automation Kenya — Consistent Posting Without the Manual Work",
+    content: `
+Maintaining an active, consistent social media presence across Facebook, Instagram, LinkedIn, and TikTok is one of the most time-intensive marketing activities for any Kenyan business. Content creation, scheduling, engagement tracking, and reporting can consume entire marketing teams if done manually. GrowthLab Limited provides Social Media Automation services in Kenya, building systems and workflows that keep your social channels active, on-brand, and growing — with minimal daily manual effort from your team.
+
+### What Social Media Automation Covers
+- **Content Scheduling & Publishing**: We configure tools like Buffer, Hootsuite, or Later to automatically publish posts at optimal times across all your channels.
+- **Automated Reposting**: High-performing content from your blog, website, or other channels automatically repurposed and scheduled across social media.
+- **Social Listening Alerts**: Automated monitoring that notifies you immediately when your brand is mentioned across social platforms.
+- **Engagement Automation**: Auto-responses to DMs with FAQs, lead capture prompts, and escalation to human agents for complex queries.
+- **Hashtag Research & Optimisation**: AI-assisted identification of the best-performing hashtags for Kenyan audiences in your niche.
+- **Analytics & Reporting Automation**: Automated weekly/monthly social media performance reports without manual data pulling.
+
+### What You Get
+- Social media management tool setup (up to 4 platforms)
+- Content calendar creation and scheduling templates
+- Automated posting for up to 4 weeks of content at once
+- Auto-reply setup for common DM questions
+- Brand mention monitoring alerts
+- Monthly performance analytics report
+
+### Pricing
+Social media automation setup starts from **KES 70,000**. Ongoing management packages from **KES 45,000** per month.
+
+### FAQ
+**Q: Does automation make social media feel "less authentic"?**
+A: Automation handles the scheduling and consistency — the content itself remains genuine and brand-aligned.
+
+**Q: Can you manage TikTok as well?**
+A: Yes. We automate scheduling and analytics for TikTok, though TikTok trends require more manual creative input.
+
+**Q: How often will posts go out on each platform?**
+A: We set optimal posting frequencies per platform — typically 5-7 times/week on Instagram, 3-5 on Facebook, and 3x/week on LinkedIn.
+
+### Automate Your Social Media Presence
+[Contact GrowthLab today](/contact) to discuss social media automation.
+
+**Related Services**: [Social Media Management](/services/social-media-management) | [Content Writing Kenya](/services/seo-digital-marketing/content-writing-kenya) | [Email Marketing Automation](/services/business-automation/email-marketing-automation)
+    `
+  },
+  "accounting-automation-kenya": {
+    h1: "Accounting & Invoicing Automation Kenya — Eliminate Financial Admin Forever",
+    content: `
+Manual accounting and invoicing is one of the most expensive inefficiencies in any Kenyan business. From chasing unpaid invoices to reconciling M-Pesa transactions with your books, the administrative burden of financial management can consume hundreds of hours per year. GrowthLab Limited provides Accounting and Invoicing Automation services in Kenya, connecting your payment systems, CRM, and accounting software to create seamless, automated financial workflows that eliminate data entry errors and give you instant visibility into your financial health.
+
+### What Accounting Automation Covers
+- **Automated Invoice Generation**: When a sale is confirmed (website, CRM deal, or booking), an invoice is automatically generated and emailed to the client — no manual creation required.
+- **M-Pesa Reconciliation Automation**: M-Pesa transactions are automatically matched to the corresponding invoice in your accounting system.
+- **Overdue Invoice Reminders**: Automated email and SMS reminders sent at 7, 14, and 30 days overdue — with escalation workflows for persistent non-payment.
+- **Expense Capture Automation**: Mobile receipt scanning and automatic categorisation eliminates manual expense entry.
+- **Payroll Automation**: Integration with payroll systems for automatic salary calculation and M-Pesa disbursement.
+- **Financial Dashboard Automation**: Real-time dashboard showing cash flow, outstanding invoices, and key financial metrics — updated automatically.
+- **Accounting Software Integration**: Connecting your business operations to QuickBooks, Xero, Wave, or Sage for automatic bookkeeping.
+
+### What You Get
+- Accounting software selection and setup (QuickBooks/Xero/Wave)
+- M-Pesa-to-accounting reconciliation integration
+- Automated invoice generation triggers
+- Overdue invoice reminder sequences
+- Financial reporting dashboard
+- Staff training on the automated system
+
+### Pricing
+Accounting automation projects start from **KES 120,000** for a standard small business setup. Enterprise multi-entity accounting automation is quoted based on complexity.
+
+### FAQ
+**Q: Which accounting software do you work with?**
+A: QuickBooks, Xero, Wave, Sage, and custom Excel/Google Sheets automations for smaller businesses.
+
+**Q: Can you automate M-Pesa reconciliation specifically?**
+A: Yes. This is our most popular accounting automation feature for Kenyan businesses with high M-Pesa transaction volumes.
+
+**Q: Does this replace my accountant?**
+A: No — it eliminates the manual data entry work, allowing your accountant to focus on analysis, tax planning, and strategic financial advice.
+
+### Automate Your Financial Operations
+[Contact GrowthLab](/contact) to discuss accounting automation for your business.
+
+**Related Services**: [Workflow Automation Nairobi](/services/business-automation/workflow-automation) | [CRM Automation Kenya](/services/business-automation/crm-automation) | [M-Pesa Integration](/services/web-development/mpesa-payment-integration)
+    `
+  },
+  "hr-onboarding-automation": {
+    h1: "HR & Onboarding Automation Kenya — Scale Your Team Without Scaling Your Admin",
+    content: `
+Hiring and onboarding new employees is one of the most documentation-heavy, time-consuming processes in any growing Kenyan business. From collecting KRA PINs and national IDs to issuing employment contracts, setting up email accounts, scheduling orientation sessions, and completing mandatory HR forms — the onboarding process for a single employee can take 10-20 hours of administrative work. GrowthLab Limited provides HR and Onboarding Automation services in Kenya, turning this manual burden into a streamlined, largely automated digital process that improves the employee experience and frees your HR team for strategic work.
+
+### What HR Automation Covers
+- **Digital Onboarding Portals**: New hire portals where employees complete all documentation, upload ID copies, sign contracts digitally, and set up their profiles — before their first day.
+- **Automated Document Collection**: Digital forms that collect all required employee information and automatically file it in the correct folder structure.
+- **Digital Contract Signing**: Electronic signature integration (DocuSign, SignNow) for employment contracts, NDAs, and policy acknowledgements.
+- **Employee Equipment & Access Tracking**: Automated checklists ensuring new hires receive all necessary equipment, software access, and system credentials.
+- **Leave Management Automation**: Self-service leave application, approval workflow, and leave balance tracking — without paperwork.
+- **Performance Review Automation**: Scheduled 30/60/90-day review prompts and automated performance review form distribution.
+- **Offboarding Automation**: Exit interview scheduling, asset return checklists, and benefits termination workflows.
+
+### What You Get
+- HR process audit and automation opportunity mapping
+- Digital onboarding workflow design and build
+- Digital contract signing integration
+- Employee self-service portal
+- Leave management system
+- HR analytics dashboard
+
+### Pricing
+HR automation projects start from **KES 130,000** for a complete onboarding and document management system.
+
+### FAQ
+**Q: Does this comply with Kenyan employment law?**
+A: Yes. We configure the automation to align with the Kenya Employment Act, including required documentation and notice periods.
+
+**Q: Can employees use it on mobile?**
+A: Yes. All HR portals are mobile-first — critical for employees across Kenya without desktop access.
+
+### Transform Your HR Operations
+[Contact GrowthLab today](/contact) to discuss HR automation for your organisation.
+
+**Related Services**: [Business Automation Nairobi](/services/business-automation/business-automation-nairobi) | [Workflow Automation](/services/business-automation/workflow-automation) | [Zapier/Make Integration](/services/business-automation/zapier-make-integration-kenya)
+    `
+  },
+  "zapier-make-integration-kenya": {
+    h1: "Zapier & Make.com Integration Kenya — Connect All Your Business Tools Automatically",
+    content: `
+Your business probably runs on 10-20 different software tools — a CRM, an email platform, a project management tool, an accounting package, a booking system, a website, and more. Each of these tools produces valuable data and triggers important events. The problem is, they don't talk to each other — so your team manually copies data between them, missing critical information and wasting hours every week. GrowthLab Limited provides professional Zapier and Make.com (formerly Integromat) integration services in Kenya, building the intelligent connections that make all your business tools work in perfect harmony — automatically.
+
+### What Is Zapier & Make.com?
+Zapier and Make.com are no-code/low-code automation platforms that connect thousands of business applications via pre-built "triggers" and "actions." When something happens in one app (trigger), they automatically do something in another app (action). The power lies in combining multiple triggers and actions into complex, multi-step automation "Zaps" or "Scenarios" that replace hours of manual work.
+
+### Integrations We Build for Kenyan Businesses
+- **Website Form → CRM + Email + WhatsApp**: When someone fills your contact form, instantly create a CRM lead, send a welcome email, and notify your sales team on WhatsApp — all simultaneously.
+- **New Sale → Invoice + Accounting + Delivery Notification**: E-commerce purchase triggers automatic invoice generation in QuickBooks, records the transaction in your spreadsheet, and sends a WhatsApp delivery notification to the customer.
+- **Job Application → ATS + Slack Notification**: New job applications automatically added to your recruitment tracker and immediately notified to your hiring manager on Slack.
+- **Calendar Booking → CRM + WhatsApp Reminder**: New appointment booking creates a CRM activity, schedules a WhatsApp reminder sequence, and syncs to Google Calendar.
+- **M-Pesa Payment → Accounting + CRM + SMS Confirmation**: M-Pesa payment confirms → QuickBooks updated → CRM deal marked closed → customer SMS confirmation sent.
+
+### Our Integration Process
+1. **Tool Inventory & Mapping**: We document all your business tools and the ideal data flows between them.
+2. **Automation Design**: We architect the exact triggers, actions, and conditional logic for each automation.
+3. **Build & Configure**: We build every Zap/Scenario on your Zapier or Make.com account.
+4. **Testing**: Every automation is tested with real data across multiple scenarios.
+5. **Documentation & Training**: We provide clear documentation so your team can manage and modify automations independently.
+
+### What You Get
+- Tool inventory and automation opportunity assessment
+- Up to 10 custom Zap/Scenario builds
+- Testing and QA across all automation flows
+- Clear documentation for each automation
+- 60-day post-implementation support
+- Team training session
+
+### Pricing
+Zapier/Make.com integration projects start from **KES 80,000** for up to 5 automation builds. Larger numbers of automations and complex multi-step scenarios are quoted based on scope.
+
+### FAQ
+**Q: Do I need a Zapier subscription?**
+A: Yes. We work with your existing Zapier or Make.com account. We help you select the right plan for your automation volume.
+
+**Q: Is Make.com better than Zapier?**
+A: Make.com offers more powerful logic and is more cost-effective for high-volume automations. Zapier has more app integrations. We'll recommend the best fit for your needs.
+
+**Q: Can you build automations with M-Pesa?**
+A: Yes. We build custom M-Pesa webhooks and connect them to Zapier/Make for seamless payment-triggered automations.
+
+**Q: What if the automation fails?**
+A: Both platforms have built-in error handling and retry logic. We configure comprehensive alerts so you're notified immediately if any automation fails.
+
+### Connect Your Business Tools Today
+[Contact GrowthLab](/contact) to discuss your Zapier/Make.com integration project.
+
+**Related Services**: [Workflow Automation Nairobi](/services/business-automation/workflow-automation) | [CRM Automation Kenya](/services/business-automation/crm-automation) | [WhatsApp Automation Kenya](/services/ai-systems-integration/whatsapp-automation-kenya)
+    `
+  },
   "workflow-automation": {
     h1: "Workflow Automation Nairobi — Connecting Your Business Tools Seamlessly",
     content: `

@@ -4,13 +4,13 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "AI Strategy & Consulting | GrowthLab Limited",
-  description: "Navigate the AI landscape with strategic consulting tailored to your business goals.",
+  title: "Ai Strategy Consulting | GrowthLab Limited",
+  description: "Professional ai strategy consulting services.",
 };
 
 export default function Page() {
   const pillar = pillarServices["ai-systems-integration"];
   const subService = pillar?.clusters.find(c => c.slug === "ai-strategy-consulting");
   if (!pillar || !subService) notFound();
-  return <SubServiceTemplate pillar={pillar} subService={subService} />;
+  return <SubServiceTemplate pillar={pillar as any} subService={subService as any} />;
 }

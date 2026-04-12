@@ -60,7 +60,7 @@ The future of marketing is not about AI replacing marketers; it’s about market
 Stop chasing every shiny new tool. Instead, start building a robust, data-backed AI workflow that empowers your team to focus on what matters most: building deep, meaningful connections with your customers.
     `,
     date: "April 12, 2024",
-    image: "/media/service_marketing.png",
+    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
     relatedService: "/services/ai-systems-integration"
   }
 ];

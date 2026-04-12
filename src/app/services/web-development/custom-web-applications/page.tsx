@@ -5,12 +5,12 @@ import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Custom Web Applications | GrowthLab Limited",
-  description: "Bespoke web applications tailored to your business logic and operational needs.",
+  description: "Professional custom web applications services.",
 };
 
 export default function Page() {
   const pillar = pillarServices["web-development"];
   const subService = pillar?.clusters.find(c => c.slug === "custom-web-applications");
   if (!pillar || !subService) notFound();
-  return <SubServiceTemplate pillar={pillar} subService={subService} />;
+  return <SubServiceTemplate pillar={pillar as any} subService={subService as any} />;
 }

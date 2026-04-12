@@ -25,7 +25,7 @@ export default async function Home() {
 
   const allServices = (services && services.length > 0) ? services : Object.values(pillarServices);
   
-  const heroImage = settings?.heroImages?.[0] ? urlForImage(settings.heroImages[0]).width(1920).quality(90).url() : "/media/hero_v2.png";
+  const heroImage = settings?.heroImages?.[0] ? urlForImage(settings.heroImages[0]).width(1920).quality(90).url() : "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80";
 
   const webDevClusters = pillarServices["web-development"]?.clusters || [];
   const seoClusters = pillarServices["seo-digital-marketing"]?.clusters || [];
@@ -108,7 +108,7 @@ export default async function Home() {
             </div>
             <div className={styles.pillarImageWrapper}>
               <Image 
-                src="/media/web_development.png" 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
                 alt="Web Development Services" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -139,7 +139,7 @@ export default async function Home() {
             </div>
             <div className={styles.pillarImageWrapper}>
               <Image 
-                src="/media/seo_marketing.png" 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
                 alt="SEO and Digital Marketing" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -170,7 +170,7 @@ export default async function Home() {
             </div>
             <div className={styles.pillarImageWrapper}>
               <Image 
-                src="/media/business_automation.png" 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" 
                 alt="Business Automation Services" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -201,7 +201,7 @@ export default async function Home() {
             </div>
             <div className={styles.pillarImageWrapper}>
               <Image 
-                src="/media/ai_integration.png" 
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" 
                 alt="AI Systems Integration" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"

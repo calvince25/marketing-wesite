@@ -5,7 +5,7 @@ import { allProjectsQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 
 const staticProjects = [
-  { title: "Luxury Brand UI", category: "Web Design", img: "/media/portfolio1.png" },
+  { title: "Luxury Brand UI", category: "Web Design", img: "https://images.unsplash.com/photo-1507238692062-5a04220bef18?auto=format&fit=crop&w=800&q=80" },
   { title: "Fintech Dashboard", category: "App Development", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" },
   { title: "E-commerce Giant", category: "SEO & Content", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" }
 ];

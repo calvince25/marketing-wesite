@@ -36,12 +36,12 @@ const Header = async () => {
                 </div>
                 <nav>
                     <ul className={styles.navLinks}>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/services">Services</Link></li>
-                        <li><Link href="/portfolio">Portfolio</Link></li>
-                        <li><Link href="/blog">Blog</Link></li>
-                        <li><Link href="/about">About</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+                        <li><Link href="/" aria-label="Go to Homepage">Home</Link></li>
+                        <li><Link href="/services" aria-label="Explore our Services">Services</Link></li>
+                        <li><Link href="/portfolio" aria-label="View our Projects">Portfolio</Link></li>
+                        <li><Link href="/blog" aria-label="Read our Blog">Blog</Link></li>
+                        <li><Link href="/about" aria-label="Learn more about GrowthLab">About</Link></li>
+                        <li><Link href="/contact" aria-label="Get in touch with us">Contact</Link></li>
                     </ul>
                 </nav>
                 <div className={styles.actions}>

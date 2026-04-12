@@ -21,7 +21,7 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
               { label: subService.title, href: '' }
             ]} 
           />
-          <h1 className={styles.title}>{subService.title}</h1>
+          <h1 className={styles.title}>{subService.h1 || subService.title}</h1>
           <p className={styles.description}>{subService.description}</p>
         </div>
       </section>
@@ -31,38 +31,18 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
           <div className={styles.layout}>
             <article className={styles.article}>
               <div className={styles.richText}>
-                <h2>In-Depth Guide to {subService.title}</h2>
                 {subService.isSanity ? (
                   <PortableText value={subService.content as any} />
                 ) : (
-                  <p>{subService.content}</p>
+                  <div className={styles.contentWrapper} style={{ whiteSpace: 'pre-wrap' }}>
+                    {subService.content}
+                  </div>
                 )}
-                <p>
-                  At GrowthLab Limited, we specialize in delivering {subService.title} services that are tailored to the unique needs of businesses in Kenya. Our approach combines global best practices with local market insights to ensure your brand stands out in the Nairobi digital landscape.
-                </p>
-                
-                <h3>Industry Insights for Kenya</h3>
-                <p>
-                  The digital ecosystem in Kenya is evolving rapidly. With over 20 million internet users, the competition for attention is fierce. {subService.title} is no longer optional; it's a critical component of any successful business strategy.
-                </p>
-
-                <h3>Our Performance Stack</h3>
-                <ul className={styles.techStack}>
-                  <li>Next.js & React for high-speed rendering</li>
-                  <li>Sanity CMS for structured content</li>
-                  <li>Technical SEO best practices</li>
-                  <li>Data-driven analytics</li>
-                </ul>
-
-                <h3>Benefits of our Approach</h3>
-                <p>
-                  By choosing GrowthLab for your {subService.title}, you're investing in a solution that priorities speed, security, and search engine visibility. We don't just build; we optimize for conversion.
-                </p>
               </div>
 
               <div className={styles.ctaBox}>
                 <h3>Ready to scale your business?</h3>
-                <p>Contact our experts today for a free consultation and strategy roadmap.</p>
+                <p>GrowthLab Limited is Nairobi&apos;s leading digital partner. Let&apos;s build your future together.</p>
                 <Link href="/contact" className="btn btn-primary">Book Free Consultation</Link>
               </div>
             </article>

@@ -1,5 +1,12 @@
+import { aiSystemsContent } from "@/data/services/ai-systems";
+import { webDevContent } from "@/data/services/web-dev";
+import { automationContent } from "@/data/services/automation";
+import { seoContent } from "@/data/services/seo";
+import { pillarContent } from "@/data/services/pillars";
+
 export type SubService = {
   title: string;
+  h1?: string;
   slug: string;
   description: string;
   content: string;
@@ -7,6 +14,7 @@ export type SubService = {
 
 export type PillarService = {
   title: string;
+  h1?: string;
   slug: string;
   description: string;
   overview: string;
@@ -19,9 +27,10 @@ export type PillarService = {
 export const pillarServices: Record<string, PillarService> = {
   "web-development": {
     title: "Web Development",
+    h1: pillarContent["web-development"].h1,
     slug: "web-development",
     description: "High-performance websites built for speed, security, and scalability.",
-    overview: "In the digital age, your website is the foundation of your business. We build robust, custom web applications and websites that are not only visually stunning but also engineered for performance and SEO.",
+    overview: pillarContent["web-development"].overview,
     benefits: [
       "Mobile-First Responsive Design",
       "Blazing Fast Performance",
@@ -39,18 +48,35 @@ export const pillarServices: Record<string, PillarService> = {
       { q: "Do you provide maintenance?", a: "Yes, we offer ongoing support and security updates." }
     ],
     clusters: [
-      { title: "Website Development Kenya", slug: "website-development-kenya", description: "Premier web dev in Kenya.", content: "GrowthLab Limited provides top-tier website development services in Kenya. We specialize in building fast, secure, and SEO-friendly websites that help Kenyan businesses thrive online." },
-      { title: "Responsive Web Design Kenya", slug: "responsive-web-design-kenya", description: "Mobile-first designs.", content: "Our responsive web design services ensure your site looks great on all devices, from smartphones in Nairobi to desktops in Mombasa." },
-      { title: "Custom Web Applications", slug: "custom-web-applications", description: "Complex web systems.", content: "We build bespoke web applications tailored to your specific business logic and operational needs." },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions", description: "Scale your store.", content: "End-to-end ecommerce development including M-Pesa integration and inventory management." },
-      { title: "Maintenance & Support", slug: "maintenance-and-support", description: "Keep your site running.", content: "Ongoing maintenance, security updates, and performance optimization for your web applications." }
+      { 
+        title: "Website Development Kenya", 
+        h1: webDevContent["website-development-kenya"].h1,
+        slug: "website-development-kenya", 
+        description: "Premier web dev in Nairobi.", 
+        content: webDevContent["website-development-kenya"].content 
+      },
+      { 
+        title: "Custom Web Applications", 
+        h1: webDevContent["custom-web-applications"].h1,
+        slug: "custom-web-applications", 
+        description: "Bespoke digital systems.", 
+        content: webDevContent["custom-web-applications"].content 
+      },
+      { 
+        title: "Ecommerce Solutions", 
+        h1: webDevContent["ecommerce-solutions"].h1,
+        slug: "ecommerce-solutions", 
+        description: "High-conversion stores.", 
+        content: webDevContent["ecommerce-solutions"].content 
+      }
     ]
   },
   "seo-digital-marketing": {
     title: "SEO & Digital Marketing",
+    h1: pillarContent["seo-digital-marketing"].h1,
     slug: "seo-digital-marketing",
     description: "Get found on Google and convert searchers into customers.",
-    overview: "Our SEO and digital marketing strategies are designed to increase your visibility and drive ROI through data-backed decisions.",
+    overview: pillarContent["seo-digital-marketing"].overview,
     benefits: [
       "Higher Google Rankings",
       "Increased Organic Traffic",
@@ -67,18 +93,42 @@ export const pillarServices: Record<string, PillarService> = {
       { q: "When will I see results?", a: "Typically 3-6 months for sustainable organic growth." }
     ],
     clusters: [
-      { title: "Local SEO Nairobi", slug: "local-seo-nairobi", description: "Dominate local search.", content: "Dominate local search results in Nairobi with our specialized local SEO strategies." },
-      { title: "Content SEO Strategy", slug: "content-seo-strategy", description: "Data-driven content.", content: "We create content strategies that rank and convert, focusing on user intent and topical authority." },
-      { title: "AI SEO Services Kenya", slug: "ai-seo-services-kenya", description: "Future-proof SEO.", content: "Leverage AI to optimize your content and stay ahead of the curve in the Kenyan market." },
-      { title: "AI Powered Marketing", slug: "ai-powered-marketing", description: "Smart marketing automation.", content: "Use artificial intelligence to power your digital marketing campaigns for maximum efficiency." },
-      { title: "Technical SEO Audit", slug: "technical-seo-audit", description: "Deep technical analysis.", content: "Identify and fix technical issues that hinder your search engine rankings with our comprehensive SEO audits." }
+      { 
+        title: "Local SEO Nairobi", 
+        h1: seoContent["local-seo-nairobi"].h1,
+        slug: "local-seo-nairobi", 
+        description: "Dominate local search.", 
+        content: seoContent["local-seo-nairobi"].content 
+      },
+      { 
+        title: "AI SEO Services Kenya", 
+        h1: seoContent["ai-seo-services-kenya"].h1,
+        slug: "ai-seo-services-kenya", 
+        description: "Future-proof SEO.", 
+        content: seoContent["ai-seo-services-kenya"].content 
+      },
+      { 
+        title: "AI Powered Marketing", 
+        h1: seoContent["ai-powered-marketing"].h1,
+        slug: "ai-powered-marketing", 
+        description: "Smart marketing automation.", 
+        content: seoContent["ai-powered-marketing"].content 
+      },
+      { 
+        title: "Technical SEO Audit", 
+        h1: seoContent["technical-seo-audit"].h1,
+        slug: "technical-seo-audit", 
+        description: "Deep technical analysis.", 
+        content: seoContent["technical-seo-audit"].content 
+      }
     ]
   },
   "business-automation": {
     title: "Business Automation",
+    h1: pillarContent["business-automation"].h1,
     slug: "business-automation",
     description: "Streamline your operations and focus on what matters most.",
-    overview: "Stop wasting time on repetitive tasks. We help businesses in Nairobi automate their workflows, from lead management to customer support, using modern SaaS integrations.",
+    overview: pillarContent["business-automation"].overview,
     benefits: [
       "Significant Time Savings",
       "Reduced Human Error",
@@ -87,24 +137,49 @@ export const pillarServices: Record<string, PillarService> = {
     ],
     process: [
       { step: "Workflow Mapping", detail: "Identifying bottlenecks in your current process." },
-      { step: "Tool Selection", detail: "Choosing the right automation stack (Zapier, Make, etc.)." },
+      { step: "Tool Selection", detail: "Choosing the right automation stack." },
       { step: "Implementation", detail: "Building and testing the automated flows." }
     ],
     faqs: [
-      { q: "Can you automate my CRM?", a: "Yes, we integrate with most major CRMs like HubSpot and Salesforce." }
+      { q: "Can you automate my CRM?", a: "Yes, we integrate with most major CRMs like HubSpot and Zoho." }
     ],
     clusters: [
-      { title: "Business Automation Nairobi", slug: "business-automation-nairobi", description: "Local business automation.", content: "Automation solutions tailored for businesses operating in Nairobi." },
-      { title: "CRM Automation", slug: "crm-automation", description: "Customer relationship automation.", content: "Streamline your sales funnel with advanced CRM automation." },
-      { title: "Workflow Automation", slug: "workflow-automation", description: "End-to-end efficiency.", content: "Connect your disparate systems into a unified, efficient workflow." },
-      { title: "Lead Management Automation", slug: "lead-management-automation", description: "Convert leads faster.", content: "Automate your lead capture and nurturing processes to improve conversion rates." }
+      { 
+        title: "Business Automation Nairobi", 
+        h1: automationContent["business-automation-nairobi"].h1,
+        slug: "business-automation-nairobi", 
+        description: "Local efficiency experts.", 
+        content: automationContent["business-automation-nairobi"].content 
+      },
+      { 
+        title: "CRM Automation", 
+        h1: automationContent["crm-automation"].h1,
+        slug: "crm-automation", 
+        description: "Master your customer relationships.", 
+        content: automationContent["crm-automation"].content 
+      },
+      { 
+        title: "Workflow Automation", 
+        h1: automationContent["workflow-automation"].h1,
+        slug: "workflow-automation", 
+        description: "End-to-end efficiency.", 
+        content: automationContent["workflow-automation"].content 
+      },
+      { 
+        title: "Lead Management Automation", 
+        h1: automationContent["lead-management-automation"].h1,
+        slug: "lead-management-automation", 
+        description: "Convert leads faster.", 
+        content: automationContent["lead-management-automation"].content 
+      }
     ]
   },
   "ai-systems-integration": {
     title: "AI Systems Integration",
+    h1: pillarContent["ai-systems-integration"].h1,
     slug: "ai-systems-integration",
     description: "Leverage artificial intelligence to future-proof your business.",
-    overview: "Artificial Intelligence is no longer a luxury. We help businesses integrate AI-driven solutions like chatbots, predictive analytics, and automated content generation to stay ahead of the competition.",
+    overview: pillarContent["ai-systems-integration"].overview,
     benefits: [
       "Enhanced Customer Support",
       "Data-Driven Insights",
@@ -120,10 +195,34 @@ export const pillarServices: Record<string, PillarService> = {
       { q: "Is AI expensive to implement?", a: "We offer scalable solutions that fit various budgets." }
     ],
     clusters: [
-      { title: "AI Chatbots", slug: "ai-chatbots", description: "24/7 customer support.", content: "Intelligent chatbots that handle customer queries around the clock." },
-      { title: "AI Business Systems", slug: "ai-business-systems", description: "Smart operations.", content: "Integrate AI into your core business systems for smarter decision making." },
-      { title: "AI Data Analytics", slug: "ai-data-analytics", description: "Predictive insights.", content: "Turn your data into actionable insights with AI-powered analytics." },
-      { title: "AI Strategy & Consulting", slug: "ai-strategy-consulting", description: "Navigate the AI era.", content: "Strategic guidance on how to leverage AI to achieve your specific business objectives." }
+      { 
+        title: "AI Chatbots", 
+        h1: aiSystemsContent["ai-chatbots"].h1,
+        slug: "ai-chatbots", 
+        description: "24/7 intelligent support.", 
+        content: aiSystemsContent["ai-chatbots"].content 
+      },
+      { 
+        title: "AI Business Systems", 
+        h1: aiSystemsContent["ai-business-systems"].h1,
+        slug: "ai-business-systems", 
+        description: "Smart infrastructure.", 
+        content: aiSystemsContent["ai-business-systems"].content 
+      },
+      { 
+        title: "AI Data Analytics", 
+        h1: aiSystemsContent["ai-data-analytics"].h1,
+        slug: "ai-data-analytics", 
+        description: "Predictive insights.", 
+        content: aiSystemsContent["ai-data-analytics"].content 
+      },
+      { 
+        title: "AI Strategy & Consulting", 
+        h1: aiSystemsContent["ai-strategy-consulting"].h1,
+        slug: "ai-strategy-consulting", 
+        description: "Strategic AI roadmaps.", 
+        content: aiSystemsContent["ai-strategy-consulting"].content 
+      }
     ]
   }
 };

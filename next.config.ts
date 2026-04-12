@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
         destination: '/services/ai-systems-integration',
         permanent: true,
       },
+      {
+        source: '/blog/the-future-of-ai-in-marketing',
+        destination: '/blog/ai-marketing/the-future-of-ai-in-marketing',
+        permanent: true,
+      },
     ];
   },
   async headers() {

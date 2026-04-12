@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
+import { sanitizeSlug } from '@/lib/utils';
 
 const DOMAIN = 'https://growthlab.co.ke';
 
@@ -11,6 +12,16 @@ const FALLBACK_PILLAR_SLUGS = [
   'business-automation',
   'ai-systems-integration',
 ];
+
+// Helper to filter out junk URLs (e.g. containing $ or &) as requested in SEO improvements
+const isSafeUrl = (url: string): boolean => {
+  return (
+    !url.includes('$') && 
+    !url.includes('&') && 
+    !url.toLowerCase().includes('.ico') && 
+    !url.toLowerCase().includes('.woff2')
+  );
+};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all dynamic content simultaneously from Sanity
@@ -49,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       : FALLBACK_PILLAR_SLUGS;
 
   const pillarPages: MetadataRoute.Sitemap = pillarSlugs.map((slug: string) => ({
-    url: `${DOMAIN}/services/${slug}`,
+    url: `${DOMAIN}/services/${sanitizeSlug(slug)}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
@@ -59,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const clusterPages: MetadataRoute.Sitemap = (clusters || [])
     .filter((c: any) => c?.slug && c?.pillarSlug)
     .map((cluster: any) => ({
-      url: `${DOMAIN}/services/${cluster.pillarSlug}/${cluster.slug}`,
+      url: `${DOMAIN}/services/${sanitizeSlug(cluster.pillarSlug)}/${sanitizeSlug(cluster.slug)}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -69,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPages: MetadataRoute.Sitemap = (posts || [])
     .filter((p: any) => p?.slug)
     .map((post: any) => ({
-      url: `${DOMAIN}/blog/${post.categorySlug || 'general'}/${post.slug}`,
+      url: `${DOMAIN}/blog/${sanitizeSlug(post.categorySlug || 'general')}/${sanitizeSlug(post.slug)}`,
       lastModified: post.updatedAt
         ? new Date(post.updatedAt)
         : post.publishedAt
@@ -83,7 +94,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const portfolioPages: MetadataRoute.Sitemap = (projects || [])
     .filter((p: any) => p?.slug)
     .map((project: any) => ({
-      url: `${DOMAIN}/portfolio/${project.slug}`,
+      url: `${DOMAIN}/portfolio/${sanitizeSlug(project.slug)}`,
       lastModified: project.updatedAt ? new Date(project.updatedAt) : new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -95,5 +106,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...clusterPages,
     ...blogPages,
     ...portfolioPages,
-  ];
+  ].filter(item => isSafeUrl(item.url));
 }

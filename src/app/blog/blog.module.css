@@ -21,6 +21,23 @@
     color: var(--text-muted);
 }
 
+.editorialIntro {
+    max-width: 800px;
+    margin: 32px auto 0;
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-orange);
+    text-align: left;
+}
+
+.editorialIntro p {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    margin: 0;
+}
+
 .posts {
     padding: var(--spacing-section) 0;
 }

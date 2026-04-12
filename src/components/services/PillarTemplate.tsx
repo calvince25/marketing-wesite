@@ -42,7 +42,7 @@ export default function PillarTemplate({ service }: PillarTemplateProps) {
       <section className={styles.hero}>
         <div className="container">
           <Link href="/services" className={styles.backLink}>← All Services</Link>
-          <h1 className={styles.title}>{service.title}</h1>
+          <h1 className={styles.title}>{service.h1 || service.title}</h1>
           <p className={styles.description}>{service.description}</p>
         </div>
       </section>
@@ -52,13 +52,15 @@ export default function PillarTemplate({ service }: PillarTemplateProps) {
           <div className={styles.layout}>
             <div className={styles.mainContent}>
               <div className={styles.section}>
-                <h2>Overview</h2>
+                <h2>Strategic Overview</h2>
                 {service.isSanity ? (
                   <div className={styles.richText}>
                     <PortableText value={service.overview as any} />
                   </div>
                 ) : (
-                  <p>{service.overview as any}</p>
+                  <div className={styles.overviewText} style={{ whiteSpace: 'pre-wrap' }}>
+                    {service.overview as any}
+                  </div>
                 )}
               </div>
 

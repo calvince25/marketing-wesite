@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { pillarServices } from "@/lib/services";
+import { sanitizeSlug } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { 
   siteSettingsQuery, 
@@ -84,7 +85,7 @@ export default async function Home() {
 
           <div className={styles.serviceGrid}>
             {allServices.map((service: any, idx: number) => (
-              <Link href={`/services/${service.slug?.current || service.slug}`} key={idx} className={styles.serviceCard}>
+              <Link href={`/services/${sanitizeSlug(service.slug?.current || service.slug)}`} key={idx} className={styles.serviceCard}>
                 <div className={styles.cardContent}>
                   <h3>{service.name || service.title}</h3>
                   <p>{service.shortDescription || service.description}</p>
@@ -117,7 +118,7 @@ export default async function Home() {
           </div>
           <div className={styles.clusterGrid}>
             {webDevClusters.slice(0, 4).map((cluster: any, idx: number) => (
-              <Link href={`/services/web-development/${cluster.slug}`} key={idx} className={styles.clusterCard}>
+              <Link href={`/services/web-development/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
                 <h4>{cluster.title}</h4>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
@@ -148,7 +149,7 @@ export default async function Home() {
           </div>
           <div className={styles.clusterGrid}>
             {seoClusters.slice(0, 4).map((cluster: any, idx: number) => (
-              <Link href={`/services/seo-digital-marketing/${cluster.slug}`} key={idx} className={styles.clusterCard}>
+              <Link href={`/services/seo-digital-marketing/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
                 <h4>{cluster.title}</h4>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
@@ -179,7 +180,7 @@ export default async function Home() {
           </div>
           <div className={styles.clusterGrid}>
             {automationClusters.slice(0, 4).map((cluster: any, idx: number) => (
-              <Link href={`/services/business-automation/${cluster.slug}`} key={idx} className={styles.clusterCard}>
+              <Link href={`/services/business-automation/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
                 <h4>{cluster.title}</h4>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
@@ -210,7 +211,7 @@ export default async function Home() {
           </div>
           <div className={styles.clusterGrid}>
             {aiClusters.slice(0, 4).map((cluster: any, idx: number) => (
-              <Link href={`/services/ai-systems-integration/${cluster.slug}`} key={idx} className={styles.clusterCard}>
+              <Link href={`/services/ai-systems-integration/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
                 <h4>{cluster.title}</h4>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
@@ -273,7 +274,7 @@ export default async function Home() {
           </div>
           <div className={styles.blogGrid}>
             {posts && posts.length > 0 ? posts.slice(0, 3).map((post: any, idx: number) => (
-              <Link href={`/blog/${post.slug.current}`} key={idx} className={styles.blogCard}>
+              <Link href={`/blog/${sanitizeSlug(post.slug.current)}`} key={idx} className={styles.blogCard}>
                 <div className={styles.imagePlaceholder}>
                   {post.mainImage ? (
                     <Image 

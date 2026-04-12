@@ -3,19 +3,38 @@ import { siteSettingsQuery } from "@/sanity/lib/queries";
 import styles from "./contact.module.css";
 import ContactForm from "@/components/contact/ContactForm";
 import { MapPin, Mail, Phone, Facebook, Linkedin, Instagram } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
 
 export default async function ContactPage() {
   const settings = await client.fetch(siteSettingsQuery).catch(() => null);
   const contact = settings?.contactInfo;
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "GrowthLab Limited",
+    "url": "https://growthlab.co.ke",
+    "telephone": "+254 743 990 479",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Westlands, Nairobi",
+      "addressCountry": "KE"
+    },
+    "serviceArea": ["Nairobi", "Kenya", "East Africa"],
+    "description": "GrowthLab Limited is a premium digital agency in Nairobi, Westlands, specializing in web development, SEO, business automation, and AI systems integration."
+  };
+
   return (
     <div className={styles.contactPage}>
+      <JsonLd data={schemaData} />
       <section className={styles.hero}>
         <div className="container">
           <h1 className={styles.title}>Ready to Grow Your Digital Presence?</h1>
-          <p className={styles.subtitle}>
-            Fill out the form below and our experts will get back to you within 24 hours with a custom strategy.
-          </p>
+          <div className={styles.editorialIntro} style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <p>
+              If you are a business operating in Kenya looking for high-performance website development, expert SEO strategies, or sophisticated business automation and AI solutions, you have come to the right place. GrowthLab Limited is dedicated to helping Kenyan enterprises scale through technical excellence and data-driven results. Whether you&apos;re in the early stages of planning a custom web application or looking to optimize your existing digital workflows, our team is ready to assist. Once you submit the contact form, our specialists will review your requirements and reach out within 24 hours to schedule a free 30-minute consultation call. We are physically located in Nairobi&apos;s Westlands district, serving clients across East Africa with strategic brilliance and dedicated support.
+            </p>
+          </div>
         </div>
       </section>
 

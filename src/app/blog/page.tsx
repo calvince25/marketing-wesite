@@ -16,6 +16,12 @@ export default async function BlogPage() {
         <div className="container">
           <h1 className={styles.title}>Growth Insights</h1>
           <p className={styles.subtitle}>Strategies and tips to scale your business in the digital age.</p>
+          
+          <div className={styles.editorialIntro}>
+            <p>
+              Welcome to the GrowthLab blog, your go-to resource for navigating the digital landscape in Kenya. We cover everything from advanced SEO tactics and bespoke web development to the latest in business automation and AI integration. Whether you are a Kenyan entrepreneur looking to launch your first startup or a seasoned business owner aiming to optimize your digital ROI, our insights are crafted to provide practical, data-driven value. Dive into our articles and join a community of forward-thinking businesses scaling through technical excellence.
+            </p>
+          </div>
         </div>
       </section>
 

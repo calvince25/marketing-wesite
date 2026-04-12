@@ -25,10 +25,10 @@ const Footer = async () => {
                     <div className={styles.footerCol}>
                         <h4>Navigate</h4>
                         <ul>
-                            <li><Link href="/about">About Us</Link></li>
-                            <li><Link href="/portfolio">Portfolio</Link></li>
-                            <li><Link href="/blog">Blog</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/about" aria-label="About GrowthLab">About Us</Link></li>
+                            <li><Link href="/portfolio" aria-label="View Projects">Portfolio</Link></li>
+                            <li><Link href="/blog" aria-label="Read Blog">Blog</Link></li>
+                            <li><Link href="/contact" aria-label="Contact Us">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -56,7 +56,7 @@ const Footer = async () => {
                         <h4>Connect</h4>
                         <ul>
                             <li>
-                                <a href="mailto:info@growthlab.co.ke">
+                                <a href="mailto:info@growthlab.co.ke" aria-label="Email GrowthLab">
                                     info@growthlab.co.ke
                                 </a>
                             </li>
@@ -79,9 +79,9 @@ const Footer = async () => {
                                 );
                             }) : (
                                 <>
-                                    <li><a href="https://www.facebook.com/share/1bTmn3gbH5/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Facebook size={18} /> Facebook</a></li>
-                                    <li><a href="https://www.linkedin.com/in/calvince-omondi-3351763ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Linkedin size={18} /> LinkedIn</a></li>
-                                    <li><a href="https://instagram.com/growthlablimited" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Instagram size={18} /> Instagram</a></li>
+                                    <li><a href="https://www.facebook.com/share/1bTmn3gbH5/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Facebook size={18} /> Facebook</a></li>
+                                    <li><a href="https://www.linkedin.com/in/calvince-omondi-3351763ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Linkedin size={18} /> LinkedIn</a></li>
+                                    <li><a href="https://instagram.com/growthlablimited" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Instagram size={18} /> Instagram</a></li>
                                 </>
                             )}
                         </ul>

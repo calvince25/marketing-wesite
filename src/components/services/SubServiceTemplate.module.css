@@ -138,6 +138,26 @@
   font-size: 15px;
 }
 
+/* ── Content Wrapper (long-form text) ────────────────────── */
+.contentWrapper {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #444c60;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Markdown-style headings within pre-wrap text */
+.richText .contentWrapper,
+.contentWrapper {
+  white-space: pre-wrap;
+}
+
+.richText h2,
+.richText h3 {
+  white-space: normal;
+}
+
 /* ── CTA Box ─────────────────────────────────────────────── */
 .ctaBox {
   margin-top: 60px;

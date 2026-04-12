@@ -13,7 +13,7 @@ export default async function ContactPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "GrowthLab Limited",
-    "url": "https://growthlab.co.ke",
+    "url": "https://www.growthlab.co.ke",
     "telephone": "+254 743 990 479",
     "address": {
       "@type": "PostalAddress",

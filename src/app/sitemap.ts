@@ -3,7 +3,7 @@ import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import { sanitizeSlug } from '@/lib/utils';
 
-const DOMAIN = 'https://growthlab.co.ke';
+const DOMAIN = 'https://www.growthlab.co.ke';
 
 const FALLBACK_PILLAR_SLUGS = [
   'web-development',

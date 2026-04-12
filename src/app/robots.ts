@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://growthlab.co.ke/sitemap.xml',
+    sitemap: 'https://www.growthlab.co.ke/sitemap.xml',
   };
 }

@@ -92,7 +92,7 @@ export default function CompanyProfilePage() {
           <p style={{ fontSize: '1.2rem', marginBottom: '10px' }}>GrowthLab Limited</p>
           <p style={{ color: '#555', marginBottom: '20px' }}>Westlands, Nairobi, Kenya</p>
           <div style={{ display: 'inline-block', padding: '10px 20px', background: '#e0e0e0', fontWeight: 'bold' }}>
-            www.growthlab.co.ke
+            https://www.growthlab.co.ke
           </div>
         </div>
 

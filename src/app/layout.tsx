@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://growthlab.co.ke'),
+  metadataBase: new URL('https://www.growthlab.co.ke'),
   title: {
     default: "GrowthLab Limited | Digital Marketing Agency Kenya & SEO Nairobi",
     template: "%s | GrowthLab Limited"
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GrowthLab Limited | Digital Marketing Agency Kenya",
     description: "Premier agency for digital marketing and SEO in Kenya. We build high-end digital experiences for ambitious brands.",
-    url: 'https://growthlab.co.ke',
+    url: 'https://www.growthlab.co.ke',
     siteName: 'GrowthLab Limited',
     locale: 'en_KE',
     type: 'website',
@@ -53,9 +53,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "GrowthLab Limited",
-    "image": "https://growthlab.co.ke/media/logo.png",
-    "@id": "https://growthlab.co.ke",
-    "url": "https://growthlab.co.ke",
+    "image": "https://www.growthlab.co.ke/media/logo.png",
+    "@id": "https://www.growthlab.co.ke",
+    "url": "https://www.growthlab.co.ke",
     "telephone": "+254 743 990 479",
     "address": {
       "@type": "PostalAddress",

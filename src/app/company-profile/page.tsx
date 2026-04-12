@@ -1,18 +1,13 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import PrintButton from './PrintButton';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Company Profile (PDF) | GrowthLab Limited Nairobi',
-  description: 'View or download the official GrowthLab Limited company profile. A premium digital agency in Kenya specializing in web development, SEO, and automation.',
-};
+import Link from 'next/link';
 
 export default function CompanyProfilePage() {
   return (
     <div style={{ background: '#f5f5f5', minHeight: '100vh', padding: '40px 0' }}>
       
       {/* Web Controls (Hidden on Print) */}
-      <div className="container" style={{ textAlign: 'center', marginBottom: '20px' }} suppressHydrationWarning>
+      <div className="container" style={{ textAlign: 'center', marginBottom: '20px' }}>
         <style dangerouslySetInnerHTML={{ __html: `
           @media print {
             .no-print { display: none !important; }
@@ -23,7 +18,13 @@ export default function CompanyProfilePage() {
         `}} />
         <h1 className="no-print" style={{ fontSize: '2rem', marginBottom: '10px' }}>GrowthLab Corporate Profile</h1>
         <p className="no-print" style={{ color: '#555', marginBottom: '20px' }}>Below is the interactive web version of our corporate profile.</p>
-        <PrintButton />
+        <button 
+          className="btn btn-primary no-print" 
+          onClick={() => typeof window !== 'undefined' && window.print()}
+          style={{ padding: '12px 25px', background: '#0056b3', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}
+        >
+          Download PDF Document (Print)
+        </button>
       </div>
 
       {/* The Printable "Sheet" */}

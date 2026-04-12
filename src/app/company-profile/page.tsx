@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import PrintButton from './PrintButton';
 
 export const metadata: Metadata = {
   title: 'Company Profile (PDF) | GrowthLab Limited Nairobi',
@@ -22,13 +23,7 @@ export default function CompanyProfilePage() {
         `}} />
         <h1 className="no-print" style={{ fontSize: '2rem', marginBottom: '10px' }}>GrowthLab Corporate Profile</h1>
         <p className="no-print" style={{ color: '#555', marginBottom: '20px' }}>Below is the interactive web version of our corporate profile.</p>
-        <button 
-          className="btn btn-primary no-print" 
-          onClick={() => typeof window !== 'undefined' && window.print()}
-          style={{ padding: '12px 25px', background: '#0056b3', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}
-        >
-          Download PDF Document (Print)
-        </button>
+        <PrintButton />
       </div>
 
       {/* The Printable "Sheet" */}

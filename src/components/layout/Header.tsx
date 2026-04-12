@@ -38,6 +38,7 @@ const Header = async () => {
                     <ul className={styles.navLinks}>
                         <li><Link href="/" aria-label="Go to Homepage">Home</Link></li>
                         <li><Link href="/services" aria-label="Explore our Services">Services</Link></li>
+                        <li><Link href="/pricing" aria-label="Pricing">Pricing</Link></li>
                         <li><Link href="/portfolio" aria-label="View our Projects">Portfolio</Link></li>
                         <li><Link href="/blog" aria-label="Read our Blog">Blog</Link></li>
                         <li><Link href="/about" aria-label="Learn more about GrowthLab">About</Link></li>

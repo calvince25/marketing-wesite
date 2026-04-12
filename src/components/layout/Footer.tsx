@@ -26,8 +26,12 @@ const Footer = async () => {
                         <h4>Navigate</h4>
                         <ul>
                             <li><Link href="/about" aria-label="About GrowthLab">About Us</Link></li>
+                            <li><Link href="/company-profile" aria-label="Company Profile">Company Profile</Link></li>
+                            <li><Link href="/testimonials" aria-label="Testimonials">Testimonials</Link></li>
+                            <li><Link href="/pricing" aria-label="Pricing">Pricing</Link></li>
                             <li><Link href="/portfolio" aria-label="View Projects">Portfolio</Link></li>
                             <li><Link href="/blog" aria-label="Read Blog">Blog</Link></li>
+                            <li><Link href="/faq" aria-label="FAQ">FAQ</Link></li>
                             <li><Link href="/contact" aria-label="Contact Us">Contact</Link></li>
                         </ul>
                     </div>

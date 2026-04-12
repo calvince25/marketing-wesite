@@ -3,6 +3,26 @@ import { PillarService, SubService } from "@/lib/services";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import styles from "./SubServiceTemplate.module.css";
 import { PortableText } from "@portabletext/react";
+import React from 'react';
+
+const renderStaticContent = (content: string) => {
+  if (!content) return null;
+  const parts = content.split(/(\*\*.*?\*\*)/g);
+  return (
+    <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>
+      {parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return (
+            <h3 key={i} style={{ color: '#FF6B00', marginTop: '2rem', marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700' }}>
+              {part.slice(2, -2)}
+            </h3>
+          );
+        }
+        return <React.Fragment key={i}>{part}</React.Fragment>;
+      })}
+    </div>
+  );
+};
 
 interface SubServiceTemplateProps {
   pillar: PillarService;
@@ -34,9 +54,7 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
                 {subService.isSanity ? (
                   <PortableText value={subService.content as any} />
                 ) : (
-                  <div className={styles.contentWrapper} style={{ whiteSpace: 'pre-wrap' }}>
-                    {subService.content}
-                  </div>
+                  renderStaticContent(subService.content as string)
                 )}
               </div>
 

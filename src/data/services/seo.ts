@@ -2,159 +2,199 @@ export const seoContent = {
   "ai-powered-marketing": {
     h1: "AI Powered Marketing Kenya — Data-Driven Growth for Modern Brands",
     content: `
-The legacy of generic, "spray and pray" marketing is dead. In a digital landscape as dynamic as Nairobi's, businesses need more than just catchy slogans—they need data-driven precision. GrowthLab Limited offers AI-powered marketing in Kenya, leveraging machine learning and predictive analytics to ensure your marketing budget is spent on high-impact channels that deliver a measurable Return on Investment (ROI).
+The legacy of generic, "spray and pray" marketing is dead. In a digital landscape as dynamic as Nairobi's, businesses need more than just catchy slogans—they need data-driven precision. GrowthLab Limited offers AI-powered marketing in Kenya, leveraging machine learning, neural networks, and predictive analytics to ensure your marketing budget is spent on high-impact channels that deliver a measurable, documented Return on Investment (ROI).
 
-We move beyond traditional digital marketing by using AI to analyze customer behavior, predict future trends, and personalize content at a scale that was previously impossible. Our goal is to make your marketing smarter, faster, and significantly more profitable.
+We move beyond traditional digital marketing by using AI to analyze millions of customer behavior data points, predict future buying trends with up to 90% accuracy, and personalize content at a scale that was previously impossible. Our goal is to make your marketing smarter, faster, and significantly more profitable by removing the human guesswork from the equation.
+
+### The Evolution of Marketing in Kenya
+In the past, Kenyan businesses relied on broad social media boosts and unrefined Google Ads that reached everyone but converted few. In 2025 and 2026, the strategy must shift. With the penetration of 5G and the maturity of the digital consumer in Nairobi, Kisumu, and Mombasa, users expect a bespoke experience. AI-powered marketing allows us to deliver that experience without a massive increase in human overhead. We use "Agentic AI" systems—software that doesn't just generate text, but takes actions based on performance data—to manage your growth.
 
 ### What's Included: AI Marketing Deliverables
-- **Predictive Audience Targeting**: Using AI to identify the exact segments of the Kenyan market that are most likely to convert right now.
-- **Dynamic Content Personalization**: Systems that automatically tailor your website and email messaging based on individual user behavior.
-- **Automated Ad Optimization**: AI-driven bidding and creative testing for Google Ads and Facebook Ads to lower your Cost Per Acquisition (CPA).
-- **Sentiment Analysis & Social Listening**: AI tools that monitor how Nairobi consumers view your brand, allowing for proactive reputation management.
-- **Micro-Segmented Email Marketing**: Automated, AI-driven email cadences that send the right message to the right person at the optimal time for an open.
-- **Conversion Rate Optimization (CRO)**: AI-powered heatmaps and A/B testing to identify and fix friction points in your sales funnel.
-- **Predictive ROI Modeling**: Forecasting the outcome of your marketing spend before you even launch the campaign.
+- **Predictive Audience Targeting**: We use machine learning to identify the exact segments of the Kenyan market that are "in-market" for your service right now. This reduces wasted ad spend by up to 40%.
+- **Dynamic Content Personalization (DCP)**: Implementing systems that automatically rewrite your website’s hero sections and calls-to-action based on the specific visitor's browsing history and location.
+- **Autonomous Ad Optimization**: Our AI agents monitor your Google and Meta Ads 24/7, adjusting bids every 15 minutes to capture the lowest possible Cost Per Acquisition (CPA).
+- **Sentiment Analysis & Natural Language Processing**: Tools that scan Kenyan social media spaces (X, TikTok, Facebook) to understand how consumers perceive your brand in real-time.
+- **Micro-Segmented Email Automation**: Forget generic newsletters. We build AI-driven cadences that send a unique message to each lead based on their specific interaction with your brand.
+- **Conversion Rate Optimization (CRO) Heatmapping**: AI-powered visual analysis that identifies why users are leaving your checkout page and automatically suggests layout fixes.
+- **Predictive ROI Modeling**: Using your historical data to forecast exactly how much revenue a specific marketing spend will generate over the next quarter.
 
-### Our Process: Smart Marketing
-1. **Data Ingestion & Audit**: We connect to your current marketing platforms and website to analyze your history.
-2. **AI Implementation**: We set up the specific machine learning models (e.g., churn prediction, recommendation engines) suited for your industry.
-3. **Omni-Channel Integration**: Connecting your AI insights to your ads, email, and social media channels.
-4. **Agile Optimization**: Continuous, daily adjustments powered by AI to maximize performance.
-5. **Dashboard Reporting**: Clear, real-time views of your marketing ROI and customer growth.
+### Our Process: Smart Marketing Engineering
+1. **Data Ingestion & Integrity Audit**: We audit your current data streams (CRM, Website Analytics, POS systems) to ensure the AI has clean information to learn from.
+2. **AI Model Selection**: We select or build the specific machine learning models suited for your specific industry—whether it’s churn prediction for a subscription business or recommendation engines for e-commerce.
+3. **Omni-Channel Integration**: We connect your AI core to your entire tech stack, from M-Pesa hooks to your email server.
+4. **The Learning Phase**: The system runs in "Observation Mode" for 14-30 days to establish a performance baseline.
+5. **Agile Scaling**: Once the model is refined, we aggressively scale the top-performing channels, with the AI making real-time budget reallocations.
 
-### The Kenyan Market Context
-In Kenya, mobile money and social commerce are the primary drivers of growth.
-- **Behavioral Personalization**: With Kenyans spending hours on social media every day, using AI to serve personalized ads based on their specific browsing history is key.
-- **Mobile Money Triggers**: We use AI to identify when a customer is "ready to buy" via M-Pesa and trigger the right marketing intervention.
+### Kenyan Market Context: The M-Pesa Advantage
+Kenya has a unique advantage: the world's most sophisticated mobile money ecosystem. Our AI systems are designed to trigger marketing interventions based on mobile money liquidity and consumer spending patterns.
+- **Behavioral Triggers**: We use AI to identify when a customer is "ready to pay" and serve them the final conversion nudge via WhatsApp or SMS.
+- **Social Commerce Dominance**: Since Kenyans spend an average of 3.5 hours on social media daily, our AI focuses on "Social Listening" to find ready buyers before they even search on Google.
 
-### Why GrowthLab?
-We are "ROI-Obsessed." We don't care about "likes" or "followers" if they don't turn into revenue.
-- **Technical Excellence**: We have the internal team to build and maintain the AI systems that power your marketing.
-- **Strategic Brilliance**: We combine high-end technology with local market insights to win in Nairobi.
+### Why GrowthLab for AI Marketing?
+We are one of the few agencies in Westlands that actually employs software engineers as part of our marketing pods.
+- **Custom-Coded Solutions**: We don't just use ChatGPT. We build custom API bridges between your business and the world's most powerful LLMs.
+- **ROI-Obsessed Culture**: We define success by your bank balance, not your "likes."
+- **Transparency**: You get a real-time dashboard showing exactly what the AI is doing and why.
 
-### Pricing Context
-AI-powered marketing services start from **KES 150,000** per month for strategic management and implementation.
+### Pricing & Packages
+AI-powered marketing strategy and implementation packages start from **KES 150,000** per month. This covers full system management, data analysis, and continuous model refinement.
 
 ### FAQ
-- **Q: Is my budget too small for AI marketing?**
-  - A: AI actually makes small budgets go further by ensuring they aren't wasted on low-quality traffic.
-- **Q: How soon do we see an increase in ROI?**
-  - A: Most clients see a noticeable drop in CPA and increase in conversion within the first 2-3 months.
-- **Q: Can you help with my existing Google Ads?**
-  - A: Yes, we specialize in taking over and optimizing existing accounts using AI-driven strategies.
+**Q: Will AI replace my entire marketing team?**
+A: No. AI handles the data and the execution volume, but human strategy and brand narrative remain the "soul" of the campaign. We empower your team to focus on high-level strategy.
 
-### Optimize Your Growth
-Ready to stop guessing and start growing? [Contact the GrowthLab marketing team](/contact).
+**Q: Is it safe to give AI my customer data?**
+A: We implement strictly "Privacy-First" AI architectures. Data is anonymized before processing, and we use secure, private API partitions to ensure your business intelligence stays yours.
+
+### Ready to Engineering Your Growth?
+Don't let your competition use the future against you. [Contact our AI Marketing team](/contact) to book a system-readiness audit.
     `
   },
   "ai-seo-services-kenya": {
     h1: "AI SEO Services Kenya — The Future of Search Performance",
     content: `
-Search Engine Optimization has changed more in the last 12 months than it did in the previous 10 years. With the rise of AI-driven search (SGE) and sophisticated algorithms, traditional SEO isn't enough to stay on page one. GrowthLab Limited offers specialized AI SEO services in Kenya, combining technical SEO mastery with artificial intelligence to out-rank, out-think, and out-perform your competition.
+The SEO landscape has been fundamentally disrupted. With the introduction of Search Generative Experience (SGE) and Answer Engines, the old "keyword-stuffing" methods are not only obsolete—they are dangerous. GrowthLab Limited offers the most advanced AI SEO services in Kenya, designed for brands that need to stay ahead of the curve as search engines transition from "Link Libraries" to "Answer Engines."
 
-We don't just optimize for "keywords"; we optimize for **Intent** and **Authority**. Our AI-driven approach allows us to analyze thousands of data points across the Nairobi digital landscape to find the exact gaps your brand needs to fill to dominate your niche.
+We combine the technical rigor of traditional SEO with the predictive power of Artificial Intelligence to ensure your brand remains the top authority in your niche.
+
+### The Shift to "Answer Engine Optimization" (AEO)
+In 2025, people aren't just clicking blue links; they are asking Perplexity, ChatGPT, and Google's SGE for direct answers. To rank today, your website must be built as a structured data source that AI can easily ingest and trust. GrowthLab specializes in building this "Algorithmic Trust."
 
 ### What's Included: AI SEO Deliverables
-- **AI-Driven Keyword Research**: Finding high-value, low-competition "long-tail" keywords that humans would never find.
-- **Topic Authority Mapping**: Building comprehensive content clusters that establish you as the expert in your field in the eyes of Google.
-- **Automated Content Optimization**: Using AI to ensure every page on your site has the perfect semantic density and structure for modern search engines.
-- **Technical SEO Audits powered by AI**: Instantly identifying and fixing deep technical issues that hinder your performance.
-- **Competitor Gap Analysis**: AI-powered comparison of your site vs. your top 5 competitors in Nairobi to see exactly where they are winning.
-- **Local Intent Optimization**: Ensuring your brand shows up for "near me" and Nairobi-specific searches.
-- **AI Link Building Strategy**: Identifying the high-authority domains in the Kenyan and international tech space where you need backlinks.
+- **Semantic Authority Mapping**: We don't just find keywords; we find the "Topics" you need to own to be seen as the ultimate authority in your Kenyan industry.
+- **AI-Driven Competitive Intelligence**: We use AI to scan every page of your top 10 competitors in Nairobi daily, identifying every content gap and technical edge they have.
+- **Natural Language Processing (NLP) Optimization**: Ensuring your content is structured so that AI models can easily summarize it and present it as the "featured" answer.
+- **Automated Schema Engineering**: Implementing complex JSON-LD structures (Organization, Product, Service, FAQ) that speak directly to search engine bots.
+- **AI-Powered Link Intelligence**: Identifying high-authority Kenyan and international domains that are "semantically relevant" to your business for precise link building.
+- **Generative AI Content Governance**: Using AI to audit your content for high-threshold quality, ensuring nothing you publish is seen as "thin" by Google's latest updates.
+- **Answer Engine Visibility Tracking**: We don't just track rankings; we track how often your brand is mentioned by name in AI-generated answers.
 
-### Our Process: Technical & Strategic SEO
-1. **The AI Site Audit**: We run your site through our proprietary AI diagnostic tools.
-2. **The "North Star" Strategy**: We define the high-intent keywords that will actually drive sales, not just traffic.
-3. **Execution Phase**: On-page, off-page, and technical optimizations are rolled out in prioritized phases.
-4. **Content Engine**: We build high-value content that AI search engines love and users find useful.
-5. **Continuous Performance Monitoring**: Adjusting strategies based on how Google's algorithms evolve.
+### Our Process: Technical Mastery
+1. **The Semantic Site Audit**: We analyze your current site of its "Entity Relationship" and how well it communicates its expertise.
+2. **Intent-First Content Strategy**: We identify the specific questions your customers are asking and build "Answer Hubs" to address them.
+3. **Technical Schema Deployment**: We add a sophisticated layer of structured data that defines your business to the algorithmic world.
+4. **Authority Engine**: We use data-driven PR and high-end guest posting to build the external trust signals the AI looks for.
+5. **Fluid Optimization**: As Google releases "Core Updates," our AI-driven systems detect traffic shifts in real-time, allowing us to pivot your strategy in days, not months.
 
-### The Kenyan Market Context
-In Nairobi, everyone is fighting for the same few keywords. 
-- **Mobile SEO**: Over 90% of searches in Kenya are on mobile. A site that isn't lightning-fast on mobile will never rank.
-- **Local Relevance**: Google prioritizes sites that it believes are locally relevant and authoritative for the Kenyan user.
+### The Kenyan Search Landscape: A Mobile Majority
+In Kenya, where 92% of searches are mobile, speed and clarity are the primary variables.
+- **Mobile-Fast Architecture**: We ensure your site uses "Hydration Optimization" to load your most important content in under 1 second on a Safaricom 4G/5G connection.
+- **Localized Intent**: We optimize for the way Kenyans actually search—often using high-intent local phrases and neighborhood-specific modifiers.
 
-### Why GrowthLab for SEO?
-We aren't a "post once a month" SEO agency. We are a technical performance agency based in Westlands.
-- **Advanced Technical Expertise**: We understand the "under the hood" metrics like Core Web Vitals and Schema Markup that drive 2025 rankings.
-- **Results, Not Reports**: We focus on your revenue and ranking for terms that "Convert."
+### Why GrowthLab for AI SEO?
+We are technical first. Most SEO agencies in Nairobi are content-only; we are an engineering firm that understands the code behind the search.
+- **Next.js & Technical Excellence**: We build sites that are naturally favored by search engines.
+- **Proven Rankings**: We own some of the most competitive search spaces in the Kenyan digital marketing niche.
 
 ### Pricing Context
-AI SEO service packages in Kenya start from **KES 80,000** per month for comprehensive management and content growth.
+Comprehensive AI SEO packages, including technical management and authority growth, start from **KES 80,000** per month.
 
 ### FAQ
-- **Q: How long until I see page 1 results?**
-  - A: SEO is a marathon. Real, sustainable growth usually takes 3 to 6 months of consistent work.
-- **Q: Do you guarantee Page 1?**
-  - A: No ethical agency can guarantee specific rankings, but our track record of results speaks for itself.
-- **Q: Is My Website "AI Search" Ready?**
-  - A: We specialize in optimizing for Answer Engines (Perplexity, ChatGPT, SGE) to ensure your brand is the answer people find.
+**Q: Is AI content bad for SEO?**
+A: Generic, unedited AI content is bad. However, "AI-Augmented" content—data-driven content written by experts and polished with AI tools—is exactly what Google wants to see: high-value, deep information.
 
-### Dominate Local Search
-Ready to own page one? [Reach out to our Westlands office](/contact) to start your SEO transformation.
+**Q: Can you rank my site for "near me" searches in Westlands?**
+A: Yes. Localized AI SEO is one of our primary specialties. We focus on the "Local Pack" and the "Knowledge Panel" to ensure you dominate your neighborhood.
+
+### Claim Your Search Authority
+The window to establish early authority in the AI era is closing. [Book an SEO strategy session](/contact) with our Westlands specialists today.
     `
   },
   "local-seo-nairobi": {
     h1: "Local SEO Nairobi — Dominate Your Neighborhood Search Results",
     content: `
-For businesses with a physical presence in Nairobi—whether you're a clinic in Upper Hill, a restaurant in Westlands, or a professional firm in Kilimani—local search is your most important customer acquisition channel. GrowthLab Limited specializes in Local SEO in Nairobi, ensuring that when potential customers search for services "near me," your business is the first thing they see on Google Maps and the Local 3-Pack.
+For any business with a physical location or a local service area in Nairobi, the battle for customers is won or lost on a map. Whether you are a lawyer in Upper Hill, a boutique in Kilimani, or a technical firm in Westlands, being the first result on Google Maps is your most direct path to high-intent leads. GrowthLab Limited specializes in hyper-local SEO in Nairobi, ensuring your business dominates the "Local 3-Pack" and turns searches into foot traffic.
 
-We help you capture high-intent local traffic and turn it into foot traffic and phone calls.
+We go beyond basic listing management to provide a "Local Power" strategy that establishes you as the neighborhood authority.
+
+### Why Local Search is Different in Nairobi
+Nairobi is a city of distinct neighborhoods, each with its own search ecosystem. A search for "Dentist" in Karen will yield completely different results than one in Pangani. Furthermore, with the rise of "Zero-Click" searches, most Kenyan users will call you or get directions directly from the search results without ever visiting your website. This makes your Google Business Profile (GBP) more important than your homepage.
 
 ### What's Included: Local SEO Deliverables
-- **Google Business Profile (GBP) Optimization**: A master-level setup and optimization of your GMB listing for maximum visibility.
-- **NAP Consistency Audits**: Ensuring your Name, Address, and Phone Number are identical across all directories in the Kenyan web.
-- **Local Citation Building**: Getting your business listed in the most influential directories in Nairobi and Kenya.
-- **Localized Content Creation**: Building pages and blog posts that highlight your involvement and expertise in the Nairobi community.
-- **Review Strategy & Reputation Management**: Systems to help you gather high-quality 5-star Google reviews from your Kenyan customers.
-- **Geo-Targeted Keyword Research**: Optimizing for terms like "[Service] in Westlands" or "[Service] Near Me."
-- **Nairobi Maps Rank Tracking**: Real-time monitoring of where you rank in Google Maps across different parts of the city.
+- **Google Business Profile (GBP) Mastery**: We perform a 50-point optimization on your listing, including high-end photography, keyword-optimized descriptions, and services categorization.
+- **Nairobi-Specific Citation Building**: We ensure your business is listed in every important local directory, from Yellow Pages Kenya to specific Nairobi business associations.
+- **Geo-Fenced Review Strategy**: We implement systems that help you collect authentic Google reviews from Kenyan customers at the moment of purchase, significantly boosting your trust score.
+- **Neighborhood-Targeted Content**: Building "Area Pages" on your website (e.g., "Services in Westlands", "Our Kilimani Office") that signal to Google's algorithm exactly where you operate.
+- **Maps Rank Tracking (Heatmaps)**: We provide visual maps showing exactly where you rank rank (1, 2, or 3) across different square kilometers of Nairobi.
+- **M-Pesa Business Integration**: We ensure your business profile mentions local payment preferences, which is a key trust signal for Kenyan consumers.
+- **Local Voice Search Optimization**: Tuning your listing to answer the "Where is the nearest..." queries that people ask their mobile devices.
 
 ### Our Process: Winning the Map
-1. **The Local Health Audit**: We check your current local visibility vs. your top 3 local competitors.
-2. **Listing Clean-up**: We fix any incorrect info that might be confusing Google about your location.
-3. **Authority Building**: We build "Local Authority" through reviews, localized content, and relevant backlinks.
-4. **Maintenance Phase**: Regular post updates and photo uploads to your GBP to keep it active and ranking.
+1. **Local Competition Audit**: We identify the "Local Kings" in your neighborhood and analyze exactly why they are ranking.
+2. **NAP (Name, Address, Phone) Remediation**: We fix any inconsistent data across the internet that might be confusing Google about your location.
+3. **The GMB "Health Boost"**: We refresh your profile with 4K photos, optimized staff bios, and a clear "Service Area."
+4. **Authority Injection**: We build local backlinks from other Nairobi-based websites and news portals to confirm your local relevance.
+5. **Engagement Management**: We handle your GMB "Questions & Answers" and ensure every review (positive or negative) gets a professional, SEO-friendly response within 24 hours.
 
-### Why GrowthLab?
-We know Nairobi. We understand that "Westlands" and "Parklands" are different markets, and we optimize accordingly.
-- **Hyper-Local Focus**: We emphasize the specific Nairobi neighborhoods where your customers live and work.
-- **Mobile-First Approach**: Most local searches happen on the move. We ensure your local presence is perfectly optimized for mobile click-to-call.
+### Why GrowthLab for Local SEO?
+We live and work in Nairobi. We understand the city's geography and how its people search. We aren't an offshore agency; we are on the ground in Westlands.
+- **Hyper-Local Intelligence**: We know the difference in search volume between "Lavington" and "Kileleshwa."
+- **Mobile-First Approach**: Since nearly all local searches happen on a smartphone, we prioritize the mobile "Click-to-Call" and "Directions" conversion paths.
 
 ### Pricing Context
-Local SEO packages start from **KES 40,000** per month.
+Local SEO packages for single-location Nairobi businesses start from **KES 40,000** per month. We offer multi-location discounts for franchises and branches across Kenya.
 
-### Contact Us
-Ready to own your neighborhood? [Talk to our Nairobi SEO experts today](/contact).
+### FAQ
+**Q: How long does it take to show up in the top 3?**
+A: For most neighborhoods, we see significant movement within 30 to 60 days of a full profile overhaul.
+
+**Q: Do I need a website to rank on Google Maps?**
+A: technically no, but having a high-performance website (like those we build) with proper "Local Schema" makes it 3x more likely that you will rank in the top positions.
+
+**Q: Can you help me remove a fake 1-star review?**
+A: We provide strategic reputation management. While only Google can delete reviews, we help you bury negative feedback with a flood of authentic, positive reviews and professional responses.
+
+### Own Your Neighborhood
+Don't let your competitors take the customers literally walking past your door. [Talk to our Nairobi Local SEO team](/contact) and claim your spot on the map.
     `
   },
   "technical-seo-audit": {
     h1: "Technical SEO Audit Services Kenya — Fix Your Search Foundation",
     content: `
-A beautiful website is useless if Google can't crawl, index, and understand it. Many Kenyan websites suffer from "hidden" technical issues—slow speeds, broken links, or poor mobile optimization—that keep them trapped on page 2 or 3 of search results. GrowthLab Limited provides comprehensive technical SEO audits in Kenya, performing a deep-tissue scan of your website to identify and fix everything that is holding you back.
+A beautiful website that search engines can't understand is a liability, not an asset. In the highly competitive digital landscape of Kenya, many sites are "invisible" because of deep-seated technical errors: slow hydration, render-blocking scripts, or a fragmented internal link structure. GrowthLab Limited provides the most comprehensive technical SEO audits in Kenya, performing an engineering-level scan to ensure your foundation is built for search dominance.
 
-We move beyond a simple "checklist" to provide a strategic technical roadmap for search dominance.
+We don't just give you a "To-Do" list; we provide the technical solutions to fix the problem at the code level.
+
+### Why Technical SEO is the "Unfair Advantage"
+Most agencies in Nairobi focus on content and social media. They miss the "under the hood" metrics that drive 2025 rankings. A site that is mechanically perfect will always outrank a "pretty" site that Google finds difficult to crawl. Technical SEO is the process of making your website easy for search engine bots to read and index.
 
 ### What's Included: Technical SEO Deliverables
-- **Core Web Vitals Audit**: Analyzing and optimizing your LCP, FID, and CLS scores for maximum speed.
-- **Crawlability & Indexing Review**: Ensuring search engine bots can access every important page on your site.
-- **Schema Markup Implementation**: Adding JSON-LD structured data so your site shows "Rich Results" in Google.
-- **Mobile Usability Testing**: A detailed check of how your site performs on Kenyan mobile networks and devices.
-- **Internal Linking Structure Optimization**: Making sure your site's "power" flows to your most important pages.
-- **Security Check & SSL Audit**: Ensuring your site is secure and trusted by search engines.
-- **Technical Backlink Audit**: Identifying and disavowing any "toxic" links that might be penalizing your rankings.
+- **Core Web Vitals Optimization**: We deep-dive into your Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) scores, optimizing for the 4K/5G and mobile mobile parity that Google demands.
+- **Crawl Budget Analysis**: We analyze your server logs to ensure Google's bots are spending their time on your high-value pages, not wasting it on "junk" URLs or scripts.
+- **Dynamic Rendering & SSR Audit**: Specifically for Next.js, React, and Vue applications, we ensure your client-side code doesn't hide your content from search engines.
+- **JSON-LD Schema Engineering**: We go beyond basic tags to build a full "Knowledge Graph" for your organization using advanced schema markup.
+- **Sitemap & Robots.txt Re-Engineering**: Creating a clean, logical roadmap for Google to follow as it indexes your business.
+- **HTTPS & Security Audit**: Ensuring your site uses the latest security protocols (HSTS) which is a confirmed Google ranking factor.
+- **Mobile Usability & Parity Audit**: Confirming that your mobile site contains the exact same authority signals as your desktop site—critical for Google's "Mobile-First Indexing."
+- **JavaScript Performance Profiling**: Identifying and removing scripts that are slowing down your site's "Time to Interactive."
 
-### Why GrowthLab?
-We are developers who understand SEO. This combination is rare in Nairobi.
-- **Deep Technical Scan**: We don't just use one tool; we use a suite of enterprise-level software to cross-reference your site's health.
-- **Actionable Roadmap**: We don't just give you a list of problems; we provide specific instructions (or code) on how to fix them.
+### Our Process: The Engineering Deep Dive
+1. **Log File Analysis**: We look at how Googlebot actually interacts with your server. This is the "Truth" of your SEO health.
+2. **The "Full-Stack" Crawl**: We use enterprise-level tools (Screaming Frog, Botify, SEMrush) to mirror how Google sees your site.
+3. **Code-Level Review**: Our senior developers review your HTML, CSS, and JS structure to identify "Technical Debt" and bloating.
+4. **Prioritized Action Roadmap**: We don't just dump data on you. we give you a clear "Critical / High / Medium" list of fixes.
+5. **Implementation & Verification**: We can either work with your developers or have our internal team apply the fixes directly.
+
+### Why GrowthLab for Technical Audits?
+We are software engineers first. We don't just understand SEO "best practices"—we understand how web browsers and search engine crawlers are programmed.
+- **Next.js Experts**: We represent the pinnacle of technical SEO for modern, headless web applications.
+- **Data over Opinions**: We provide hard performance metrics before and after the audit to prove the impact.
 
 ### Pricing Context
-Technical SEO Audits start from **KES 60,000** for a one-time comprehensive deep dive with a prioritized fix list.
+One-time comprehensive Technical SEO Audits start from **KES 60,000**. This includes the full diagnostic report and a detailed implementation guide for your developers.
 
-### Contact Us
-Stop letting technical gremlins kill your rankings. [Book your technical SEO audit today](/contact).
+### FAQ
+**Q: How often do I need a technical audit?**
+A: We recommend a deep-dive audit every 6 months, or whenever you make a major change to your website's architecture or CMS.
+
+**Q: My site "feels" fast, do I still need an audit?**
+A: "Perceived Speed" and "Search Engine Speed" are different. Google measures speed in milliseconds of "Total Blocking Time." An audit finds the invisible delays that are hurting your rank.
+
+**Q: Do you help with the "Core Web Vitals" on WordPress?**
+A: Yes. While we prefer custom Next.js builds, we have a specific "WordPress Speed Boost" protocol that can fix most technical SEO issues on legacy CMS platforms.
+
+### Fix Your Foundation
+Stop building on sand. [Book your GrowthLab Technical SEO Audit](/contact) and give your content the home it deserves on page one.
     `
   },
   "on-page-seo-kenya": {

@@ -44,7 +44,10 @@ export default function MobileMenu() {
             <ul className={styles.navLinks}>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/services">Services</Link></li>
+              <li><Link href="/pricing">Pricing</Link></li>
               <li><Link href="/portfolio">Portfolio</Link></li>
+              <li><Link href="/team">Team</Link></li>
+              <li><Link href="/testimonials">Testimonials</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/contact">Contact</Link></li>

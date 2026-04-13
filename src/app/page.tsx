@@ -294,7 +294,7 @@ export default async function Home() {
               </Link>
             )) : (
               <>
-                <Link href="/blog/the-future-of-ai-in-marketing" className={styles.blogCard}>
+                <Link href="/blog/ai-marketing/the-future-of-ai-in-marketing" className={styles.blogCard}>
                   <div className={styles.imagePlaceholder}>AI Marketing</div>
                   <div className={styles.cardBody}>
                     <h4>The Future of AI in Marketing</h4>

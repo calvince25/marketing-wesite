@@ -1,13 +1,14 @@
 import styles from "./portfolio.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { allProjectsQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 
 const staticProjects = [
-  { title: "Luxury Brand UI", category: "Web Design", img: "https://images.unsplash.com/photo-1507238692062-5a04220bef18?auto=format&fit=crop&w=800&q=80" },
-  { title: "Fintech Dashboard", category: "App Development", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" },
-  { title: "E-commerce Giant", category: "SEO & Content", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" }
+  { title: "Mells Fashion", category: "E-commerce", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80", url: "https://www.mellsfasion.co.ke" },
+  { title: "Restaurant POS System", category: "Systems Integration", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80", url: "https://pos-system-two-tawny.vercel.app" },
+  { title: "GrowthLab Analytics", category: "AI & Data", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80", url: "#" }
 ];
 
 export default async function PortfolioPage() {
@@ -32,8 +33,10 @@ export default async function PortfolioPage() {
               const category = isSanity ? (project.client || 'Project') : project.category;
               const image = isSanity ? (project.images?.[0] ? urlForImage(project.images[0]).url() : '') : project.img;
 
+              const url = isSanity ? (project.link || '#') : project.url;
+
               return (
-                <div key={idx} className={styles.card}>
+                <Link key={idx} href={url} target={url.startsWith('http') ? "_blank" : "_self"} className={styles.card}>
                   <div className={styles.imageWrapper}>
                     {image && <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} />}
                   </div>
@@ -41,7 +44,7 @@ export default async function PortfolioPage() {
                     <span>{category}</span>
                     <h3>{title}</h3>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

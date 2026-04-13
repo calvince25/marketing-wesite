@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import { sanitizeSlug } from '@/lib/utils';
+import { pillarServices } from '@/lib/services';
+import { blogPosts } from '@/lib/blog';
 
 const DOMAIN = 'https://www.growthlab.co.ke';
 
@@ -23,13 +25,14 @@ const isSafeUrl = (url: string): boolean => {
     !url.includes('$') && 
     !url.includes('&') && 
     !url.toLowerCase().includes('.ico') && 
-    !url.toLowerCase().includes('.woff2')
+    !url.toLowerCase().includes('.woff2') &&
+    !url.includes('[[') // Safety for un-replaced dynamic segments
   );
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all dynamic content simultaneously from Sanity
-  const [pillars, clusters, posts, projects] = await Promise.all([
+  const [pillars, clusters, posts, projects, categories] = await Promise.all([
     client.fetch(groq`*[_type == "pillarPage"]{ "slug": slug.current }`),
     client.fetch(groq`*[_type == "clusterPage"]{
       "slug": slug.current,
@@ -45,9 +48,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "slug": slug.current,
       "updatedAt": _updatedAt
     }`),
-  ]).catch(() => [[], [], [], []]);
+    client.fetch(groq`*[_type == "category"]{
+      "slug": slug.current
+    }`),
+  ]).catch(() => [[], [], [], [], []]);
 
-  // ─── STATIC PAGES ────────────────────────────────────────────────────────────
+  // ─── STATIC CORE PAGES ────────────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${DOMAIN}`,           lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${DOMAIN}/services`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
@@ -72,11 +78,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${DOMAIN}/case-studies/restaurant-pos-optimization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   ];
 
-  // ─── PILLAR SERVICE PAGES  (e.g. /services/web-development) ──────────────────
-  const pillarSlugs: string[] =
-    pillars && pillars.length > 0
-      ? pillars.map((p: any) => p.slug).filter(Boolean)
-      : FALLBACK_PILLAR_SLUGS;
+  // ─── PILLAR SERVICE PAGES ──────────────────────────────────────────────────
+  const pillarSlugs: string[] = Array.from(new Set([
+    ...(pillars?.map((p: any) => p.slug) || []),
+    ...Object.keys(pillarServices),
+    ...FALLBACK_PILLAR_SLUGS
+  ])).filter(Boolean);
 
   const pillarPages: MetadataRoute.Sitemap = pillarSlugs.map((slug: string) => ({
     url: `${DOMAIN}/services/${sanitizeSlug(slug)}`,
@@ -85,8 +92,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // ─── CLUSTER SUB-SERVICE PAGES  (e.g. /services/web-development/ecommerce-solutions) ─
-  const clusterPages: MetadataRoute.Sitemap = (clusters || [])
+  // ─── CLUSTER SUB-SERVICE PAGES (Static + Sanity) ──────────────────────────────────
+  // Extract all static cluster paths
+  const staticClusterPages: MetadataRoute.Sitemap = [];
+  Object.entries(pillarServices).forEach(([pillarSlug, pillarData]) => {
+    pillarData.clusters.forEach(cluster => {
+      staticClusterPages.push({
+        url: `${DOMAIN}/services/${sanitizeSlug(pillarSlug)}/${sanitizeSlug(cluster.slug)}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      });
+    });
+  });
+
+  const sanityClusterPages: MetadataRoute.Sitemap = (clusters || [])
     .filter((c: any) => c?.slug && c?.pillarSlug)
     .map((cluster: any) => ({
       url: `${DOMAIN}/services/${sanitizeSlug(cluster.pillarSlug)}/${sanitizeSlug(cluster.slug)}`,
@@ -95,21 +115,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
 
-  // ─── BLOG POST PAGES  (e.g. /blog/seo/how-to-rank-on-google) ─────────────────
-  const blogPages: MetadataRoute.Sitemap = (posts || [])
+  // Combine and de-duplicate cluster pages
+  const allClusterPages = Array.from(new Map([...staticClusterPages, ...sanityClusterPages].map(p => [p.url, p])).values());
+
+  // ─── BLOG CATEGORY INDEX PAGES ───────────────────────────────────────────────
+  const staticCategorySlugs = Array.from(new Set(blogPosts.map(p => p.categorySlug)));
+  const sanityCategorySlugs = categories?.map((c: any) => c.slug) || [];
+  
+  const allCategorySlugs = Array.from(new Set([...staticCategorySlugs, ...sanityCategorySlugs])).filter(Boolean);
+  
+  const categoryPages: MetadataRoute.Sitemap = allCategorySlugs.map(slug => ({
+    url: `${DOMAIN}/blog/${sanitizeSlug(slug)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
+
+  // ─── BLOG POST PAGES ────────────────────────────────────────────────────────
+  // Include static posts if Sanity results are thin
+  const staticBlogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url: `${DOMAIN}/blog/${sanitizeSlug(post.categorySlug)}/${sanitizeSlug(post.slug)}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
+
+  const sanityBlogPages: MetadataRoute.Sitemap = (posts || [])
     .filter((p: any) => p?.slug)
     .map((post: any) => ({
       url: `${DOMAIN}/blog/${sanitizeSlug(post.categorySlug || 'general')}/${sanitizeSlug(post.slug)}`,
-      lastModified: post.updatedAt
-        ? new Date(post.updatedAt)
-        : post.publishedAt
-        ? new Date(post.publishedAt)
-        : new Date(),
+      lastModified: post.updatedAt ? new Date(post.updatedAt) : (post.publishedAt ? new Date(post.publishedAt) : new Date()),
       changeFrequency: 'weekly',
       priority: 0.7,
     }));
 
-  // ─── PORTFOLIO PAGES  (e.g. /portfolio/modern-fashion-store) ─────────────────
+  const allBlogPages = Array.from(new Map([...staticBlogPages, ...sanityBlogPages].map(p => [p.url, p])).values());
+
+  // ─── PORTFOLIO PAGES ────────────────────────────────────────────────────────
   const portfolioPages: MetadataRoute.Sitemap = (projects || [])
     .filter((p: any) => p?.slug)
     .map((project: any) => ({
@@ -122,8 +164,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticPages,
     ...pillarPages,
-    ...clusterPages,
-    ...blogPages,
+    ...allClusterPages,
+    ...categoryPages,
+    ...allBlogPages,
     ...portfolioPages,
   ].filter(item => isSafeUrl(item.url));
 }

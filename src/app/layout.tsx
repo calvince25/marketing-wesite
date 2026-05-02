@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.growthlab.co.ke'),
   title: {
-    default: "GrowthLab Limited | Digital Marketing Agency Kenya & SEO Nairobi",
+    default: "GrowthLab | Digital Marketing Agency Kenya & SEO Nairobi",
     template: "%s | GrowthLab Limited"
   },
   description: "GrowthLab Limited is a premier agency for digital marketing in Kenya and SEO in Nairobi. We specialize in web design, SEO, and AI integration for modern brands.",
@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     siteName: 'GrowthLab Limited',
     locale: 'en_KE',
     type: 'website',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'GrowthLab Limited Digital Marketing',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',

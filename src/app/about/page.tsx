@@ -4,6 +4,13 @@ import styles from "./about.module.css";
 import { client } from "@/sanity/lib/client";
 import { pageContentQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/about',
+  },
+};
 
 export default async function AboutPage() {
   const aboutContent = await client.fetch(pageContentQuery, { page: 'about' }).catch(() => null);

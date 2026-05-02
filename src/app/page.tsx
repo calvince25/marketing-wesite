@@ -13,6 +13,7 @@ import {
 } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
+import JsonLd from "@/components/seo/JsonLd";
 
 export default async function Home() {
   const [settings, services, posts, projects, homeContent] = await Promise.all([
@@ -37,8 +38,63 @@ export default async function Home() {
     content: "GrowthLab is a premier digital agency specializing in crafting high-end digital experiences using data-driven marketing and monochromatic aesthetics. We partner with ambitious brands to accelerate their growth and ensure their digital presence translates seamlessly to ROI."
   };
 
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "DigitalMarketingAgency",
+    "name": "GrowthLab Limited",
+    "url": "https://www.growthlab.co.ke",
+    "logo": "https://www.growthlab.co.ke/media/logo.png",
+    "description": "Premier digital marketing agency in Kenya specializing in SEO, web development, and AI integration",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi",
+      "addressCountry": "Kenya"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.facebook.com/share/1bTmn3gbH5/",
+      "https://www.linkedin.com/in/calvince-omondi-3351763ba"
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Digital Marketing Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "GrowthLab Limited"
+    },
+    "areaServed": "Kenya",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO Services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Development"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className={styles.page}>
+      <JsonLd data={businessSchema} />
+      <JsonLd data={serviceSchema} />
       {/* 1. HERO SECTION */}
       <section className={`${styles.hero} animate-fadeInUp`}>
         <div className="container">
@@ -66,7 +122,7 @@ export default async function Home() {
                   priority
                 />
                 <div className={styles.badgeFloat}>
-                  <h4>98%</h4>
+                  <div className={styles.badgeNumber}>98%</div>
                   <span>Satisfaction</span>
                 </div>
               </div>
@@ -119,7 +175,7 @@ export default async function Home() {
           <div className={styles.clusterGrid}>
             {webDevClusters.slice(0, 4).map((cluster: any, idx: number) => (
               <Link href={`/services/web-development/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
-                <h4>{cluster.title}</h4>
+                <h3>{cluster.title}</h3>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
               </Link>
@@ -150,7 +206,7 @@ export default async function Home() {
           <div className={styles.clusterGrid}>
             {seoClusters.slice(0, 4).map((cluster: any, idx: number) => (
               <Link href={`/services/seo-digital-marketing/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
-                <h4>{cluster.title}</h4>
+                <h3>{cluster.title}</h3>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
               </Link>
@@ -181,7 +237,7 @@ export default async function Home() {
           <div className={styles.clusterGrid}>
             {automationClusters.slice(0, 4).map((cluster: any, idx: number) => (
               <Link href={`/services/business-automation/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
-                <h4>{cluster.title}</h4>
+                <h3>{cluster.title}</h3>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
               </Link>
@@ -212,7 +268,7 @@ export default async function Home() {
           <div className={styles.clusterGrid}>
             {aiClusters.slice(0, 4).map((cluster: any, idx: number) => (
               <Link href={`/services/ai-systems-integration/${sanitizeSlug(cluster.slug)}`} key={idx} className={styles.clusterCard}>
-                <h4>{cluster.title}</h4>
+                <h3>{cluster.title}</h3>
                 <p>{cluster.description}</p>
                 <span className={styles.learnMore}>Explore</span>
               </Link>
@@ -243,7 +299,7 @@ export default async function Home() {
                   ) : project.name}
                 </div>
                 <div className={styles.cardBody}>
-                  <h4>{project.name}</h4>
+                  <h3>{project.name}</h3>
                   <p>{project.description}</p>
                 </div>
               </div>
@@ -252,7 +308,7 @@ export default async function Home() {
                 <div className={styles.portfolioCard}>
                   <div className={styles.imagePlaceholder}>E-commerce Redesign</div>
                   <div className={styles.cardBody}>
-                    <h4>Modern Fashion Store</h4>
+                    <h3>Modern Fashion Store</h3>
                     <p>A complete redesign and custom Next.js build representing a fast fashion retail shop.</p>
                   </div>
                 </div>
@@ -287,7 +343,7 @@ export default async function Home() {
                   ) : post.title}
                 </div>
                 <div className={styles.cardBody}>
-                  <h4>{post.title}</h4>
+                  <h3>{post.title}</h3>
                   <p>{post.seo?.metaDescription || "Read more about this article."}</p>
                   <span className={styles.learnMore}>Read Article</span>
                 </div>
@@ -297,7 +353,7 @@ export default async function Home() {
                 <Link href="/blog/ai-marketing/the-future-of-ai-in-marketing" className={styles.blogCard}>
                   <div className={styles.imagePlaceholder}>AI Marketing</div>
                   <div className={styles.cardBody}>
-                    <h4>The Future of AI in Marketing</h4>
+                    <h3>The Future of AI in Marketing</h3>
                     <p>How artificial intelligence is reshaping digital marketing and how businesses can adapt.</p>
                     <span className={styles.learnMore}>Read Article</span>
                   </div>
@@ -323,6 +379,52 @@ export default async function Home() {
             )}
           </div>
           <Link href="/about" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>Learn More About Us</Link>
+        </div>
+      </section>
+
+      {/* 9.5 SUCCESS METRICS */}
+      <section className={styles.metricsSection} id="metrics">
+        <div className="container">
+          <h2>Proven Results for Kenyan Businesses</h2>
+          <div className={styles.metricsGrid}>
+            <div className={styles.metricCard}>
+              <span className={styles.metricValue}>150+</span>
+              <span className={styles.metricLabel}>Websites launched</span>
+            </div>
+            <div className={styles.metricCard}>
+              <span className={styles.metricValue}>200%</span>
+              <span className={styles.metricLabel}>Average traffic increase</span>
+            </div>
+            <div className={styles.metricCard}>
+              <span className={styles.metricValue}>45+</span>
+              <span className={styles.metricLabel}>Businesses automated</span>
+            </div>
+            <div className={styles.metricCard}>
+              <span className={styles.metricValue}>98%</span>
+              <span className={styles.metricLabel}>Client satisfaction rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9.6 FAQ SECTION */}
+      <section className={styles.faqSection} id="faq">
+        <div className="container">
+          <h2>Frequently Asked Questions</h2>
+          <div className={styles.faqGrid}>
+            <div className={styles.faqItem}>
+              <h3>How long does SEO take to show results?</h3>
+              <p>SEO typically shows initial results in 2-3 months, with significant improvements by month 6. Our data-driven approach ensures faster progress than industry standards.</p>
+            </div>
+            <div className={styles.faqItem}>
+              <h3>Do you work with small businesses?</h3>
+              <p>Yes, we serve businesses of all sizes across Kenya, from startups to enterprises. Our scalable solutions grow with your business.</p>
+            </div>
+            <div className={styles.faqItem}>
+              <h3>What makes your web development different?</h3>
+              <p>We build with performance, security, and SEO in mind from day one. Every website is optimized for speed and search engines.</p>
+            </div>
+          </div>
         </div>
       </section>
 

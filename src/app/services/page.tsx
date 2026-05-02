@@ -3,6 +3,13 @@ import styles from "./services.module.css";
 import { pillarServices } from "@/lib/services";
 import { client } from "@/sanity/lib/client";
 import { allServicesQuery } from "@/sanity/lib/queries";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/services',
+  },
+};
 
 export default async function ServicesPage() {
   const sanityServices = await client.fetch(allServicesQuery).catch(() => []);

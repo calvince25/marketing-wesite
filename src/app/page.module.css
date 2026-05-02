@@ -57,7 +57,7 @@
   z-index: 10;
 }
 
-.badgeFloat h4 {
+.badgeNumber {
   font-size: 28px;
   font-weight: 800;
   color: var(--accent-orange);
@@ -318,6 +318,99 @@
 .centerAction {
   text-align: center;
   margin-top: 40px;
+}
+
+/* SUCCESS METRICS SECTION */
+.metricsSection {
+  padding: 80px 0;
+  background-color: var(--primary-navy);
+  color: white;
+  text-align: center;
+}
+
+.metricsSection h2 {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 36px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.metricCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.metricCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.metricValue {
+  display: block;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--accent-orange);
+  margin-bottom: 10px;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 16px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* FAQ SECTION */
+.faqSection {
+  padding: 80px 0;
+  background-color: var(--bg-white);
+}
+
+.faqSection h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: var(--primary-navy);
+}
+
+.faqGrid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faqItem {
+  background: var(--bg-light);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faqItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.faqItem h3 {
+  font-size: 20px;
+  color: var(--primary-navy);
+  margin-bottom: 15px;
+}
+
+.faqItem p {
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* ABOUT SECTION */

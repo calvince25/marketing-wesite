@@ -1,0 +1,28 @@
+{
+  "heroImages": [
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
+  ],
+  "contactInfo": {
+    "email": "info@growthlab.co.ke",
+    "phone": "+254 743 990 479",
+    "address": "ABC Place, Westlands, Nairobi"
+  },
+  "socialLinks": [
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/share/1bTmn3gbH5/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/calvince-omondi-3351763ba"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com/growthlablimited"
+    }
+  ],
+  "seo": {
+    "metaTitle": "Leading Digital Marketing Services in Kenya for Modern Brands.",
+    "metaDescription": "GrowthLab Limited crafts high-end digital experiences using data-driven marketing and monochromatic aesthetics."
+  }
+}

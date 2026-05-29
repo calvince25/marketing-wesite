@@ -1,0 +1,38 @@
+[
+  {
+    "userEmail": "superadmin@test.com",
+    "action": "Smoke Test Run",
+    "details": "Automated backend smoke test completed successfully.",
+    "timestamp": "2026-05-29T09:51:53.736Z",
+    "id": "hss1o269jdkdk1plb7jym6",
+    "_id": "hss1o269jdkdk1plb7jym6",
+    "createdAt": "2026-05-29T09:51:53.736Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Registration",
+    "details": "Registered successfully. Account pending super admin approval.",
+    "timestamp": "2026-05-29T09:58:08.392Z",
+    "id": "pmkq4buhmbm2zitrfzzibk",
+    "_id": "pmkq4buhmbm2zitrfzzibk",
+    "createdAt": "2026-05-29T09:58:08.392Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Login",
+    "details": "Successfully logged in from IP.",
+    "timestamp": "2026-05-29T10:11:10.829Z",
+    "id": "d0t5g84kqgudxtx58ntog",
+    "_id": "d0t5g84kqgudxtx58ntog",
+    "createdAt": "2026-05-29T10:11:10.829Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Delete",
+    "details": "Deleted project: SaaS CRM Integration & Automation",
+    "timestamp": "2026-05-29T10:13:09.390Z",
+    "id": "wtqkqkszjwnalu89rxe09n",
+    "_id": "wtqkqkszjwnalu89rxe09n",
+    "createdAt": "2026-05-29T10:13:09.391Z"
+  }
+]

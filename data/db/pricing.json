@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Starter Growth",
+    "price": "Ksh 45,000 / mo",
+    "features": [
+      "On-Page SEO Optimization",
+      "Weekly Custom Content Post",
+      "Basic Technical SEO Audit",
+      "Google Analytics Integration",
+      "Monthly Progress Report"
+    ],
+    "ctaText": "Get Started",
+    "ctaLink": "/contact?plan=starter",
+    "isPopular": false,
+    "id": "noti3ptvbmbj9roy1ig1",
+    "_id": "noti3ptvbmbj9roy1ig1",
+    "createdAt": "2026-05-29T09:41:27.026Z"
+  },
+  {
+    "title": "Business Velocity",
+    "price": "Ksh 95,000 / mo",
+    "features": [
+      "Complete Site Web Development Support",
+      "Advanced SEO & Backlink Building",
+      "AI Chatbot Integration",
+      "Social Media Content Automation",
+      "Bi-weekly Consultation Strategy Call",
+      "24/7 Priority SLA Support"
+    ],
+    "ctaText": "Recommended Choice",
+    "ctaLink": "/contact?plan=business",
+    "isPopular": true,
+    "id": "li0tad169jfycjacrmpza",
+    "_id": "li0tad169jfycjacrmpza",
+    "createdAt": "2026-05-29T09:41:27.027Z"
+  },
+  {
+    "title": "Starter Growth",
+    "price": "Ksh 45,000 / mo",
+    "features": [
+      "On-Page SEO Optimization",
+      "Weekly Custom Content Post",
+      "Basic Technical SEO Audit",
+      "Google Analytics Integration",
+      "Monthly Progress Report"
+    ],
+    "ctaText": "Get Started",
+    "ctaLink": "/contact?plan=starter",
+    "isPopular": false,
+    "id": "4dg7ighwffekcsau2ujk4",
+    "_id": "4dg7ighwffekcsau2ujk4",
+    "createdAt": "2026-05-29T09:41:27.031Z"
+  },
+  {
+    "title": "Business Velocity",
+    "price": "Ksh 95,000 / mo",
+    "features": [
+      "Complete Site Web Development Support",
+      "Advanced SEO & Backlink Building",
+      "AI Chatbot Integration",
+      "Social Media Content Automation",
+      "Bi-weekly Consultation Strategy Call",
+      "24/7 Priority SLA Support"
+    ],
+    "ctaText": "Recommended Choice",
+    "ctaLink": "/contact?plan=business",
+    "isPopular": true,
+    "id": "7ac40fcnyzspxelemlhpf",
+    "_id": "7ac40fcnyzspxelemlhpf",
+    "createdAt": "2026-05-29T09:41:27.032Z"
+  }
+]

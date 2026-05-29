@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Leading Real Estate Firm",
+    "business": "Real Estate Nairobi",
+    "rating": 5,
+    "message": "GrowthLab completely transformed our online presence. Our organic traffic doubled within 4 months, and the quality of leads improved significantly.",
+    "dateSubmitted": "2024-05-10",
+    "isApproved": true,
+    "isFeatured": true,
+    "id": "q6ca1sdix4i888w41pl3hw",
+    "_id": "q6ca1sdix4i888w41pl3hw",
+    "createdAt": "2026-05-29T09:41:27.023Z"
+  },
+  {
+    "name": "E-commerce Retailer",
+    "business": "Kenya E-shop",
+    "rating": 5,
+    "message": "The custom web application they built for our ecommerce business has been a game-changer. Fast, secure, and incredibly user-friendly.",
+    "dateSubmitted": "2024-05-18",
+    "isApproved": true,
+    "isFeatured": true,
+    "id": "nj0fj6c7ouamf28i9xsxu",
+    "_id": "nj0fj6c7ouamf28i9xsxu",
+    "createdAt": "2026-05-29T09:41:27.025Z"
+  },
+  {
+    "name": "Leading Real Estate Firm",
+    "business": "Real Estate Nairobi",
+    "rating": 5,
+    "message": "GrowthLab completely transformed our online presence. Our organic traffic doubled within 4 months, and the quality of leads improved significantly.",
+    "dateSubmitted": "2024-05-10",
+    "isApproved": true,
+    "isFeatured": true,
+    "id": "vj1msnojkrrw9ktln7s0i8",
+    "_id": "vj1msnojkrrw9ktln7s0i8",
+    "createdAt": "2026-05-29T09:41:27.028Z"
+  },
+  {
+    "name": "E-commerce Retailer",
+    "business": "Kenya E-shop",
+    "rating": 5,
+    "message": "The custom web application they built for our ecommerce business has been a game-changer. Fast, secure, and incredibly user-friendly.",
+    "dateSubmitted": "2024-05-18",
+    "isApproved": true,
+    "isFeatured": true,
+    "id": "r9fdbzvw2991zzcg8plufq",
+    "_id": "r9fdbzvw2991zzcg8plufq",
+    "createdAt": "2026-05-29T09:41:27.030Z"
+  }
+]

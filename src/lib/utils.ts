@@ -2,10 +2,11 @@
  * Sanitize a slug by removing characters that often cause indexing issues or 404s,
  * such as $ and &.
  */
-export function sanitizeSlug(slug: string): string {
+export function sanitizeSlug(slug: any): string {
   if (!slug) return '';
+  const slugStr = typeof slug === 'string' ? slug : (slug.current || String(slug));
   // Remove $ and & literals
-  return slug.replace(/[\$&]/g, '');
+  return slugStr.replace(/[\$&]/g, '');
 }
 
 /**

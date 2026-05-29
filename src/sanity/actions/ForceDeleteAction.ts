@@ -19,8 +19,9 @@ export function ForceDeleteAction(props: DocumentActionProps) {
             const data = await res.json();
             alert('Error deleting: ' + (data.error || 'Unknown error'));
           }
-        } catch (e: any) {
-          alert('Error: ' + e.message);
+        } catch (err: unknown) {
+          const message = err instanceof Error ? err.message : 'Unknown error';
+          alert('Error: ' + message);
         }
       }
     }

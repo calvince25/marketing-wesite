@@ -1,0 +1,37 @@
+[
+  {
+    "name": "AI Marketing",
+    "slug": "ai-marketing",
+    "id": "ghl4nzuuape05yj8bnf1u1x",
+    "_id": "ghl4nzuuape05yj8bnf1u1x",
+    "createdAt": "2026-05-29T09:41:27.015Z"
+  },
+  {
+    "name": "AI Marketing",
+    "slug": "ai-marketing",
+    "id": "uxco227et9cts93chnm7",
+    "_id": "uxco227et9cts93chnm7",
+    "createdAt": "2026-05-29T09:41:27.017Z"
+  },
+  {
+    "name": "SEO & Digital Marketing",
+    "slug": "seo-digital-marketing",
+    "id": "wj8l432ccxaxmaueae38p",
+    "_id": "wj8l432ccxaxmaueae38p",
+    "createdAt": "2026-05-29T09:41:27.019Z"
+  },
+  {
+    "name": "Web Development",
+    "slug": "web-development",
+    "id": "y2zmbjmdafi28m9nngqno6h",
+    "_id": "y2zmbjmdafi28m9nngqno6h",
+    "createdAt": "2026-05-29T09:41:27.020Z"
+  },
+  {
+    "name": "Business Automation",
+    "slug": "business-automation",
+    "id": "cbs17t13pl5mssvzhpf0v",
+    "_id": "cbs17t13pl5mssvzhpf0v",
+    "createdAt": "2026-05-29T09:41:27.021Z"
+  }
+]

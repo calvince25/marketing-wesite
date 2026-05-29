@@ -1,12 +1,12 @@
-const { createClient } = require('next-sanity');
-const bcrypt = require('bcryptjs');
+import { createClient } from 'next-sanity';
+import bcrypt from 'bcryptjs';
 
 const client = createClient({
   projectId: 'xwr2s2jf',
   dataset: 'production',
   apiVersion: '2023-01-01',
   useCdn: false,
-  token: 'skcHwtsRuaVXQdHD76UtNHS7uOaGffjLiVg7UCKHIwKqd7phWKUP0UNHJdtPuiKhqF0VecRj6iB8p0YIScITpRkW0azpNatPSZ2l8dlncO3PWw7a9wIgEpEwUGPKpUgONo8aFPeoojmtHYuh3JTRIL5EcGUZivwJiwAU3srMLE4lTSWCkI8g',
+  token: process.env.SANITY_API_TOKEN,
 });
 
 async function test() {

@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { adminClient } from '@/sanity/lib/adminClient';
+import { db } from '@/lib/db';
 
 export async function POST(request: Request) {
   try {
-    let { name, email, password } = await request.json();
+    const body = await request.json();
+    let { name, email } = body;
+    const { password } = body;
     name = name?.trim();
     email = email?.trim().toLowerCase();
 
@@ -17,39 +19,48 @@ export async function POST(request: Request) {
     }
 
     // Check if user already exists
-    const existingUser = await adminClient.fetch(
-      `*[_type == "adminUser" && email == $email][0]`,
-      { email }
-    );
+    const existingUser = db.findOne('users', u => u.email === email);
 
     if (existingUser) {
       return NextResponse.json({ error: 'User already exists' }, { status: 400 });
     }
 
     // Check if this is the first user
-    const userCount = await adminClient.fetch(`count(*[_type == "adminUser"])`);
-    const isFirstUser = userCount === 0;
+    const users = db.read('users');
+    const isFirstUser = users.length === 0;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = {
-      _type: 'adminUser',
       name,
       email,
       password: hashedPassword,
+      role: isFirstUser ? 'superadmin' : 'editor', // First user is superadmin, rest are editors by default
       isAdmin: isFirstUser,
       isApproved: isFirstUser, // First user is auto-approved
+      isSuspended: false,
       createdAt: new Date().toISOString(),
     };
 
-    const result = await adminClient.create(newUser);
+    const result = db.insert('users', newUser) as typeof newUser & { id: string };
+
+    // Log Activity
+    db.logActivity(
+      email,
+      'Registration',
+      isFirstUser 
+        ? 'Successfully registered as first user (Super Admin).' 
+        : 'Registered successfully. Account pending super admin approval.'
+    );
 
     return NextResponse.json({
-      message: isFirstUser ? 'Admin registered successfully' : 'Registration successful! Your account is pending approval from the system administrator.',
-      user: { name: result.name, email: result.email, isAdmin: result.isAdmin, isApproved: result.isApproved }
+      message: isFirstUser 
+        ? 'Super Admin registered and approved successfully!' 
+        : 'Registration successful! Your account is pending approval from the Super Admin.',
+      user: { name: result.name, email: result.email, role: result.role, isApproved: result.isApproved }
     }, { status: 201 });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Registration error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }

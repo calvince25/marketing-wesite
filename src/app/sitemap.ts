@@ -80,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ─── PILLAR SERVICE PAGES ──────────────────────────────────────────────────
   const pillarSlugs: string[] = Array.from(new Set([
-    ...(pillars?.map((p: any) => p.slug) || []),
+    ...(pillars?.map((p: any) => p.slug?.current || p.slug) || []),
     ...Object.keys(pillarServices),
     ...FALLBACK_PILLAR_SLUGS
   ])).filter(Boolean);
@@ -108,19 +108,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const sanityClusterPages: MetadataRoute.Sitemap = (clusters || [])
     .filter((c: any) => c?.slug && c?.pillarSlug)
-    .map((cluster: any) => ({
-      url: `${DOMAIN}/services/${sanitizeSlug(cluster.pillarSlug)}/${sanitizeSlug(cluster.slug)}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    }));
+    .map((cluster: any) => {
+      const cSlug = cluster.slug?.current || cluster.slug;
+      const pSlug = cluster.pillarSlug?.current || cluster.pillarSlug;
+      return {
+        url: `${DOMAIN}/services/${sanitizeSlug(pSlug)}/${sanitizeSlug(cSlug)}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      };
+    });
 
   // Combine and de-duplicate cluster pages
   const allClusterPages = Array.from(new Map([...staticClusterPages, ...sanityClusterPages].map(p => [p.url, p])).values());
 
   // ─── BLOG CATEGORY INDEX PAGES ───────────────────────────────────────────────
   const staticCategorySlugs = Array.from(new Set(blogPosts.map(p => p.categorySlug)));
-  const sanityCategorySlugs = categories?.map((c: any) => c.slug) || [];
+  const sanityCategorySlugs = categories?.map((c: any) => c.slug?.current || c.slug) || [];
   
   const allCategorySlugs = Array.from(new Set([...staticCategorySlugs, ...sanityCategorySlugs])).filter(Boolean);
   
@@ -142,24 +146,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const sanityBlogPages: MetadataRoute.Sitemap = (posts || [])
     .filter((p: any) => p?.slug)
-    .map((post: any) => ({
-      url: `${DOMAIN}/blog/${sanitizeSlug(post.categorySlug || 'general')}/${sanitizeSlug(post.slug)}`,
-      lastModified: post.updatedAt ? new Date(post.updatedAt) : (post.publishedAt ? new Date(post.publishedAt) : new Date()),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    }));
+    .map((post: any) => {
+      const postSlug = post.slug?.current || post.slug;
+      const catSlug = post.categorySlug?.current || post.categorySlug || 'general';
+      return {
+        url: `${DOMAIN}/blog/${sanitizeSlug(catSlug)}/${sanitizeSlug(postSlug)}`,
+        lastModified: post.updatedAt ? new Date(post.updatedAt) : (post.publishedAt ? new Date(post.publishedAt) : new Date()),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      };
+    });
 
   const allBlogPages = Array.from(new Map([...staticBlogPages, ...sanityBlogPages].map(p => [p.url, p])).values());
 
   // ─── PORTFOLIO PAGES ────────────────────────────────────────────────────────
   const portfolioPages: MetadataRoute.Sitemap = (projects || [])
     .filter((p: any) => p?.slug)
-    .map((project: any) => ({
-      url: `${DOMAIN}/portfolio/${sanitizeSlug(project.slug)}`,
-      lastModified: project.updatedAt ? new Date(project.updatedAt) : new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }));
+    .map((project: any) => {
+      const projectSlug = project.slug?.current || project.slug;
+      return {
+        url: `${DOMAIN}/portfolio/${sanitizeSlug(projectSlug)}`,
+        lastModified: project.updatedAt ? new Date(project.updatedAt) : new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      };
+    });
 
   return [
     ...staticPages,

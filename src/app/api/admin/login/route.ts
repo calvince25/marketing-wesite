@@ -1,29 +1,32 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { adminClient } from '@/sanity/lib/adminClient';
+import { db } from '@/lib/db';
 import { signToken } from '@/lib/auth';
 import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   try {
-    let { email, password } = await request.json();
+    const body = await request.json();
+    let { email } = body;
+    const { password } = body;
     email = email?.trim().toLowerCase();
 
     if (!email || !password) {
       return NextResponse.json({ error: 'Missing credentials' }, { status: 400 });
     }
 
-    const user = await adminClient.fetch(
-      `*[_type == "adminUser" && email == $email][0]`,
-      { email }
-    );
+    const user = db.findOne('users', u => u.email === email);
 
     if (!user) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 
+    if (user.isSuspended) {
+      return NextResponse.json({ error: 'Account suspended. Contact super admin.' }, { status: 403 });
+    }
+
     if (!user.isApproved) {
-      return NextResponse.json({ error: 'Account pending approval' }, { status: 403 });
+      return NextResponse.json({ error: 'Account pending approval by Super Admin.' }, { status: 403 });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -32,11 +35,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 
+    // Determine the user's role: superadmin, admin, editor
+    const role = user.role || (user.isAdmin ? 'superadmin' : 'editor');
+
     // Create JWT
     const token = await signToken({
-      id: user._id,
+      id: user.id || user._id,
       email: user.email,
-      isAdmin: user.isAdmin,
+      role: role as any,
       name: user.name,
     });
 
@@ -50,12 +56,15 @@ export async function POST(request: Request) {
       path: '/',
     });
 
+    // Log Activity
+    db.logActivity(user.email, 'Login', `Successfully logged in from IP.`);
+
     return NextResponse.json({
       message: 'Login successful',
-      user: { name: user.name, email: user.email, isAdmin: user.isAdmin }
+      user: { name: user.name, email: user.email, role: role }
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Login error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }

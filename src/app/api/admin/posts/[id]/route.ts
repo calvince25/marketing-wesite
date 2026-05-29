@@ -1,65 +1,113 @@
 import { NextResponse } from 'next/server';
-import { adminClient } from '@/sanity/lib/adminClient';
-import { cookies } from 'next/headers';
-import { jwtVerify } from 'jose';
+import { db } from '@/lib/db';
+import { requireAuth } from '@/lib/auth';
+import { regenerateSitemapAndRobots } from '@/lib/seo';
 
-const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback-secret-for-dev-only-change-in-prod'
-);
+export async function PUT(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const auth = await requireAuth(['superadmin', 'admin', 'editor']);
+    if (!auth.authorized) {
+      return auth.errorResponse!;
+    }
+
+    const { id } = await params;
+    const body = await request.json();
+    const { title, content, excerpt, category, image, status, authorName, authorBio, authorImage, seoTitle, seoDescription, scheduledFor } = body;
+
+    const post = db.findOne('posts', p => p.id === id || p._id === id);
+    if (!post) {
+      return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
+    }
+
+    const updates: any = {};
+    if (title !== undefined) {
+      updates.title = title;
+      updates.slug = { current: title.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/[\s_]+/g, '-').replace(/-+/g, '-') };
+    }
+    if (content !== undefined) updates.content = content;
+    if (excerpt !== undefined) updates.excerpt = excerpt;
+    if (category !== undefined) {
+      updates.category = category;
+      updates.categorySlug = category.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    }
+    if (image !== undefined) updates.image = image;
+    if (status !== undefined) {
+      updates.status = status;
+      if (status === 'published' && !post.publishedAt) {
+        updates.publishedAt = new Date().toISOString();
+      }
+    }
+    if (scheduledFor !== undefined) updates.scheduledFor = scheduledFor;
+
+    // Author update
+    if (authorName || authorBio || authorImage) {
+      updates.author = {
+        name: authorName || post.author?.name || 'Admin',
+        bio: authorBio || post.author?.bio || '',
+        image: authorImage || post.author?.image || ''
+      };
+    }
+
+    // SEO update
+    if (seoTitle || seoDescription || title || excerpt || content) {
+      updates.seo = {
+        metaTitle: seoTitle || updates.title || post.seo?.metaTitle || post.title,
+        metaDescription: seoDescription || updates.excerpt || post.seo?.metaDescription || post.excerpt
+      };
+    }
+
+    const result = db.update('posts', id, updates);
+
+    // Regenerate sitemap and robots
+    regenerateSitemapAndRobots();
+
+    // Log Activity
+    db.logActivity(auth.user?.email || 'system', 'Blog Update', `Updated blog post: ${title || post.title}`);
+
+    return NextResponse.json({
+      message: 'Blog post updated successfully',
+      post: result
+    });
+
+  } catch (error: any) {
+    console.error('Update post error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
 
 export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    // Verify admin token
-    const cookieStore = await cookies();
-    const token = cookieStore.get('admin_token')?.value;
-
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const auth = await requireAuth(['superadmin', 'admin']); // Editors cannot delete
+    if (!auth.authorized) {
+      return auth.errorResponse!;
     }
 
-    try {
-      await jwtVerify(token, secret);
-    } catch {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
+    const { id } = await params;
+    const post = db.findOne('posts', p => p.id === id || p._id === id);
+    if (!post) {
+      return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
     }
 
-    const resolvedParams = await params;
-    const { id } = resolvedParams;
+    db.delete('posts', id);
 
-    if (!id) {
-      return NextResponse.json({ error: 'Document ID is required' }, { status: 400 });
-    }
+    // Update Sitemap and Robots
+    regenerateSitemapAndRobots();
 
-    // Determine the published and draft IDs
-    const baseId = id.startsWith('drafts.') ? id.substring(7) : id;
-    const publishedId = baseId;
-    const draftId = `drafts.${baseId}`;
+    // Log Activity
+    db.logActivity(auth.user?.email || 'system', 'Blog Delete', `Deleted blog post: ${post.title}`);
 
-    console.log(`Deleting post: ${publishedId} and ${draftId}`);
+    return NextResponse.json({
+      message: 'Blog post deleted successfully'
+    });
 
-    try {
-      // Use transactional delete for both if they exist
-      // Sanity's client.delete can take an array of IDs
-      await adminClient.delete(publishedId);
-      await adminClient.delete(draftId);
-      
-      return NextResponse.json({ 
-        message: 'Post deleted successfully', 
-        deleted: [publishedId, draftId] 
-      });
-    } catch (deleteError: any) {
-      console.error('Sanity delete error:', deleteError);
-      // If it's a 404 (not found), we can still consider it a "success" or handle it
-      if (deleteError.statusCode === 404) {
-          return NextResponse.json({ error: 'Post not found' }, { status: 404 });
-      }
-      return NextResponse.json({ error: deleteError.message || 'Failed to delete post' }, { status: 500 });
-    }
   } catch (error: any) {
-    console.error('Delete handler error:', error);
+    console.error('Delete post error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

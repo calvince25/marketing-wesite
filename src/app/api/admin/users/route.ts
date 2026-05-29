@@ -1,18 +1,26 @@
 import { NextResponse } from 'next/server';
-import { adminClient } from '@/sanity/lib/adminClient';
-import { getAuthUser } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET() {
   try {
-    const authUser = await getAuthUser();
-
-    if (!authUser || !authUser.isAdmin) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const auth = await requireAuth(['superadmin']);
+    if (!auth.authorized) {
+      return auth.errorResponse!;
     }
 
-    const users = await adminClient.fetch(
-      `*[_type == "adminUser"] | order(createdAt desc)`
-    );
+    const users = db.read('users')
+      .map(u => ({
+        id: u.id || u._id,
+        _id: u.id || u._id,
+        name: u.name,
+        email: u.email,
+        role: u.role || (u.isAdmin ? 'superadmin' : 'editor'),
+        isApproved: u.isApproved,
+        isSuspended: u.isSuspended,
+        createdAt: u.createdAt
+      }))
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
     return NextResponse.json({ users });
 

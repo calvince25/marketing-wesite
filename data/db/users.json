@@ -1,0 +1,14 @@
+[
+  {
+    "name": "calvince",
+    "email": "omondicalvince4714@gmail.com",
+    "password": "$2b$10$L1zKzzG1COCnQnTpVH71uOI3BdYf9xVMCeBeGDjtKOvjmVKz4lwWW",
+    "role": "superadmin",
+    "isAdmin": true,
+    "isApproved": true,
+    "isSuspended": false,
+    "createdAt": "2026-05-29T09:58:08.391Z",
+    "id": "6xwy8kw9xe3bt92wcf152i",
+    "_id": "6xwy8kw9xe3bt92wcf152i"
+  }
+]

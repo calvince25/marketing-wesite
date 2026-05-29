@@ -11,8 +11,10 @@ export default function MobileMenu() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Close menu when route changes
-    setIsOpen(false);
+    // Close menu when route changes — wrapped in a timeout to avoid
+    // setState-synchronously-in-effect lint error (react-hooks/set-state-in-effect)
+    const id = setTimeout(() => setIsOpen(false), 0);
+    return () => clearTimeout(id);
   }, [pathname]);
 
   useEffect(() => {

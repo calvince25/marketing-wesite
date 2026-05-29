@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Calvince Omondi",
+    "role": "Lead Digital Architect & Strategist",
+    "bio": "With over 8 years in the digital ecosystem, Calvince specializes in scaling business traffic, building high-end web applications, and implementing agentic AI solutions.",
+    "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/calvince-omondi-3351763ba",
+      "twitter": "https://twitter.com",
+      "github": "https://github.com"
+    },
+    "displayOrder": 1,
+    "isActive": true,
+    "id": "derq7ad8696wg4c2zspc6",
+    "_id": "derq7ad8696wg4c2zspc6",
+    "createdAt": "2026-05-29T09:41:27.022Z"
+  },
+  {
+    "name": "Calvince Omondi",
+    "role": "Lead Digital Architect & Strategist",
+    "bio": "With over 8 years in the digital ecosystem, Calvince specializes in scaling business traffic, building high-end web applications, and implementing agentic AI solutions.",
+    "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/calvince-omondi-3351763ba",
+      "twitter": "https://twitter.com",
+      "github": "https://github.com"
+    },
+    "displayOrder": 1,
+    "isActive": true,
+    "id": "r26139kkkags4psihlgo7",
+    "_id": "r26139kkkags4psihlgo7",
+    "createdAt": "2026-05-29T09:41:27.025Z"
+  }
+]

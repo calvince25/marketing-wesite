@@ -1,40 +1,108 @@
 import { NextResponse } from 'next/server';
-import { adminClient } from '@/sanity/lib/adminClient';
-import { cookies } from 'next/headers';
-import { jwtVerify } from 'jose';
+import { db } from '@/lib/db';
+import { requireAuth } from '@/lib/auth';
+import { regenerateSitemapAndRobots } from '@/lib/seo';
 
-const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback-secret-for-dev-only-change-in-prod'
-);
-
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    // Verify admin token
-    const cookieStore = await cookies();
-    const token = cookieStore.get('admin_token')?.value;
-
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const auth = await requireAuth(['superadmin', 'admin', 'editor']);
+    if (!auth.authorized) {
+      return auth.errorResponse!;
     }
 
-    try {
-      await jwtVerify(token, secret);
-    } catch {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
+    const { searchParams } = new URL(request.url);
+    const search = searchParams.get('search')?.toLowerCase() || '';
+
+    let posts = db.read('posts');
+
+    if (search) {
+      posts = posts.filter((p: any) =>
+        p.title?.toLowerCase().includes(search) ||
+        p.content?.toLowerCase().includes(search)
+      );
     }
 
-    const posts = await adminClient.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
-        _id,
-        title,
-        publishedAt,
-        "categories": categories[]->{title}
-      }`
-    );
+    // Sort by publishedAt/createdAt desc
+    posts.sort((a: any, b: any) => new Date(b.publishedAt || b.createdAt).getTime() - new Date(a.publishedAt || a.createdAt).getTime());
 
     return NextResponse.json({ posts });
   } catch (error: any) {
     console.error('Fetch posts error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function POST(request: Request) {
+  try {
+    const auth = await requireAuth(['superadmin', 'admin', 'editor']);
+    if (!auth.authorized) {
+      return auth.errorResponse!;
+    }
+
+    const body = await request.json();
+    const { title, content, excerpt, category, image, status, authorName, authorBio, authorImage, seoTitle, seoDescription, scheduledFor } = body;
+
+    if (!title || !content) {
+      return NextResponse.json({ error: 'Title and content are required' }, { status: 400 });
+    }
+
+    // Auto-generate slug
+    const generatedSlug = title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/[\s_]+/g, '-')
+      .replace(/-+/g, '-');
+
+    // Build author object
+    const author = {
+      name: authorName || auth.user?.name || 'Admin',
+      bio: authorBio || 'GrowthLab Content Contributor',
+      image: authorImage || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80'
+    };
+
+    // Auto generate categorySlug
+    const categorySlug = category ? category.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'general';
+
+    // Auto generate SEO fields
+    const seo = {
+      metaTitle: seoTitle || `${title} | GrowthLab Insights`,
+      metaDescription: seoDescription || excerpt || content.substring(0, 150).replace(/[#*`]/g, '') + '...'
+    };
+
+    const newPost = {
+      title,
+      slug: { current: generatedSlug },
+      content,
+      excerpt: excerpt || content.substring(0, 160).replace(/[#*`]/g, ''),
+      category: category || 'General',
+      categorySlug,
+      image: image || 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80',
+      status: status || 'draft',
+      publishedAt: status === 'published' ? new Date().toISOString() : null,
+      scheduledFor: status === 'scheduled' ? scheduledFor : null,
+      author,
+      seo,
+      createdAt: new Date().toISOString()
+    };
+
+    const result = db.insert('posts', newPost);
+
+    // Update Sitemap and Robots
+    if (newPost.status === 'published') {
+      regenerateSitemapAndRobots();
+    }
+
+    // Log Activity
+    db.logActivity(auth.user?.email || 'system', 'Blog Create', `Created blog post: ${title}`);
+
+    return NextResponse.json({
+      message: 'Blog post created successfully',
+      post: result
+    }, { status: 201 });
+
+  } catch (error: any) {
+    console.error('Create post error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon/favicon-512.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/favicon-512.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-512.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon/favicon-512.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon/favicon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon/favicon-512.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon/favicon-512.png',
+  },
+  manifest: '/favicon/site.webmanifest',
   openGraph: {
     title: "GrowthLab Limited | Digital Marketing Agency Kenya",
     description: "Premier agency for digital marketing and SEO in Kenya. We build high-end digital experiences for ambitious brands.",

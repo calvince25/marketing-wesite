@@ -7,18 +7,39 @@ import React from 'react';
 
 const renderStaticContent = (content: string) => {
   if (!content) return null;
-  const parts = content.split(/(\*\*.*?\*\*)/g);
+  const lines = content.split('\n');
   return (
-    <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>
-      {parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
+    <div style={{ lineHeight: '1.8' }}>
+      {lines.map((line, i) => {
+        if (line.startsWith('### ')) {
           return (
-            <h3 key={i} style={{ color: '#FF6B00', marginTop: '2rem', marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700' }}>
-              {part.slice(2, -2)}
+            <h3 key={i} style={{ color: '#FF6B00', marginTop: '2rem', marginBottom: '0.75rem', fontSize: '1.3rem', fontWeight: '700' }}>
+              {line.slice(4)}
             </h3>
           );
         }
-        return <React.Fragment key={i}>{part}</React.Fragment>;
+        if (line.startsWith('## ')) {
+          return (
+            <h2 key={i} style={{ color: '#ffffff', marginTop: '2.5rem', marginBottom: '1rem', fontSize: '1.6rem', fontWeight: '700' }}>
+              {line.slice(3)}
+            </h2>
+          );
+        }
+        if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
+          return (
+            <h3 key={i} style={{ color: '#FF6B00', marginTop: '2rem', marginBottom: '0.75rem', fontSize: '1.3rem', fontWeight: '700' }}>
+              {line.slice(2, -2)}
+            </h3>
+          );
+        }
+        if (line.trim() === '') {
+          return <div key={i} style={{ height: '0.5rem' }} />;
+        }
+        return (
+          <p key={i} style={{ marginBottom: '0.6rem', color: '#cbd5e1', lineHeight: '1.8' }}>
+            {line}
+          </p>
+        );
       })}
     </div>
   );

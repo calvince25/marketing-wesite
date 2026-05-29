@@ -30,7 +30,7 @@ export async function generateStaticParams() {
 }
 
 interface ClusterPageProps {
-  params: { pillarSlug: string; clusterSlug: string };
+  params: Promise<{ pillarSlug: string; clusterSlug: string }>;
 }
 
 export async function generateMetadata({ params }: ClusterPageProps): Promise<Metadata> {

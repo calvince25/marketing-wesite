@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../admin.module.css';
 import { 
   Plus, 
@@ -10,7 +10,8 @@ import {
   Users, 
   DollarSign,
   Check,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Upload
 } from 'lucide-react';
 
 interface TeamMember {
@@ -61,6 +62,8 @@ export default function TeamPricingManager() {
   const [editingPlan, setEditingPlan] = useState<PricingPlan | null>(null);
 
   const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
+  const [uploadingMemberImage, setUploadingMemberImage] = useState(false);
+  const memberFileRef = useRef<HTMLInputElement>(null);
 
   // Form Fields - Team
   const [memberName, setMemberName] = useState('');
@@ -105,6 +108,26 @@ export default function TeamPricingManager() {
       console.error('Error fetching data:', e);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleMemberImageUpload(file: File) {
+    if (!file) return;
+    setUploadingMemberImage(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      const res = await fetch('/api/admin/media', { method: 'POST', body: formData });
+      if (res.ok) {
+        const data = await res.json();
+        setMemberImage(data.media?.fileUrl || '');
+      } else {
+        alert('Image upload failed. Please try again.');
+      }
+    } catch (e) {
+      console.error('Upload error:', e);
+    } finally {
+      setUploadingMemberImage(false);
     }
   }
 
@@ -463,24 +486,40 @@ export default function TeamPricingManager() {
               </div>
 
               <div className={styles.formGroup}>
-                <label>Profile Image URL *</label>
+                <label>Profile Image *</label>
+                <input
+                  ref={memberFileRef}
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  onChange={(e) => e.target.files?.[0] && handleMemberImageUpload(e.target.files[0])}
+                />
+                {memberImage && (
+                  <div style={{ position: 'relative', height: '160px', borderRadius: '8px', overflow: 'hidden', marginBottom: '10px', border: '1px solid rgba(255,107,0,0.3)' }}>
+                    <img src={memberImage} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <button type="button" onClick={() => setMemberImage('')} style={{ position: 'absolute', top: '8px', right: '8px', background: 'rgba(239,68,68,0.9)', border: 'none', color: 'white', borderRadius: '4px', width: '28px', height: '28px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <X size={14} />
+                    </button>
+                  </div>
+                )}
                 <div style={{ display: 'flex', gap: '10px' }}>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Enter image URL..."
-                    className={styles.formInput}
-                    style={{ flex: 1 }}
-                    value={memberImage}
-                    onChange={(e) => setMemberImage(e.target.value)}
-                  />
+                  <button
+                    type="button"
+                    onClick={() => memberFileRef.current?.click()}
+                    className={styles.btnPrimary}
+                    style={{ flex: 1, padding: '12px' }}
+                    disabled={uploadingMemberImage}
+                  >
+                    <Upload size={16} />
+                    {uploadingMemberImage ? 'Uploading...' : 'Upload from Device'}
+                  </button>
                   <button 
                     type="button" 
                     onClick={() => setMediaPickerOpen(true)} 
                     className={styles.btnSecondary}
-                    style={{ padding: '12px' }}
+                    style={{ padding: '12px 16px', fontSize: '12px' }}
                   >
-                    <ImageIcon size={18} />
+                    <ImageIcon size={16} /> Library
                   </button>
                 </div>
               </div>

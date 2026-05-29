@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../admin.module.css';
 import { 
   Plus, 
@@ -11,7 +11,8 @@ import {
   Image as ImageIcon,
   Check,
   ToggleLeft,
-  ToggleRight
+  ToggleRight,
+  Upload
 } from 'lucide-react';
 
 interface Project {
@@ -48,6 +49,8 @@ export default function ProjectsManager() {
   const [editorOpen, setEditorOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Form Fields
   const [name, setName] = useState('');
@@ -104,6 +107,27 @@ export default function ProjectsManager() {
       setMedia(data.media || []);
     } catch (e) {
       console.error('Error fetching media:', e);
+    }
+  }
+
+  async function handleImageUpload(file: File) {
+    if (!file) return;
+    setUploadingImage(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      const res = await fetch('/api/admin/media', { method: 'POST', body: formData });
+      if (res.ok) {
+        const data = await res.json();
+        setImageUrl(data.media?.fileUrl || '');
+        fetchMedia();
+      } else {
+        alert('Image upload failed. Please try again.');
+      }
+    } catch (e) {
+      console.error('Upload error:', e);
+    } finally {
+      setUploadingImage(false);
     }
   }
 
@@ -365,24 +389,40 @@ export default function ProjectsManager() {
               </div>
 
               <div className={styles.formGroup}>
-                <label>Featured Image URL *</label>
+                <label>Featured Image *</label>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  onChange={(e) => e.target.files?.[0] && handleImageUpload(e.target.files[0])}
+                />
+                {imageUrl && (
+                  <div style={{ position: 'relative', height: '180px', borderRadius: '8px', overflow: 'hidden', marginBottom: '10px', border: '1px solid rgba(255,107,0,0.3)' }}>
+                    <img src={imageUrl} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <button type="button" onClick={() => setImageUrl('')} style={{ position: 'absolute', top: '8px', right: '8px', background: 'rgba(239,68,68,0.9)', border: 'none', color: 'white', borderRadius: '4px', width: '28px', height: '28px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <X size={14} />
+                    </button>
+                  </div>
+                )}
                 <div style={{ display: 'flex', gap: '10px' }}>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Enter image path or select from media library..."
-                    className={styles.formInput}
-                    style={{ flex: 1 }}
-                    value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
-                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className={styles.btnPrimary}
+                    style={{ flex: 1, padding: '12px' }}
+                    disabled={uploadingImage}
+                  >
+                    <Upload size={16} />
+                    {uploadingImage ? 'Uploading...' : 'Upload from Device'}
+                  </button>
                   <button 
                     type="button" 
                     onClick={() => setMediaPickerOpen(true)} 
                     className={styles.btnSecondary}
-                    style={{ padding: '12px' }}
+                    style={{ padding: '12px 16px', fontSize: '12px' }}
                   >
-                    <ImageIcon size={18} />
+                    <ImageIcon size={16} /> Library
                   </button>
                 </div>
               </div>

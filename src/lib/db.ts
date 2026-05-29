@@ -233,41 +233,60 @@ Stop chasing every shiny new tool. Instead, start building a robust, data-backed
   // Seed default Projects
   const projects = [
     {
-      name: "E-Commerce Digital Transformation",
-      title: "E-Commerce Digital Transformation",
-      slug: { current: "ecommerce-digital-transformation" },
-      description: "A complete redesign and custom Next.js build representing a fast fashion retail shop in East Africa, yielding a 140% traffic boost.",
-      technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Tailwind CSS"],
-      client: "Vogue Collections Kenya",
+      name: "Mells Fashion",
+      title: "Mells Fashion",
+      slug: { current: "mells-fashion" },
+      description: "High-performance e-commerce shopping experience built on Next.js, yielding a 140% traffic boost.",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+      client: "E-commerce",
       images: ["https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"],
-      projectLink: "https://example.com/vogue",
-      githubLink: "https://github.com/example/vogue",
+      projectLink: "https://www.mellsfasion.co.ke",
       featured: true,
       isPrivate: false,
       demoAvailableRequest: false,
       caseStudySupport: true,
       completionDate: "2024-02-15",
       seo: {
-        metaTitle: "E-Commerce Digital Transformation | GrowthLab Case Study",
-        metaDescription: "Read how we helped Vogue Collections scale their e-commerce traffic by 140% using our bespoke Next.js development and SEO."
+        metaTitle: "Mells Fashion | GrowthLab Portfolio",
+        metaDescription: "High-performance e-commerce shopping experience built on Next.js, yielding a 140% traffic boost."
       }
     },
     {
-      name: "SaaS CRM Integration & Automation",
-      title: "SaaS CRM Integration & Automation",
-      slug: { current: "saas-crm-integration-automation" },
-      description: "Custom HubSpot CRM and workflow automation integration for a leading logistics company in Nairobi, saving 25+ hours weekly.",
-      technologies: ["HubSpot API", "Node.js", "Zapier", "Make.com"],
-      client: "Express Logistics East Africa",
-      images: ["https://images.unsplash.com/photo-1552581230-c01bc0d48403?auto=format&fit=crop&w=800&q=80"],
+      name: "Restaurant POS System",
+      title: "Restaurant POS System",
+      slug: { current: "restaurant-pos-system" },
+      description: "Custom POS integration and automation for a leading restaurant, optimizing workflows and order tracking.",
+      technologies: ["React", "Node.js", "PostgreSQL"],
+      client: "Systems Integration",
+      images: ["https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"],
+      projectLink: "https://pos-system-two-tawny.vercel.app",
       featured: true,
-      isPrivate: true,
-      demoAvailableRequest: true,
-      caseStudySupport: false,
-      completionDate: "2024-01-10",
+      isPrivate: false,
+      demoAvailableRequest: false,
+      caseStudySupport: true,
+      completionDate: "2024-01-20",
       seo: {
-        metaTitle: "SaaS CRM Integration & Automation | GrowthLab Portfolio",
-        metaDescription: "Learn about our business automation case study in Nairobi for Express Logistics saving them hours of manual labor."
+        metaTitle: "Restaurant POS System | GrowthLab Portfolio",
+        metaDescription: "Custom POS integration and automation for a leading restaurant, optimizing workflows and order tracking."
+      }
+    },
+    {
+      name: "GrowthLab Analytics",
+      title: "GrowthLab Analytics",
+      slug: { current: "growthlab-analytics" },
+      description: "Data analytics platform dashboard featuring clean charts, traffic logs, and user activity insights.",
+      technologies: ["Next.js", "Python", "Tailwind CSS"],
+      client: "AI & Data",
+      images: ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"],
+      projectLink: "#",
+      featured: true,
+      isPrivate: false,
+      demoAvailableRequest: false,
+      caseStudySupport: true,
+      completionDate: "2024-03-10",
+      seo: {
+        metaTitle: "GrowthLab Analytics | GrowthLab Portfolio",
+        metaDescription: "Data analytics platform dashboard featuring clean charts, traffic logs, and user activity insights."
       }
     }
   ];

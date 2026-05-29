@@ -1,96 +1,79 @@
 [
   {
-    "name": "E-Commerce Digital Transformation",
-    "title": "E-Commerce Digital Transformation",
+    "name": "Mells Fashion",
+    "title": "Mells Fashion",
     "slug": {
-      "current": "ecommerce-digital-transformation"
+      "current": "mells-fashion"
     },
-    "description": "A complete redesign and custom Next.js build representing a fast fashion retail shop in East Africa, yielding a 140% traffic boost.",
+    "description": "High-performance e-commerce shopping experience built on Next.js, yielding a 140% traffic boost.",
     "technologies": [
       "Next.js",
       "React",
-      "Node.js",
-      "PostgreSQL",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "Node.js"
     ],
-    "client": "Vogue Collections Kenya",
+    "client": "E-commerce",
     "images": [
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
     ],
-    "projectLink": "https://example.com/vogue",
-    "githubLink": "https://github.com/example/vogue",
+    "projectLink": "https://www.mellsfasion.co.ke",
     "featured": true,
     "isPrivate": false,
     "demoAvailableRequest": false,
     "caseStudySupport": true,
     "completionDate": "2024-02-15",
-    "seo": {
-      "metaTitle": "E-Commerce Digital Transformation | GrowthLab Case Study",
-      "metaDescription": "Read how we helped Vogue Collections scale their e-commerce traffic by 140% using our bespoke Next.js development and SEO."
-    },
     "id": "5ofqqpy1mbpjkkuuzxab5h",
     "_id": "5ofqqpy1mbpjkkuuzxab5h",
     "createdAt": "2026-05-29T09:41:27.020Z"
   },
   {
-    "name": "E-Commerce Digital Transformation",
-    "title": "E-Commerce Digital Transformation",
+    "name": "Restaurant POS System",
+    "title": "Restaurant POS System",
     "slug": {
-      "current": "ecommerce-digital-transformation"
+      "current": "restaurant-pos-system"
     },
-    "description": "A complete redesign and custom Next.js build representing a fast fashion retail shop in East Africa, yielding a 140% traffic boost.",
+    "description": "Custom POS integration and automation for a leading restaurant, optimizing workflows and order tracking.",
     "technologies": [
-      "Next.js",
       "React",
       "Node.js",
-      "PostgreSQL",
-      "Tailwind CSS"
+      "PostgreSQL"
     ],
-    "client": "Vogue Collections Kenya",
+    "client": "Systems Integration",
     "images": [
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
     ],
-    "projectLink": "https://example.com/vogue",
-    "githubLink": "https://github.com/example/vogue",
+    "projectLink": "https://pos-system-two-tawny.vercel.app",
     "featured": true,
     "isPrivate": false,
     "demoAvailableRequest": false,
     "caseStudySupport": true,
-    "completionDate": "2024-02-15",
-    "seo": {
-      "metaTitle": "E-Commerce Digital Transformation | GrowthLab Case Study",
-      "metaDescription": "Read how we helped Vogue Collections scale their e-commerce traffic by 140% using our bespoke Next.js development and SEO."
-    },
+    "completionDate": "2024-01-20",
     "id": "r513o3ojsvdes5vggzme7r",
     "_id": "r513o3ojsvdes5vggzme7r",
     "createdAt": "2026-05-29T09:41:27.023Z"
   },
   {
-    "name": "SaaS CRM Integration & Automation",
-    "title": "SaaS CRM Integration & Automation",
+    "name": "GrowthLab Analytics",
+    "title": "GrowthLab Analytics",
     "slug": {
-      "current": "saas-crm-integration-automation"
+      "current": "growthlab-analytics"
     },
-    "description": "Custom HubSpot CRM and workflow automation integration for a leading logistics company in Nairobi, saving 25+ hours weekly.",
+    "description": "Data analytics platform dashboard featuring clean charts, traffic logs, and user activity insights.",
     "technologies": [
-      "HubSpot API",
-      "Node.js",
-      "Zapier",
-      "Make.com"
+      "Next.js",
+      "Python",
+      "Tailwind CSS"
     ],
-    "client": "Express Logistics East Africa",
+    "client": "AI & Data",
     "images": [
-      "https://images.unsplash.com/photo-1552581230-c01bc0d48403?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
     ],
+    "projectLink": "#",
     "featured": true,
-    "isPrivate": true,
-    "demoAvailableRequest": true,
-    "caseStudySupport": false,
-    "completionDate": "2024-01-10",
-    "seo": {
-      "metaTitle": "SaaS CRM Integration & Automation | GrowthLab Portfolio",
-      "metaDescription": "Learn about our business automation case study in Nairobi for Express Logistics saving them hours of manual labor."
-    },
+    "isPrivate": false,
+    "demoAvailableRequest": false,
+    "caseStudySupport": true,
+    "completionDate": "2024-03-10",
     "id": "htp4r8brx094s7157rhw75",
     "_id": "htp4r8brx094s7157rhw75",
     "createdAt": "2026-05-29T09:41:27.024Z"

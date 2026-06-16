@@ -71,7 +71,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const auth = await requireAuth(['superadmin', 'admin']);
+    const auth = await requireAuth(['superadmin', 'admin', 'editor']);
     if (!auth.authorized) {
       return auth.errorResponse!;
     }

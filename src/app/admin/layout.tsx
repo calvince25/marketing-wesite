@@ -6,10 +6,6 @@ import {
   BookOpen, 
   Briefcase, 
   Settings, 
-  Users, 
-  MessageSquare, 
-  DollarSign, 
-  Image as ImageIcon,
   UserCheck,
   Globe,
   LogOut
@@ -65,27 +61,13 @@ export default async function AdminLayout({
             Services Panel
           </Link>
 
-          <Link href="/admin/reviews" className={styles.menuItem}>
-            <MessageSquare size={18} />
-            Testimonials
-          </Link>
-
-          <Link href="/admin/team-pricing" className={styles.menuItem}>
-            <DollarSign size={18} />
-            Team & Pricing
-          </Link>
-
-          <Link href="/admin/media" className={styles.menuItem}>
-            <ImageIcon size={18} />
-            Media Library
-          </Link>
-
           {isSuperAdmin && (
             <Link href="/admin/users" className={styles.menuItem}>
               <UserCheck size={18} />
               User Approvals
             </Link>
           )}
+
 
           <a href="/" target="_blank" rel="noopener noreferrer" className={styles.menuItem} style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
             <Globe size={18} />

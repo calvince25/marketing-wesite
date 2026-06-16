@@ -39,6 +39,32 @@ export async function POST(request: Request) {
     
     fs.writeFileSync(filepath, JSON.stringify({ ...data, timestamp: new Date().toISOString() }, null, 2));
 
+    // 3. Send to Zapier Webhook (Fire-and-forget)
+    try {
+      const webhookUrl = process.env.ZAPIER_WEBHOOK_URL;
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            service: data.service || 'General Inquiry',
+            budget: data.budget || '',
+            message: data.message,
+            submitted_at: new Date().toISOString(),
+            source: 'growthlab.co.ke/contact'
+          })
+        });
+      } else {
+        console.warn("ZAPIER_WEBHOOK_URL environment variable is not defined");
+      }
+    } catch (webhookError) {
+      // Silent fail — don't block the user
+      console.error('Zapier Webhook error:', webhookError);
+    }
+
     return NextResponse.json({ message: "Thank you! Your message has been sent." }, { status: 200 });
   } catch (error) {
     console.error("Error processing contact form:", error);

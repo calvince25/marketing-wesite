@@ -30,7 +30,16 @@ export async function GET(request: Request) {
     // Sort by uploadedAt desc
     media.sort((a: any, b: any) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
 
-    return NextResponse.json({ media });
+    return NextResponse.json(
+      { media },
+      {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      }
+    );
   } catch (error: any) {
     console.error('Fetch media error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

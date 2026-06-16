@@ -25,7 +25,16 @@ export async function GET(request: Request) {
     // Sort by completionDate/createdAt desc
     projects.sort((a: any, b: any) => new Date(b.completionDate || b.createdAt).getTime() - new Date(a.completionDate || a.createdAt).getTime());
 
-    return NextResponse.json({ projects });
+    return NextResponse.json(
+      { projects },
+      {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      }
+    );
   } catch (error: any) {
     console.error('Fetch projects error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

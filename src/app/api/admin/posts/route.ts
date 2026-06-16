@@ -25,7 +25,16 @@ export async function GET(request: Request) {
     // Sort by publishedAt/createdAt desc
     posts.sort((a: any, b: any) => new Date(b.publishedAt || b.createdAt).getTime() - new Date(a.publishedAt || a.createdAt).getTime());
 
-    return NextResponse.json({ posts });
+    return NextResponse.json(
+      { posts },
+      {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      }
+    );
   } catch (error: any) {
     console.error('Fetch posts error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

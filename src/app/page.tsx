@@ -285,25 +285,34 @@ export default async function Home() {
             <h2 className={styles.sectionTitle}>Featured Projects</h2>
           </div>
           <div className={styles.portfolioGrid}>
-            {projects && projects.length > 0 ? projects.slice(0, 3).map((project: any, idx: number) => (
-              <div key={idx} className={styles.portfolioCard}>
-                <div className={styles.imagePlaceholder}>
-                  {project.images?.[0] ? (
-                    <Image 
-                      src={urlForImage(project.images[0]).width(800).quality(80).url()} 
-                      alt={project.name} 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                      style={{ objectFit: 'cover', objectPosition: 'center' }} 
-                    />
-                  ) : project.name}
-                </div>
-                <div className={styles.cardBody}>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                </div>
-              </div>
-            )) : (
+            {projects && projects.length > 0 ? projects.slice(0, 3).map((project: any, idx: number) => {
+              const url = project.projectLink || project.link || '#';
+              return (
+                <Link 
+                  key={idx} 
+                  href={url} 
+                  target={url.startsWith('http') ? "_blank" : "_self"} 
+                  className={styles.portfolioCard} 
+                  style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
+                >
+                  <div className={styles.imagePlaceholder}>
+                    {project.images?.[0] ? (
+                      <Image 
+                        src={urlForImage(project.images[0]).width(800).quality(80).url()} 
+                        alt={project.name} 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                        style={{ objectFit: 'cover', objectPosition: 'center' }} 
+                      />
+                    ) : project.name}
+                  </div>
+                  <div className={styles.cardBody}>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                  </div>
+                </Link>
+              );
+            }) : (
               <>
                 <div className={styles.portfolioCard}>
                   <div className={styles.imagePlaceholder}>E-commerce Redesign</div>

@@ -20,8 +20,6 @@ export function regenerateSitemapAndRobots() {
       { loc: '/about', changefreq: 'monthly', priority: '0.8' },
       { loc: '/blog', changefreq: 'daily', priority: '0.8' },
       { loc: '/portfolio', changefreq: 'weekly', priority: '0.8' },
-      { loc: '/pricing', changefreq: 'weekly', priority: '0.8' },
-      { loc: '/testimonials', changefreq: 'monthly', priority: '0.7' },
       { loc: '/contact', changefreq: 'monthly', priority: '0.8' }
     ];
 

@@ -29,15 +29,27 @@ export async function POST(request: Request) {
     }
 
     // 2. Save to local JSON file (Backup)
-    const submissionsDir = path.join(process.cwd(), 'submissions');
-    if (!fs.existsSync(submissionsDir)) {
-      fs.mkdirSync(submissionsDir, { recursive: true });
-    }
+    try {
+      const submissionsDir = path.join(process.cwd(), 'submissions');
+      let targetDir = submissionsDir;
+      try {
+        if (!fs.existsSync(targetDir)) {
+          fs.mkdirSync(targetDir, { recursive: true });
+        }
+      } catch (dirError) {
+        // Fallback to /tmp in serverless environment
+        targetDir = path.join('/tmp', 'submissions');
+        if (!fs.existsSync(targetDir)) {
+          fs.mkdirSync(targetDir, { recursive: true });
+        }
+      }
 
-    const filename = `submission_${Date.now()}.json`;
-    const filepath = path.join(submissionsDir, filename);
-    
-    fs.writeFileSync(filepath, JSON.stringify({ ...data, timestamp: new Date().toISOString() }, null, 2));
+      const filename = `submission_${Date.now()}.json`;
+      const filepath = path.join(targetDir, filename);
+      fs.writeFileSync(filepath, JSON.stringify({ ...data, timestamp: new Date().toISOString() }, null, 2));
+    } catch (backupError) {
+      console.error("Local backup failed, skipping:", backupError);
+    }
 
     // 3. Send to Zapier Webhook (Fire-and-forget)
     try {

@@ -73,6 +73,13 @@ export default async function AdminLayout({
             <Globe size={18} />
             Visit Website
           </a>
+
+          <form action="/api/admin/logout" method="POST" style={{ margin: 0, width: '100%' }}>
+            <button type="submit" className={styles.menuItem} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: '14px 18px' }}>
+              <LogOut size={18} />
+              Sign Out
+            </button>
+          </form>
         </nav>
 
         <div className={styles.sidebarFooter}>

@@ -52,8 +52,9 @@ export const client = {
 
       // 7. allProjectsQuery
       if (q.includes('_type == "project"')) {
-        const projects = db.read('projects')
-          .sort((a: any, b: any) => new Date(b.completionDate || b.createdAt).getTime() - new Date(a.completionDate || a.createdAt).getTime());
+        const { readProjects } = require('@/lib/kv');
+        const projects = await readProjects();
+        projects.sort((a: any, b: any) => new Date(b.completionDate || b.createdAt).getTime() - new Date(a.completionDate || a.createdAt).getTime());
         return projects as unknown as QueryResponse;
       }
 

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import { regenerateSitemapAndRobots } from '@/lib/seo';
+import { readProjects, writeProjects } from '@/lib/kv';
 
 export async function GET(request: Request) {
   try {
@@ -13,7 +14,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search')?.toLowerCase() || '';
 
-    let projects = db.read('projects');
+    let projects = await readProjects();
 
     if (search) {
       projects = projects.filter((p: any) =>
@@ -80,7 +81,16 @@ export async function POST(request: Request) {
       createdAt: new Date().toISOString()
     };
 
-    const result = db.insert('projects', newProject);
+    const projectsList = await readProjects();
+    const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const result = {
+      ...newProject,
+      id,
+      _id: id,
+      createdAt: newProject.createdAt || new Date().toISOString()
+    };
+    projectsList.push(result);
+    await writeProjects(projectsList);
 
     // Update Sitemap
     regenerateSitemapAndRobots();

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import { regenerateSitemapAndRobots } from '@/lib/seo';
+import { readProjects, writeProjects } from '@/lib/kv';
 
 export async function PUT(
   request: Request,
@@ -17,10 +18,12 @@ export async function PUT(
     const body = await request.json();
     const { name, description, technologies, client, images, projectLink, githubLink, featured, isPrivate, demoAvailableRequest, caseStudySupport, completionDate } = body;
 
-    const project = db.findOne('projects', p => p.id === id || p._id === id);
-    if (!project) {
+    const projectsList = await readProjects();
+    const projectIndex = projectsList.findIndex(p => p.id === id || p._id === id);
+    if (projectIndex === -1) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
+    const project = projectsList[projectIndex];
 
     const updates: any = {};
     if (name !== undefined) {
@@ -47,7 +50,13 @@ export async function PUT(
       metaDescription: (updates.description || project.description).substring(0, 160)
     };
 
-    const result = db.update('projects', id, updates);
+    const result = {
+      ...project,
+      ...updates,
+      updatedAt: new Date().toISOString()
+    };
+    projectsList[projectIndex] = result;
+    await writeProjects(projectsList);
 
     // Update Sitemap
     regenerateSitemapAndRobots();
@@ -77,12 +86,14 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const project = db.findOne('projects', p => p.id === id || p._id === id);
+    const projectsList = await readProjects();
+    const project = projectsList.find(p => p.id === id || p._id === id);
     if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    db.delete('projects', id);
+    const filteredProjects = projectsList.filter(p => p.id !== id && p._id !== id);
+    await writeProjects(filteredProjects);
 
     // Update Sitemap
     regenerateSitemapAndRobots();

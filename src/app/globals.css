@@ -67,6 +67,10 @@
 
 html {
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -76,6 +80,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -86,6 +91,31 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--primary-navy);
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+    outline: none !important;
+    opacity: 1 !important;
+    letter-spacing: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+h2 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h3 {
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 a {

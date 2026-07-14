@@ -34,5 +34,77 @@
     "id": "wtqkqkszjwnalu89rxe09n",
     "_id": "wtqkqkszjwnalu89rxe09n",
     "createdAt": "2026-05-29T10:13:09.391Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Create",
+    "details": "Created project: API Test Project",
+    "timestamp": "2026-06-16T12:47:53.074Z",
+    "id": "duy870fttpmpx55oco9sq",
+    "_id": "duy870fttpmpx55oco9sq",
+    "createdAt": "2026-06-16T12:47:53.567Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Update",
+    "details": "Updated project: API Test Project (Updated)",
+    "timestamp": "2026-06-16T12:47:59.008Z",
+    "id": "7e893h6t3drokpvdzzg5ta",
+    "_id": "7e893h6t3drokpvdzzg5ta",
+    "createdAt": "2026-06-16T12:47:59.008Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Delete",
+    "details": "Deleted project: API Test Project (Updated)",
+    "timestamp": "2026-06-16T12:47:59.090Z",
+    "id": "xt62upuryxfueiqlhkjcqc",
+    "_id": "xt62upuryxfueiqlhkjcqc",
+    "createdAt": "2026-06-16T12:47:59.090Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Create",
+    "details": "Created project: API Test Project",
+    "timestamp": "2026-06-16T12:49:01.672Z",
+    "id": "54uwdkyh4t3swtk2xwxfda",
+    "_id": "54uwdkyh4t3swtk2xwxfda",
+    "createdAt": "2026-06-16T12:49:01.673Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Update",
+    "details": "Updated project: API Test Project (Updated)",
+    "timestamp": "2026-06-16T12:49:01.856Z",
+    "id": "kcgpyj4kzdpxha1j3fpot",
+    "_id": "kcgpyj4kzdpxha1j3fpot",
+    "createdAt": "2026-06-16T12:49:01.856Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Delete",
+    "details": "Deleted project: API Test Project (Updated)",
+    "timestamp": "2026-06-16T12:49:01.931Z",
+    "id": "tp9jwsttjkmbodudgtz6r9",
+    "_id": "tp9jwsttjkmbodudgtz6r9",
+    "createdAt": "2026-06-16T12:49:01.931Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Update",
+    "details": "Updated project: Mells Fashion (Updated)",
+    "timestamp": "2026-06-17T10:34:24.096Z",
+    "id": "rrddk1k7suojnns6pkbns",
+    "_id": "rrddk1k7suojnns6pkbns",
+    "createdAt": "2026-06-17T10:34:24.182Z"
+  },
+  {
+    "userEmail": "omondicalvince4714@gmail.com",
+    "action": "Project Delete",
+    "details": "Deleted project: Mells Fashion (Updated)",
+    "timestamp": "2026-06-17T10:34:24.581Z",
+    "id": "18hyast9gnpferfapjakg7",
+    "_id": "18hyast9gnpferfapjakg7",
+    "createdAt": "2026-06-17T10:34:24.581Z"
   }
 ]

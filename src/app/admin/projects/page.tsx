@@ -90,7 +90,7 @@ export default function ProjectsManager() {
 
   async function fetchProjects() {
     try {
-      const res = await fetch(`/api/admin/projects?search=${search}`);
+      const res = await fetch(`/api/admin/projects?search=${search}`, { cache: 'no-store' });
       const data = await res.json();
       setProjects(data.projects || []);
     } catch (e) {
@@ -102,7 +102,7 @@ export default function ProjectsManager() {
 
   async function fetchMedia() {
     try {
-      const res = await fetch('/api/admin/media');
+      const res = await fetch('/api/admin/media', { cache: 'no-store' });
       const data = await res.json();
       setMedia(data.media || []);
     } catch (e) {

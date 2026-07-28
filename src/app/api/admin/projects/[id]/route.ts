@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import { regenerateSitemapAndRobots } from '@/lib/seo';
-import { readProjects, writeProjects } from '@/lib/kv';
 
 export async function PUT(
   request: Request,
@@ -18,12 +17,11 @@ export async function PUT(
     const body = await request.json();
     const { name, description, technologies, client, images, projectLink, githubLink, featured, isPrivate, demoAvailableRequest, caseStudySupport, completionDate } = body;
 
-    const projectsList = await readProjects();
-    const projectIndex = projectsList.findIndex(p => p.id === id || p._id === id);
-    if (projectIndex === -1) {
+    await db.loadTable('projects');
+    const project = db.findOne('projects', p => p.id === id || p._id === id);
+    if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
-    const project = projectsList[projectIndex];
 
     const updates: any = {};
     if (name !== undefined) {
@@ -50,13 +48,7 @@ export async function PUT(
       metaDescription: (updates.description || project.description).substring(0, 160)
     };
 
-    const result = {
-      ...project,
-      ...updates,
-      updatedAt: new Date().toISOString()
-    };
-    projectsList[projectIndex] = result;
-    await writeProjects(projectsList);
+    const result = db.update('projects', id, updates);
 
     // Update Sitemap
     regenerateSitemapAndRobots();
@@ -86,14 +78,13 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const projectsList = await readProjects();
-    const project = projectsList.find(p => p.id === id || p._id === id);
+    await db.loadTable('projects');
+    const project = db.findOne('projects', p => p.id === id || p._id === id);
     if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    const filteredProjects = projectsList.filter(p => p.id !== id && p._id !== id);
-    await writeProjects(filteredProjects);
+    db.delete('projects', id);
 
     // Update Sitemap
     regenerateSitemapAndRobots();

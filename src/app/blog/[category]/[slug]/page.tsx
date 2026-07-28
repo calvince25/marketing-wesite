@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
   const post = await client.fetch(postBySlugQuery, { slug }).catch(() => null);

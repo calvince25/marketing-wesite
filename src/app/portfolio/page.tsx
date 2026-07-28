@@ -5,6 +5,8 @@ import { client } from "@/sanity/lib/client";
 import { allProjectsQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 
+export const dynamic = 'force-dynamic';
+
 export default async function PortfolioPage() {
   const displayProjects = await client.fetch(allProjectsQuery).catch(() => []);
 

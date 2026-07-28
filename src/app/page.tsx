@@ -16,6 +16,8 @@ import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const [settings, services, posts, projects, homeContent, faqs] = await Promise.all([
     client.fetch(siteSettingsQuery),

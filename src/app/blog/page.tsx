@@ -6,6 +6,8 @@ import { client } from "@/sanity/lib/client";
 import { allPostsQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage() {
   const posts = await client.fetch(allPostsQuery).catch(() => []);
   const displayPosts = (posts && posts.length > 0) ? posts : blogPosts;

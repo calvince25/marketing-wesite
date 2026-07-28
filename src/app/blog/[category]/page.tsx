@@ -11,6 +11,8 @@ interface CategoryPageProps {
   params: { category: string };
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: categorySlug } = await params;
   

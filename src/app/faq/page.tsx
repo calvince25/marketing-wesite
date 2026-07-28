@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'How long does SEO take? What is your pricing? Find the answers to the most specific questions about working with GrowthLab.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function FAQPage() {
   const faqs = await client.fetch(allFaqsQuery).catch(() => []);
 

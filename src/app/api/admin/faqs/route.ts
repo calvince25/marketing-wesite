@@ -9,6 +9,7 @@ export async function GET() {
       return auth.errorResponse!;
     }
 
+    await db.loadTable('faqs');
     const faqs = db.read('faqs');
     // Sort by displayOrder
     faqs.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
@@ -34,6 +35,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Question and answer are required' }, { status: 400 });
     }
 
+    await db.loadTable('faqs');
+
     const newFaq = {
       question,
       answer,
@@ -41,6 +44,7 @@ export async function POST(request: Request) {
     };
 
     const result = db.insert('faqs', newFaq);
+    await db.persist('faqs');
 
     // Log Activity
     db.logActivity(auth.user?.email || 'system', 'FAQ Create', `Added FAQ: ${question}`);

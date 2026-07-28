@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import styles from "./SubServiceTemplate.module.css";
 import { PortableText } from "@portabletext/react";
 import React from 'react';
+import JsonLd from "@/components/seo/JsonLd";
 
 const renderStaticContent = (content: string) => {
   if (!content) return null;
@@ -51,8 +52,24 @@ interface SubServiceTemplateProps {
 }
 
 export default function SubServiceTemplate({ pillar, subService }: SubServiceTemplateProps) {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": subService.title,
+    "description": subService.description,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Services", "item": "https://growthlab.co.ke/services" },
+        { "@type": "ListItem", "position": 2, "name": pillar.title, "item": `https://growthlab.co.ke/services/${pillar.slug}` },
+        { "@type": "ListItem", "position": 3, "name": subService.title }
+      ]
+    }
+  };
+
   return (
     <div className={styles.clusterPage}>
+      <JsonLd data={schemaData} />
       <section className={styles.hero}>
         <div className="container">
           <Breadcrumbs 

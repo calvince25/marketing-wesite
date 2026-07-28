@@ -16,6 +16,7 @@ export async function PUT(
     const body = await request.json();
     const { question, answer, displayOrder } = body;
 
+    await db.loadTable('faqs');
     const faq = db.findOne('faqs', f => f.id === id || f._id === id);
     if (!faq) {
       return NextResponse.json({ error: 'FAQ not found' }, { status: 404 });
@@ -27,6 +28,7 @@ export async function PUT(
     if (displayOrder !== undefined) updates.displayOrder = Number(displayOrder);
 
     const result = db.update('faqs', id, updates);
+    await db.persist('faqs');
 
     // Log Activity
     db.logActivity(auth.user?.email || 'system', 'FAQ Update', `Updated FAQ: ${updates.question || faq.question}`);
@@ -53,12 +55,14 @@ export async function DELETE(
     }
 
     const { id } = await params;
+    await db.loadTable('faqs');
     const faq = db.findOne('faqs', f => f.id === id || f._id === id);
     if (!faq) {
       return NextResponse.json({ error: 'FAQ not found' }, { status: 404 });
     }
 
     db.delete('faqs', id);
+    await db.persist('faqs');
 
     // Log Activity
     db.logActivity(auth.user?.email || 'system', 'FAQ Delete', `Deleted FAQ: ${faq.question}`);

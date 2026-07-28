@@ -23,6 +23,9 @@ export default async function DashboardPage() {
   }
 
   // Read data directly from DB
+  const tables = ['posts', 'projects', 'services', 'team', 'reviews', 'users', 'activity'];
+  await Promise.all(tables.map(t => db.loadTable(t)));
+
   const posts = db.read('posts');
   const projects = db.read('projects');
   const services = db.read('services');
@@ -68,34 +71,34 @@ export default async function DashboardPage() {
 
       {/* 2. Stats Grid */}
       <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
+        <Link href="/admin/blogs" className={styles.statCard}>
           <div className={styles.statHeader}>
             <span>Blog Posts</span>
             <div className={styles.statIcon}><BookOpen size={16} /></div>
           </div>
           <div className={styles.statValue}>{stats.blogsCount}</div>
           <div className={styles.statMeta}>{stats.publishedBlogs} Published Articles</div>
-        </div>
+        </Link>
 
-        <div className={styles.statCard}>
+        <Link href="/admin/projects" className={styles.statCard}>
           <div className={styles.statHeader}>
             <span>Projects</span>
             <div className={styles.statIcon}><Briefcase size={16} /></div>
           </div>
           <div className={styles.statValue}>{stats.projectsCount}</div>
           <div className={styles.statMeta}>Dynamic Case Studies</div>
-        </div>
+        </Link>
 
-        <div className={styles.statCard}>
+        <Link href="/admin/services" className={styles.statCard}>
           <div className={styles.statHeader}>
             <span>Services</span>
             <div className={styles.statIcon}><Settings size={16} /></div>
           </div>
           <div className={styles.statValue}>{stats.servicesCount}</div>
           <div className={styles.statMeta}>Pillars & Clusters</div>
-        </div>
+        </Link>
 
-        <div className={styles.statCard}>
+        <Link href="/admin/reviews" className={styles.statCard}>
           <div className={styles.statHeader}>
             <span>Reviews</span>
             <div className={styles.statIcon}><MessageSquare size={16} /></div>
@@ -104,7 +107,7 @@ export default async function DashboardPage() {
           <div className={styles.statMeta} style={{ color: stats.pendingReviews > 0 ? '#ff6b00' : '#475569', fontWeight: stats.pendingReviews > 0 ? 600 : 400 }}>
             {stats.pendingReviews} Pending Approval
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* 3. Main Split Sections */}

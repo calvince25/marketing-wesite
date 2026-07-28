@@ -34,7 +34,7 @@ interface ClusterPageProps {
 }
 
 export async function generateMetadata({ params }: ClusterPageProps): Promise<Metadata> {
-  const { clusterSlug } = await params;
+  const { pillarSlug, clusterSlug } = await params;
   const cluster = await client.fetch(clusterBySlugQuery, { slug: clusterSlug }).catch(() => null);
   
   // Find static fallback if any
@@ -47,9 +47,35 @@ export async function generateMetadata({ params }: ClusterPageProps): Promise<Me
   const current = cluster || staticCluster;
   if (!current) return {};
 
+  const title = current.title || 'Sub-Service';
+  const description = current.description || '';
+  const url = `https://growthlab.co.ke/services/${pillarSlug}/${clusterSlug}`;
+
   return {
-    title: current.title || 'Sub-Service',
-    description: current.description,
+    title: `${title} | GrowthLab`,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: 'article',
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=630&q=80',
+          width: 1200,
+          height: 630,
+          alt: title
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    }
   };
 }
 

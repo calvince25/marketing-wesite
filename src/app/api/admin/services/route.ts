@@ -10,6 +10,7 @@ export async function GET() {
       return auth.errorResponse!;
     }
 
+    await db.loadTable('services');
     const services = db.read('services');
     return NextResponse.json({ services });
   } catch (error: any) {
@@ -31,6 +32,8 @@ export async function POST(request: Request) {
     if (!title || !description) {
       return NextResponse.json({ error: 'Title and description are required' }, { status: 400 });
     }
+
+    await db.loadTable('services');
 
     const slug = title.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/[\s_]+/g, '-').replace(/-+/g, '-');
 
@@ -55,6 +58,7 @@ export async function POST(request: Request) {
     };
 
     const result = db.insert('services', newService);
+    await db.persist('services');
 
     // Update Sitemap
     regenerateSitemapAndRobots();

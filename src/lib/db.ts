@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { pillarServices } from './services';
 
 const DB_DIR = path.join(process.cwd(), 'data', 'db');
 
@@ -24,14 +25,16 @@ export interface DatabaseSchema {
 }
 
 class JsonDB {
+  private cache: Record<string, any> = {};
+  private loadedTables: Set<string> = new Set();
+
   private getFilePath(table: string): string {
     return path.join(DB_DIR, `${table}.json`);
   }
 
-  public read<T = any>(table: string): T[] {
+  private readLocal<T = any>(table: string): T[] {
     const filePath = this.getFilePath(table);
     if (!fs.existsSync(filePath)) {
-      // Return default empty array or default object for siteSettings
       if (table === 'siteSettings') {
         const defaultSettings = {
           heroImages: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"],
@@ -50,7 +53,7 @@ class JsonDB {
             metaDescription: "GrowthLab Limited crafts high-end digital experiences using data-driven marketing and monochromatic aesthetics."
           }
         };
-        this.write('siteSettings', defaultSettings);
+        this.writeLocal('siteSettings', defaultSettings);
         return defaultSettings as any;
       }
       if (table === 'faqs') {
@@ -81,9 +84,30 @@ class JsonDB {
             displayOrder: 5
           }
         ];
-        // Insert each default FAQ
-        defaultFaqs.forEach(faq => this.insert('faqs', faq));
-        return this.read('faqs');
+        const formattedFaqs = defaultFaqs.map((faq, index) => {
+          const id = `faq-${index + 1}`;
+          return {
+            ...faq,
+            id,
+            _id: id,
+            createdAt: new Date().toISOString()
+          };
+        });
+        this.writeLocal('faqs', formattedFaqs);
+        return formattedFaqs as any;
+      }
+      if (table === 'services') {
+        const formattedServices = Object.entries(pillarServices).map(([slug, s]: [string, any]) => {
+          const id = slug;
+          return {
+            ...s,
+            id,
+            _id: id,
+            createdAt: new Date().toISOString()
+          };
+        });
+        this.writeLocal('services', formattedServices);
+        return formattedServices as any;
       }
       return [];
     }
@@ -92,17 +116,108 @@ class JsonDB {
       const data = fs.readFileSync(filePath, 'utf-8');
       return JSON.parse(data);
     } catch (e) {
-      console.error(`Error reading table ${table}:`, e);
-      return table === 'siteSettings' ? {} as any : [];
+      return [];
     }
   }
 
-  public write(table: string, data: any): void {
+  private writeLocal(table: string, data: any): void {
     const filePath = this.getFilePath(table);
     try {
       fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+    } catch (e) {}
+  }
+
+  public async loadTable(table: string): Promise<void> {
+    const KV_URL = process.env.KV_REST_API_URL;
+    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    const isKV = !!(KV_URL && KV_TOKEN);
+
+    if (!isKV) {
+      this.cache[table] = this.readLocal(table);
+      this.loadedTables.add(table);
+      return;
+    }
+
+    if (this.loadedTables.has(table)) return;
+
+    try {
+      const res = await fetch(`${KV_URL}/get/${table}`, {
+        headers: {
+          Authorization: `Bearer ${KV_TOKEN}`,
+        },
+        cache: 'no-store',
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.result) {
+          this.cache[table] = JSON.parse(data.result);
+          this.loadedTables.add(table);
+          return;
+        }
+      }
     } catch (e) {
-      console.error(`Error writing table ${table}:`, e);
+      console.error(`Error loading table ${table} from KV:`, e);
+    }
+
+    const localData = this.readLocal(table);
+    this.cache[table] = localData;
+    this.loadedTables.add(table);
+
+    // Auto-seed to KV if KV was empty
+    if (localData.length > 0) {
+      await this.persist(table);
+    }
+  }
+
+  public async persist(table: string): Promise<void> {
+    const KV_URL = process.env.KV_REST_API_URL;
+    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    const isKV = !!(KV_URL && KV_TOKEN);
+
+    const data = this.read(table);
+    this.writeLocal(table, data);
+
+    if (!isKV) return;
+
+    try {
+      const res = await fetch(`${KV_URL}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${KV_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(['SET', table, JSON.stringify(data)])
+      });
+
+      if (!res.ok) {
+        console.error(`KV write failed for ${table}:`, res.statusText);
+      }
+    } catch (e) {
+      console.error(`Error persisting table ${table} to KV:`, e);
+    }
+  }
+
+  public read<T = any>(table: string): T[] {
+    if (this.loadedTables.has(table)) {
+      return this.cache[table] || [];
+    }
+    const data = this.readLocal<T>(table);
+    this.cache[table] = data;
+    this.loadedTables.add(table);
+    return data;
+  }
+
+  public write(table: string, data: any): void {
+    const KV_URL = process.env.KV_REST_API_URL;
+    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    const isKV = !!(KV_URL && KV_TOKEN);
+
+    this.cache[table] = data;
+    this.loadedTables.add(table);
+    this.writeLocal(table, data);
+    if (isKV) {
+      this.persist(table).catch(err => console.error(err));
     }
   }
 

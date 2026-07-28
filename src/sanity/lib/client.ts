@@ -7,6 +7,10 @@ export const client = {
     const q = query.replace(/\s+/g, ' ');
 
     try {
+      // Warm up cache from Vercel KV in serverless/production
+      const tablesToLoad = ['siteSettings', 'services', 'posts', 'faqs', 'projects'];
+      await Promise.all(tablesToLoad.map(t => db.loadTable(t)));
+
       // 1. siteSettings
       if (q.includes('_type == "siteSettings"') || q.includes("_type == 'siteSettings'")) {
         const settings = db.read('siteSettings');
@@ -104,6 +108,35 @@ export const client = {
         const faqs = db.read('faqs');
         faqs.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         return faqs as unknown as QueryResponse;
+      }
+
+      // 12. pillarPage list of slugs
+      if (q.includes('_type == "pillarPage"') && q.includes('slug.current') && !q.includes('== $slug')) {
+        const services = db.read('services');
+        return services.map((s: any) => s.slug?.current || s.slug) as unknown as QueryResponse;
+      }
+
+      // 13. service list of slugs
+      if (q.includes('_type == "service"') && q.includes('slug.current') && !q.includes('== $slug')) {
+        const services = db.read('services');
+        return services.map((s: any) => s.slug?.current || s.slug) as unknown as QueryResponse;
+      }
+
+      // 14. clusterPage list of slugs and parent pillars
+      if (q.includes('_type == "clusterPage"') && !q.includes('== $slug')) {
+        const services = db.read('services');
+        const clustersList: any[] = [];
+        services.forEach((s: any) => {
+          if (Array.isArray(s.clusters)) {
+            s.clusters.forEach((c: any) => {
+              clustersList.push({
+                pillarSlug: s.slug?.current || s.slug,
+                clusterSlug: c.slug
+              });
+            });
+          }
+        });
+        return clustersList as unknown as QueryResponse;
       }
 
       // Default fallback

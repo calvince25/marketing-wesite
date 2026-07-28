@@ -17,6 +17,7 @@ export async function PUT(
     const body = await request.json();
     const { title, h1, description, overview, benefits, process, faqs, clusters, cta, seo } = body;
 
+    await db.loadTable('services');
     const service = db.findOne('services', s => s.id === id || s._id === id);
     if (!service) {
       return NextResponse.json({ error: 'Service not found' }, { status: 404 });
@@ -46,6 +47,7 @@ export async function PUT(
     };
 
     const result = db.update('services', id, updates);
+    await db.persist('services');
 
     // Update Sitemap
     regenerateSitemapAndRobots();
@@ -75,12 +77,14 @@ export async function DELETE(
     }
 
     const { id } = await params;
+    await db.loadTable('services');
     const service = db.findOne('services', s => s.id === id || s._id === id);
     if (!service) {
       return NextResponse.json({ error: 'Service not found' }, { status: 404 });
     }
 
     db.delete('services', id);
+    await db.persist('services');
 
     // Update Sitemap
     regenerateSitemapAndRobots();

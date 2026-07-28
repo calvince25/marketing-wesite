@@ -55,6 +55,7 @@ export async function writeProjects(projects: any[]): Promise<void> {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${KV_TOKEN}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(['SET', 'projects', JSON.stringify(projects)]),
     });

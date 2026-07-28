@@ -8,13 +8,24 @@ export const client = {
 
     try {
       // Warm up cache from Vercel KV in serverless/production
-      const tablesToLoad = ['siteSettings', 'services', 'posts', 'faqs', 'projects'];
+      const tablesToLoad = ['siteSettings', 'services', 'posts', 'faqs', 'projects', 'heroImages'];
       await Promise.all(tablesToLoad.map(t => db.loadTable(t)));
 
       // 1. siteSettings
       if (q.includes('_type == "siteSettings"') || q.includes("_type == 'siteSettings'")) {
         const settings = db.read('siteSettings');
         return settings as unknown as QueryResponse;
+      }
+
+      // 1.5. heroImages query
+      if (q.includes('_type == "heroImage"')) {
+        const page = params.page;
+        const heroImages = db.read('heroImages');
+        if (page) {
+          const hero = heroImages.find((h: any) => h.page === page);
+          return (hero || null) as unknown as QueryResponse;
+        }
+        return heroImages as unknown as QueryResponse;
       }
 
       // 2. allServicesQuery

@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { pageContentQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from "next";
+import HeroSection from "@/components/layout/HeroSection";
 
 export const metadata: Metadata = {
   alternates: {
@@ -27,14 +28,11 @@ export default async function AboutPage() {
 
   return (
     <div className={styles.aboutPage}>
-      <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.title}>About GrowthLab Limited — Nairobi&apos;s Digital Growth Agency</h1>
-          <div className={styles.subtitle}>
-            GrowthLab Limited is a premium digital agency in Nairobi dedicated to transforming businesses through data-driven strategies and high-end design.
-          </div>
-        </div>
-      </section>
+      <HeroSection 
+        page="about" 
+        defaultTitle="About GrowthLab Limited — Nairobi's Digital Growth Agency" 
+        defaultSubtitle="GrowthLab Limited is a premium digital agency in Nairobi dedicated to transforming businesses through data-driven strategies and high-end design." 
+      />
 
       <section className={styles.contentSections}>
         <div className="container">

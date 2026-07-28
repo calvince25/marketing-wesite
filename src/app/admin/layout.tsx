@@ -9,7 +9,8 @@ import {
   UserCheck,
   Globe,
   LogOut,
-  HelpCircle
+  HelpCircle,
+  Image as ImageIcon
 } from 'lucide-react';
 
 export default async function AdminLayout({
@@ -60,6 +61,11 @@ export default async function AdminLayout({
           <Link href="/admin/services" className={styles.menuItem}>
             <Settings size={18} />
             Services Panel
+          </Link>
+
+          <Link href="/admin/heroes" className={styles.menuItem}>
+            <ImageIcon size={18} />
+            Hero Images
           </Link>
 
           <Link href="/admin/faq" className={styles.menuItem}>

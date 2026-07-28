@@ -4,6 +4,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { allProjectsQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
+import HeroSection from "@/components/layout/HeroSection";
 
 export const dynamic = 'force-dynamic';
 
@@ -12,12 +13,11 @@ export default async function PortfolioPage() {
 
   return (
     <div className={styles.portfolioPage}>
-      <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.title}>Our Work</h1>
-          <p className={styles.subtitle}>Explore our portfolio of high-performance digital solutions.</p>
-        </div>
-      </section>
+      <HeroSection 
+        page="portfolio" 
+        defaultTitle="Our Work" 
+        defaultSubtitle="Explore our portfolio of high-performance digital solutions." 
+      />
 
       <section className={styles.projects}>
         <div className="container">

@@ -22,6 +22,7 @@ export interface DatabaseSchema {
   siteSettings: any;
   activity: any[];
   faqs: any[];
+  heroImages: any[];
 }
 
 class JsonDB {
@@ -55,6 +56,52 @@ class JsonDB {
         };
         this.writeLocal('siteSettings', defaultSettings);
         return defaultSettings as any;
+      }
+      if (table === 'heroImages') {
+        const defaultHeroes = [
+          {
+            id: "services",
+            page: "services",
+            pageTitle: "Services",
+            imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80",
+            titleText: "Expert Digital Services to Scale Your Brand",
+            subtitleText: "From high-end web development to data-driven SEO, we provide the tools your business needs to lead in the digital age."
+          },
+          {
+            id: "portfolio",
+            page: "portfolio",
+            pageTitle: "Portfolio",
+            imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
+            titleText: "Our Work",
+            subtitleText: "Explore our portfolio of high-performance digital solutions."
+          },
+          {
+            id: "blog",
+            page: "blog",
+            pageTitle: "Blog",
+            imageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1920&q=80",
+            titleText: "Growth Insights",
+            subtitleText: "Strategies and tips to scale your business in the digital age."
+          },
+          {
+            id: "about",
+            page: "about",
+            pageTitle: "About Us",
+            imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
+            titleText: "About GrowthLab Limited — Nairobi's Digital Growth Agency",
+            subtitleText: "GrowthLab Limited is a premium digital agency in Nairobi dedicated to transforming businesses through data-driven strategies and high-end design."
+          },
+          {
+            id: "contact",
+            page: "contact",
+            pageTitle: "Contact Us",
+            imageUrl: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80",
+            titleText: "Ready to Grow Your Digital Presence?",
+            subtitleText: "Once you submit the contact form, our specialists will review your requirements and reach out within 24 hours to schedule a free 30-minute consultation call."
+          }
+        ];
+        this.writeLocal('heroImages', defaultHeroes);
+        return defaultHeroes as any;
       }
       if (table === 'faqs') {
         const defaultFaqs = [

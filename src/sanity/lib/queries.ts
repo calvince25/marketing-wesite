@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity'
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]`
+export const heroImageQuery = groq`*[_type == "heroImage" && page == $page][0]`
 export const allServicesQuery = groq`*[_type == "service"] | order(name asc)`
 export const serviceBySlugQuery = groq`*[_type == "service" && slug.current == $slug][0]`
 export const allPostsQuery = groq`*[_type == "post"] | order(publishedAt desc) {

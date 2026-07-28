@@ -4,6 +4,7 @@ import { pillarServices } from "@/lib/services";
 import { client } from "@/sanity/lib/client";
 import { allServicesQuery } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
+import HeroSection from "@/components/layout/HeroSection";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,14 +20,11 @@ export default async function ServicesPage() {
 
   return (
     <div className={styles.servicesPage}>
-      <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.title}>Expert Digital Services to Scale Your Brand</h1>
-          <p className={styles.subtitle}>
-            From high-end web development to data-driven SEO, we provide the tools your business needs to lead in the digital age.
-          </p>
-        </div>
-      </section>
+      <HeroSection 
+        page="services" 
+        defaultTitle="Expert Digital Services to Scale Your Brand" 
+        defaultSubtitle="From high-end web development to data-driven SEO, we provide the tools your business needs to lead in the digital age." 
+      />
 
       <section className={styles.serviceList}>
         <div className="container">

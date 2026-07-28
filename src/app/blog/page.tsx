@@ -29,12 +29,18 @@ export default async function BlogPage() {
         <div className="container">
           <div className={styles.grid}>
             {displayPosts.map((post: any, idx: number) => {
-              const isSanity = !!post._id;
-              const slug = isSanity ? post.slug.current : post.slug;
-              const category = isSanity ? (post.categories?.[0]?.title || 'General') : post.category;
-              const categorySlug = isSanity ? (post.categories?.[0]?.slug?.current || 'general') : post.categorySlug;
-              const image = isSanity ? (post.mainImage ? urlForImage(post.mainImage).width(800).quality(80).url() : '') : post.image;
-              const date = isSanity ? new Date(post.publishedAt || post._createdAt).toLocaleDateString() : post.date;
+              const slug = (typeof post.slug === 'object' && post.slug?.current) ? post.slug.current : post.slug;
+              const category = (post.categories && post.categories[0]?.title) ? post.categories[0].title : (post.category || 'General');
+              const categorySlug = (post.categories && post.categories[0]?.slug?.current) ? post.categories[0].slug.current : (post.categorySlug || 'general');
+              const image = post.mainImage 
+                ? (typeof post.mainImage === 'string' ? post.mainImage : urlForImage(post.mainImage).width(800).quality(80).url()) 
+                : (post.image || '');
+              const date = post.publishedAt 
+                ? new Date(post.publishedAt).toLocaleDateString() 
+                : (post.createdAt 
+                  ? new Date(post.createdAt).toLocaleDateString() 
+                  : (post.date || ''));
+              const excerpt = post.seo?.metaDescription || post.excerpt || '';
 
               return (
                 <article key={idx} className={styles.card}>
@@ -52,7 +58,7 @@ export default async function BlogPage() {
                   <div className={styles.content}>
                     <span className={styles.category}>{category}</span>
                     <h2>{post.title}</h2>
-                    <p>{isSanity ? (post.seo?.metaDescription || '') : post.excerpt}</p>
+                    <p>{excerpt}</p>
                     <div className={styles.footer}>
                       <span className={styles.date}>{date}</span>
                       <Link href={`/blog/${categorySlug}/${slug}`} className={styles.readMore}>

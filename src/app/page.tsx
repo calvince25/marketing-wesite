@@ -9,20 +9,22 @@ import {
   allServicesQuery, 
   allPostsQuery, 
   allProjectsQuery,
-  pageContentQuery
+  pageContentQuery,
+  allFaqsQuery
 } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
 
 export default async function Home() {
-  const [settings, services, posts, projects, homeContent] = await Promise.all([
+  const [settings, services, posts, projects, homeContent, faqs] = await Promise.all([
     client.fetch(siteSettingsQuery),
     client.fetch(allServicesQuery),
     client.fetch(allPostsQuery),
     client.fetch(allProjectsQuery),
-    client.fetch(pageContentQuery, { page: 'Home' })
-  ]).catch(() => [null, [], [], [], null]);
+    client.fetch(pageContentQuery, { page: 'Home' }),
+    client.fetch(allFaqsQuery)
+  ]).catch(() => [null, [], [], [], null, []]);
 
   const allServices = (services && services.length > 0) ? services : Object.values(pillarServices);
   
@@ -287,11 +289,14 @@ export default async function Home() {
           <div className={styles.portfolioGrid}>
             {projects && projects.length > 0 ? projects.slice(0, 3).map((project: any, idx: number) => {
               const url = project.projectLink || project.link || '#';
+              const isExternal = url !== '#' && url !== '';
+              const formattedUrl = isExternal ? (url.startsWith('http') ? url : `https://${url}`) : '#';
               return (
-                <Link 
+                <a 
                   key={idx} 
-                  href={url} 
-                  target={url.startsWith('http') ? "_blank" : "_self"} 
+                  href={formattedUrl} 
+                  target={isExternal ? "_blank" : "_self"} 
+                  rel={isExternal ? "noopener noreferrer" : undefined}
                   className={styles.portfolioCard} 
                   style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
                 >
@@ -310,7 +315,7 @@ export default async function Home() {
                     <h3>{project.name}</h3>
                     <p>{project.description}</p>
                   </div>
-                </Link>
+                </a>
               );
             }) : (
               <>
@@ -338,26 +343,35 @@ export default async function Home() {
             <h2 className={styles.sectionTitle}>From Our Blog</h2>
           </div>
           <div className={styles.blogGrid}>
-            {posts && posts.length > 0 ? posts.slice(0, 3).map((post: any, idx: number) => (
-              <Link href={`/blog/${sanitizeSlug(post.slug.current)}`} key={idx} className={styles.blogCard}>
-                <div className={styles.imagePlaceholder}>
-                  {post.mainImage ? (
-                    <Image 
-                      src={urlForImage(post.mainImage).width(800).quality(80).url()} 
-                      alt={post.title} 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                      style={{ objectFit: 'cover', objectPosition: 'center' }} 
-                    />
-                  ) : post.title}
-                </div>
-                <div className={styles.cardBody}>
-                  <h3>{post.title}</h3>
-                  <p>{post.seo?.metaDescription || "Read more about this article."}</p>
-                  <span className={styles.learnMore}>Read Article</span>
-                </div>
-              </Link>
-            )) : (
+            {posts && posts.length > 0 ? posts.slice(0, 3).map((post: any, idx: number) => {
+              const slug = (typeof post.slug === 'object' && post.slug?.current) ? post.slug.current : post.slug;
+              const categorySlug = (post.categories && post.categories[0]?.slug?.current) ? post.categories[0].slug.current : (post.categorySlug || 'general');
+              const image = post.mainImage 
+                ? (typeof post.mainImage === 'string' ? post.mainImage : urlForImage(post.mainImage).width(800).quality(80).url()) 
+                : (post.image || '');
+              const excerpt = post.seo?.metaDescription || post.excerpt || "Read more about this article.";
+
+              return (
+                <Link href={`/blog/${categorySlug}/${slug}`} key={idx} className={styles.blogCard}>
+                  <div className={styles.imagePlaceholder}>
+                    {image ? (
+                      <Image 
+                        src={image} 
+                        alt={post.title} 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                        style={{ objectFit: 'cover', objectPosition: 'center' }} 
+                      />
+                    ) : post.title}
+                  </div>
+                  <div className={styles.cardBody}>
+                    <h3>{post.title}</h3>
+                    <p>{excerpt}</p>
+                    <span className={styles.learnMore}>Read Article</span>
+                  </div>
+                </Link>
+              );
+            }) : (
               <>
                 <Link href="/blog/ai-marketing/the-future-of-ai-in-marketing" className={styles.blogCard}>
                   <div className={styles.imagePlaceholder}>AI Marketing</div>
@@ -421,18 +435,27 @@ export default async function Home() {
         <div className="container">
           <h2>Frequently Asked Questions</h2>
           <div className={styles.faqGrid}>
-            <div className={styles.faqItem}>
-              <h3>How long does SEO take to show results?</h3>
-              <p>SEO typically shows initial results in 2-3 months, with significant improvements by month 6. Our data-driven approach ensures faster progress than industry standards.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>Do you work with small businesses?</h3>
-              <p>Yes, we serve businesses of all sizes across Kenya, from startups to enterprises. Our scalable solutions grow with your business.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>What makes your web development different?</h3>
-              <p>We build with performance, security, and SEO in mind from day one. Every website is optimized for speed and search engines.</p>
-            </div>
+            {faqs && faqs.length > 0 ? faqs.slice(0, 3).map((faq: any, idx: number) => (
+              <div key={idx} className={styles.faqItem}>
+                <h3>{faq.question}</h3>
+                <p style={{ whiteSpace: 'pre-wrap' }}>{faq.answer}</p>
+              </div>
+            )) : (
+              <>
+                <div className={styles.faqItem}>
+                  <h3>How long does SEO take to show results?</h3>
+                  <p>SEO typically shows initial results in 2-3 months, with significant improvements by month 6. Our data-driven approach ensures faster progress than industry standards.</p>
+                </div>
+                <div className={styles.faqItem}>
+                  <h3>Do you work with small businesses?</h3>
+                  <p>Yes, we serve businesses of all sizes across Kenya, from startups to enterprises. Our scalable solutions grow with your business.</p>
+                </div>
+                <div className={styles.faqItem}>
+                  <h3>What makes your web development different?</h3>
+                  <p>We build with performance, security, and SEO in mind from day one. Every website is optimized for speed and search engines.</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>

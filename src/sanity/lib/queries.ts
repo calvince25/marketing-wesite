@@ -15,6 +15,7 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
 }`
 export const allProjectsQuery = groq`*[_type == "project"] | order(completionDate desc)`
 export const pageContentQuery = groq`*[_type == "pageContent" && page == $page][0]`
+export const allFaqsQuery = groq`*[_type == "faq"] | order(displayOrder asc)`
 
 export const pillarBySlugQuery = groq`*[_type == "pillarPage" && slug.current == $slug][0] {
   ...,

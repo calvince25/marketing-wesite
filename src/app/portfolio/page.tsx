@@ -31,9 +31,17 @@ export default async function PortfolioPage() {
                 const category = project.client || 'Project';
                 const image = project.images?.[0] ? urlForImage(project.images[0]).url() : '';
                 const url = project.projectLink || project.link || '#';
+                const isExternal = url !== '#' && url !== '';
+                const formattedUrl = isExternal ? (url.startsWith('http') ? url : `https://${url}`) : '#';
 
                 return (
-                  <Link key={idx} href={url} target={url.startsWith('http') ? "_blank" : "_self"} className={styles.card}>
+                  <a 
+                    key={idx} 
+                    href={formattedUrl} 
+                    target={isExternal ? "_blank" : "_self"} 
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className={styles.card}
+                  >
                     <div className={styles.imageWrapper}>
                       {image && <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} />}
                     </div>
@@ -41,7 +49,7 @@ export default async function PortfolioPage() {
                       <span>{category}</span>
                       <h3>{title}</h3>
                     </div>
-                  </Link>
+                  </a>
                 );
               })
             )}

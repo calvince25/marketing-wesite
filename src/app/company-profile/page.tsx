@@ -152,7 +152,7 @@ export default function CompanyProfilePage() {
             <div>
               <h5 style={{ fontWeight: 'bold', marginBottom: '10px' }}>GROWTHLAB LIMITED</h5>
               <p style={{ color: '#888' }}>Westlands, Nairobi, Kenya</p>
-              <p style={{ color: '#888' }}>info@growthlab.co.ke</p>
+              <p style={{ color: '#888' }}>creativemind@stellarleack.co.ke</p>
             </div>
             <div>
               <h5 style={{ fontWeight: 'bold', marginBottom: '10px' }}>ONLINE</h5>

@@ -58,8 +58,8 @@ const Footer = async () => {
                         <h4>Connect</h4>
                         <ul>
                             <li>
-                                <a href="mailto:info@growthlab.co.ke" aria-label="Email GrowthLab">
-                                    info@growthlab.co.ke
+                                <a href={`mailto:${contact?.email || 'creativemind@stellarleack.co.ke'}`} aria-label="Email GrowthLab">
+                                    {contact?.email || 'creativemind@stellarleack.co.ke'}
                                 </a>
                             </li>
                             {contact?.phone && (

@@ -20,6 +20,7 @@ export interface DatabaseSchema {
   media: any[];
   siteSettings: any;
   activity: any[];
+  faqs: any[];
 }
 
 class JsonDB {
@@ -35,7 +36,7 @@ class JsonDB {
         const defaultSettings = {
           heroImages: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"],
           contactInfo: {
-            email: "info@growthlab.co.ke",
+            email: "creativemind@stellarleack.co.ke",
             phone: "+254 743 990 479",
             address: "ABC Place, Westlands, Nairobi"
           },
@@ -51,6 +52,38 @@ class JsonDB {
         };
         this.write('siteSettings', defaultSettings);
         return defaultSettings as any;
+      }
+      if (table === 'faqs') {
+        const defaultFaqs = [
+          {
+            question: "How long does SEO actually take to see results in Kenya?",
+            answer: "Unlike paid ads, SEO is a compounding investment. Typically, for a moderately competitive niche in Kenya, you will begin seeing a measurable lift in organic impressions within 3 to 4 months. Highly substantial, revenue-driving placements (Position 1-3 on Google) generally require 6 to 9 months of consistent technical optimization and authoritative content generation.",
+            displayOrder: 1
+          },
+          {
+            question: "What is your pricing model?",
+            answer: "We utilize a transparent, range-based pricing model ensuring there is no sticker-shock. Our monthly marketing retainers (Social Media, SEO) start as low as KES 15,000 to KES 25,000. One-off technical projects like custom Next.js web application development begin at KES 45,000. You can view our full breakdown on our Pricing Page.",
+            displayOrder: 2
+          },
+          {
+            question: "Do you work with small businesses?",
+            answer: "Absolutely. In fact, scaling SMEs is our specialty. We engineer our marketing systems so that agile small businesses can punch above their weight, utilizing localized SEO and smart automation to compete directly with large enterprise budgets.",
+            displayOrder: 3
+          },
+          {
+            question: "What makes GrowthLab different from other agencies?",
+            answer: "We strictly refuse to report on \"Vanity Metrics\" (likes, arbitrary page views). Instead, our focus is entirely on ROI and pipeline conversion. Furthermore, our technical advantage is vastly superior. Instead of using sluggish drag-and-drop builders, we develop high-speed customized React/Next.js infrastructure that positions your technical SEO leagues ahead of standard competitors.",
+            displayOrder: 4
+          },
+          {
+            question: "How do I get started with the onboarding process?",
+            answer: "Our onboarding is a simple 3-step process:\n\nStep 1: Discovery. You contact us and we hold a brief strategy consultation.\nStep 2: Architecture. We conduct a deep audit of your industry and send a custom technical proposal and timeline.\nStep 3: Launch. Upon approval, we deploy your campaign roadmap and execute your growth strategy immediately.",
+            displayOrder: 5
+          }
+        ];
+        // Insert each default FAQ
+        defaultFaqs.forEach(faq => this.insert('faqs', faq));
+        return this.read('faqs');
       }
       return [];
     }
@@ -308,7 +341,7 @@ export function seedDatabase() {
   db.write('siteSettings', {
     heroImages: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"],
     contactInfo: {
-      email: "info@growthlab.co.ke",
+      email: "creativemind@stellarleack.co.ke",
       phone: "+254 743 990 479",
       address: "ABC Place, Westlands, Nairobi"
     },

@@ -51,12 +51,12 @@ export async function writeProjects(projects: any[]): Promise<void> {
   if (!isKV) return;
 
   try {
-    const res = await fetch(`${KV_URL}/set/projects`, {
+    const res = await fetch(`${KV_URL}`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${KV_TOKEN}`,
       },
-      body: JSON.stringify(projects),
+      body: JSON.stringify(['SET', 'projects', JSON.stringify(projects)]),
     });
 
     if (!res.ok) {

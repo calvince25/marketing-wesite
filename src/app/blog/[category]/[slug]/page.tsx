@@ -37,11 +37,16 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  const isSanity = !!(currentPost as any)._id;
-  const image = isSanity ? (currentPost.mainImage ? urlForImage(currentPost.mainImage).width(1200).quality(90).url() : '') : currentPost.image;
-  const category = isSanity ? (currentPost.categories?.[0]?.title || 'General') : currentPost.category;
-  const categorySlug = isSanity ? (currentPost.categories?.[0]?.slug?.current || 'general') : currentPost.categorySlug;
-  const date = isSanity ? new Date(currentPost.publishedAt || (currentPost as any)._createdAt).toLocaleDateString() : currentPost.date;
+  const image = currentPost.mainImage 
+    ? (typeof currentPost.mainImage === 'string' ? currentPost.mainImage : urlForImage(currentPost.mainImage).width(1200).quality(90).url()) 
+    : (currentPost.image || '');
+  const category = (currentPost.categories && currentPost.categories[0]?.title) ? currentPost.categories[0].title : (currentPost.category || 'General');
+  const categorySlug = (currentPost.categories && currentPost.categories[0]?.slug?.current) ? currentPost.categories[0].slug.current : (currentPost.categorySlug || 'general');
+  const date = currentPost.publishedAt 
+    ? new Date(currentPost.publishedAt).toLocaleDateString() 
+    : (currentPost.createdAt 
+      ? new Date(currentPost.createdAt).toLocaleDateString() 
+      : (currentPost.date || ''));
 
   const recentPostsData = await client.fetch(allPostsQuery).catch(() => []);
   const recentPosts = (recentPostsData && recentPostsData.length > 0) ? recentPostsData : blogPosts;
@@ -51,12 +56,12 @@ export default async function PostPage({ params }: PostPageProps) {
     "@type": "BlogPosting",
     "headline": currentPost.title,
     "image": image,
-    "datePublished": isSanity ? (currentPost.publishedAt || (currentPost as any)._createdAt) : currentPost.date,
+    "datePublished": currentPost.publishedAt || currentPost.createdAt || currentPost.date,
     "author": {
       "@type": "Organization",
       "name": "GrowthLab Limited"
     },
-    "description": isSanity ? currentPost.seo?.metaDescription : currentPost.excerpt
+    "description": currentPost.seo?.metaDescription || currentPost.excerpt
   };
 
   return (
@@ -95,13 +100,13 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             )}
             <div className={styles.richText}>
-              {isSanity ? (
+              {currentPost.body ? (
                 <PortableText value={currentPost.body} />
               ) : (
-                <p>{currentPost.content}</p>
+                <p style={{ whiteSpace: 'pre-wrap' }}>{currentPost.content}</p>
               )}
               
-              {isSanity ? null : (
+              {!currentPost.body && (
                 <p>
                   In the context of the Kenyan market, this means understanding local consumer behavior and leveraging technology that works flawlessly on mobile devices.
                 </p>

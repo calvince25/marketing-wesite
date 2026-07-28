@@ -99,6 +99,13 @@ export const client = {
         return null as unknown as QueryResponse;
       }
 
+      // 11. allFaqsQuery
+      if (q.includes('_type == "faq"')) {
+        const faqs = db.read('faqs');
+        faqs.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        return faqs as unknown as QueryResponse;
+      }
+
       // Default fallback
       return [] as unknown as QueryResponse;
     } catch (err) {

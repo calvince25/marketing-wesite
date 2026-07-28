@@ -57,7 +57,7 @@ export default async function ContactPage() {
                 <span className={styles.icon}><Mail size={24} /></span>
                 <div>
                   <h4>Email</h4>
-                  <p>{'info@growthlab.co.ke'}</p>
+                  <p>{contact?.email || 'creativemind@stellarleack.co.ke'}</p>
                 </div>
               </div>
 

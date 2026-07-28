@@ -19,6 +19,12 @@
   position: fixed;
   height: 100vh;
   z-index: 10;
+  overflow-y: auto;
+  scrollbar-width: none; /* Hide default scrollbar on Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on Chrome, Safari, Opera */
 }
 
 .logoArea {

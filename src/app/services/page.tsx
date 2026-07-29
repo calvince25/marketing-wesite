@@ -31,15 +31,15 @@ export default async function ServicesPage() {
           <div className={styles.grid}>
             {allServices.map((service: any, idx: number) => {
               const isSanity = !!service._id;
-              const slug = isSanity ? service.slug?.current : service.slug;
-              const title = isSanity ? service.name : service.title;
-              const description = isSanity ? service.shortDescription : service.description;
+              const slug = isSanity ? (service.slug?.current || service.slug) : service.slug;
+              const title = service.name || service.title;
+              const description = service.shortDescription || service.description;
               
               return (
                 <div key={idx} className={styles.serviceCard}>
                   <h2>{title}</h2>
                   <p>{description}</p>
-                  {!isSanity && service.clusters && (
+                  {service.clusters && (
                     <ul className={styles.subList}>
                       {service.clusters.slice(0, 3).map((sub: any, sIdx: number) => (
                         <li key={sIdx}>{sub.title}</li>

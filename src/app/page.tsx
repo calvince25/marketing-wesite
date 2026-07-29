@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { pillarServices } from "@/lib/services";
 import { sanitizeSlug } from "@/lib/utils";
-import { client } from "@/sanity/lib/client";
+import { client } from "@/lib/client";
 import { 
   siteSettingsQuery, 
   allServicesQuery, 
@@ -11,8 +11,8 @@ import {
   allProjectsQuery,
   pageContentQuery,
   allFaqsQuery
-} from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+} from "@/lib/queries";
+import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { client } from '@/sanity/lib/client';
-import { allFaqsQuery } from '@/sanity/lib/queries';
+import { client } from '@/lib/client';
+import { allFaqsQuery } from '@/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | GrowthLab Limited',

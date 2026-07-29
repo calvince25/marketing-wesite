@@ -1,5 +1,5 @@
-import { client } from "@/sanity/lib/client";
-import { heroImageQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { heroImageQuery } from "@/lib/queries";
 import styles from "./HeroSection.module.css";
 
 interface HeroSectionProps {

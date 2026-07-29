@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../blog.module.css";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { client } from "@/sanity/lib/client";
-import { allPostsByCategoryQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { client } from "@/lib/client";
+import { allPostsByCategoryQuery } from "@/lib/queries";
+import { urlForImage } from "@/lib/image";
 
 interface CategoryPageProps {
   params: { category: string };

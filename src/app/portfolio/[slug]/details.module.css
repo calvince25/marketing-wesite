@@ -1,0 +1,260 @@
+.detailsPage {
+    background-color: #030812;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    color: #cbd5e1;
+}
+
+.hero {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #030812 0%, rgba(3, 8, 18, 0.4) 70%, rgba(3, 8, 18, 0.8) 100%);
+    z-index: 1;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+.category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff6b00;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.title {
+    font-size: 42px;
+    color: white;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+@media (max-width: 992px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.richText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.richText p {
+    margin-bottom: 25px;
+    white-space: pre-line;
+}
+
+.sidebarCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 30px;
+    position: sticky;
+    top: 100px;
+}
+
+.metaItem {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.metaItem:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.metaLabel {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #64748b;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.metaValue {
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.actionButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btnPrimary, .btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+}
+
+.btnPrimary {
+    background: #ff6b00;
+    color: white;
+    border: 1px solid #ff6b00;
+}
+
+.btnPrimary:hover {
+    background: #ff8533;
+    border-color: #ff8533;
+}
+
+.btnSecondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btnSecondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.gallerySection {
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 60px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.galleryItem {
+    position: relative;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.relatedSection {
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 60px;
+}
+
+.relatedGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.relatedCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.relatedCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 107, 0, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.relatedImage {
+    position: relative;
+    height: 180px;
+}
+
+.relatedContent {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.relatedTitle {
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.relatedDesc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}

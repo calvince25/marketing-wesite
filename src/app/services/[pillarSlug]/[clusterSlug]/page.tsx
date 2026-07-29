@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
-import { client } from "@/sanity/lib/client";
-import { clusterBySlugQuery, pillarBySlugQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { clusterBySlugQuery, pillarBySlugQuery } from "@/lib/queries";
 import SubServiceTemplate from "@/components/services/SubServiceTemplate";
 import { pillarServices } from "@/lib/services";
 import { Metadata } from "next";
-import { groq } from 'next-sanity'
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -21,8 +20,7 @@ export async function generateStaticParams() {
     }
   }
   
-  // 2. Sanity (Optional - pre-render all cluster pages)
-  const sanityClusters = await client.fetch(groq`*[_type == "clusterPage"]{ "pillarSlug": parentPillar->slug.current, "clusterSlug": slug.current }`).catch(() => []);
+  const sanityClusters = await client.fetch('*[_type == "clusterPage"]{ "pillarSlug": parentPillar->slug.current, "clusterSlug": slug.current }').catch(() => []);
   
   // Ensure we only process parameters that have valid non-empty string slugs
   const allParams = [...params, ...sanityClusters].filter(

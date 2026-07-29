@@ -1,8 +1,8 @@
 import LinkNext from "next/link";
 import styles from "./services.module.css";
 import { pillarServices } from "@/lib/services";
-import { client } from "@/sanity/lib/client";
-import { allServicesQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { allServicesQuery } from "@/lib/queries";
 import type { Metadata } from "next";
 import HeroSection from "@/components/layout/HeroSection";
 

@@ -1,5 +1,5 @@
-import { client } from "@/sanity/lib/client";
-import { siteSettingsQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { siteSettingsQuery } from "@/lib/queries";
 import styles from "./contact.module.css";
 import ContactForm from "@/components/contact/ContactForm";
 import { MapPin, Mail, Phone, Facebook, Linkedin, Instagram } from "lucide-react";

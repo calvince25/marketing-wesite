@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
 import styles from "./blog.module.css";
-import { client } from "@/sanity/lib/client";
-import { allPostsQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { client } from "@/lib/client";
+import { allPostsQuery } from "@/lib/queries";
+import { urlForImage } from "@/lib/image";
 import HeroSection from "@/components/layout/HeroSection";
 
 export const dynamic = 'force-dynamic';

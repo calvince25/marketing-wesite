@@ -6,9 +6,9 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import styles from "./post.module.css";
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { postBySlugQuery, allPostsQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { client } from "@/lib/client";
+import { postBySlugQuery, allPostsQuery } from "@/lib/queries";
+import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 
 interface PostPageProps {

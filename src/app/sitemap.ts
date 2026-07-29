@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
-import { client } from '@/sanity/lib/client';
-import { groq } from 'next-sanity';
+import { client } from '@/lib/client';
 import { sanitizeSlug } from '@/lib/utils';
 import { pillarServices } from '@/lib/services';
 import { blogPosts } from '@/lib/blog';
@@ -33,24 +32,11 @@ const isSafeUrl = (url: string): boolean => {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all dynamic content simultaneously from Sanity
   const [pillars, clusters, posts, projects, categories] = await Promise.all([
-    client.fetch(groq`*[_type == "pillarPage"]{ "slug": slug.current }`),
-    client.fetch(groq`*[_type == "clusterPage"]{
-      "slug": slug.current,
-      "pillarSlug": parentPillar->slug.current
-    }`),
-    client.fetch(groq`*[_type == "post"] | order(publishedAt desc) {
-      "slug": slug.current,
-      "publishedAt": publishedAt,
-      "updatedAt": _updatedAt,
-      "categorySlug": categories[0]->slug.current
-    }`),
-    client.fetch(groq`*[_type == "project"]{
-      "slug": slug.current,
-      "updatedAt": _updatedAt
-    }`),
-    client.fetch(groq`*[_type == "category"]{
-      "slug": slug.current
-    }`),
+    client.fetch('*[_type == "pillarPage"]{ "slug": slug.current }'),
+    client.fetch('*[_type == "clusterPage"]{ "slug": slug.current, "pillarSlug": parentPillar->slug.current }'),
+    client.fetch('*[_type == "post"] | order(publishedAt desc) { "slug": slug.current, "publishedAt": publishedAt, "updatedAt": _updatedAt, "categorySlug": categories[0]->slug.current }'),
+    client.fetch('*[_type == "project"]{ "slug": slug.current, "updatedAt": _updatedAt }'),
+    client.fetch('*[_type == "category"]{ "slug": slug.current }'),
   ]).catch(() => [[], [], [], [], []]);
 
   // ─── STATIC CORE PAGES ────────────────────────────────────────────────────────────

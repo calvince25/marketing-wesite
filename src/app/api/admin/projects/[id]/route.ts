@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import { regenerateSitemapAndRobots } from '@/lib/seo';
+import { updateProject, deleteProject, getProjects } from '@/lib/supabase';
 
 export async function PUT(
   request: Request,
@@ -15,10 +16,26 @@ export async function PUT(
 
     const { id } = await params;
     const body = await request.json();
-    const { name, description, technologies, client, images, projectLink, githubLink, featured, isPrivate, demoAvailableRequest, caseStudySupport, completionDate } = body;
+    const { 
+      name, 
+      slug,
+      client, 
+      description, 
+      fullDescription, 
+      category,
+      technologies, 
+      completionDate, 
+      featured, 
+      displayOrder, 
+      status, 
+      projectLink, 
+      githubLink, 
+      images 
+    } = body;
 
-    await db.loadTable('projects');
-    const project = db.findOne('projects', p => p.id === id || p._id === id);
+    // Retrieve existing to verify it exists
+    const projects = await getProjects();
+    const project = projects.find(p => p.id === id || p._id === id);
     if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
@@ -27,28 +44,40 @@ export async function PUT(
     if (name !== undefined) {
       updates.name = name;
       updates.title = name;
-      updates.slug = { current: name.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/[\s_]+/g, '-').replace(/-+/g, '-') };
+    }
+    if (slug !== undefined) {
+      updates.slug = {
+        current: slug
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/[\s_]+/g, '-')
+          .replace(/-+/g, '-')
+      };
     }
     if (description !== undefined) updates.description = description;
-    if (technologies !== undefined) {
-      updates.technologies = Array.isArray(technologies) ? technologies : technologies.split(',').map((t: string) => t.trim());
-    }
+    if (fullDescription !== undefined) updates.fullDescription = fullDescription;
+    if (category !== undefined) updates.category = category;
     if (client !== undefined) updates.client = client;
-    if (images !== undefined) updates.images = images;
+    if (technologies !== undefined) {
+      updates.technologies = Array.isArray(technologies) 
+        ? technologies 
+        : technologies.split(',').map((t: string) => t.trim());
+    }
+    if (completionDate !== undefined) updates.completionDate = completionDate;
+    if (featured !== undefined) updates.featured = !!featured;
+    if (displayOrder !== undefined) updates.displayOrder = parseInt(displayOrder) || 0;
+    if (status !== undefined) updates.status = status;
     if (projectLink !== undefined) updates.projectLink = projectLink;
     if (githubLink !== undefined) updates.githubLink = githubLink;
-    if (featured !== undefined) updates.featured = !!featured;
-    if (isPrivate !== undefined) updates.isPrivate = !!isPrivate;
-    if (demoAvailableRequest !== undefined) updates.demoAvailableRequest = !!demoAvailableRequest;
-    if (caseStudySupport !== undefined) updates.caseStudySupport = !!caseStudySupport;
-    if (completionDate !== undefined) updates.completionDate = completionDate;
+    if (images !== undefined) updates.images = Array.isArray(images) ? images : [];
 
     updates.seo = {
       metaTitle: `${updates.name || project.name} Case Study`,
       metaDescription: (updates.description || project.description).substring(0, 160)
     };
 
-    const result = db.update('projects', id, updates);
+    const result = await updateProject(id, updates);
 
     // Update Sitemap
     regenerateSitemapAndRobots();
@@ -63,7 +92,7 @@ export async function PUT(
 
   } catch (error: any) {
     console.error('Update project error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 });
   }
 }
 
@@ -78,13 +107,15 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    await db.loadTable('projects');
-    const project = db.findOne('projects', p => p.id === id || p._id === id);
+    
+    // Retrieve existing to verify it exists
+    const projects = await getProjects();
+    const project = projects.find(p => p.id === id || p._id === id);
     if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    db.delete('projects', id);
+    await deleteProject(id);
 
     // Update Sitemap
     regenerateSitemapAndRobots();
@@ -98,6 +129,6 @@ export async function DELETE(
 
   } catch (error: any) {
     console.error('Delete project error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 });
   }
 }

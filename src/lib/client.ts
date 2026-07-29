@@ -91,8 +91,8 @@ export const client = {
 
       // 7. allProjectsQuery
       if (q.includes('_type == "project"')) {
-        const { readProjects } = require('@/lib/kv');
-        const projects = await readProjects();
+        const { getProjects } = require('@/lib/supabase');
+        const projects = await getProjects();
         projects.sort((a: any, b: any) => new Date(b.completionDate || b.createdAt).getTime() - new Date(a.completionDate || a.createdAt).getTime());
         return projects as unknown as QueryResponse;
       }

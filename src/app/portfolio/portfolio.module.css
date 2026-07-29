@@ -1,67 +1,153 @@
 .portfolioPage {
     padding-bottom: 80px;
-}
-
-.hero {
-    padding: 80px 0;
-    background-color: var(--primary-navy);
-    color: white;
-    text-align: center;
-}
-
-.title {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.subtitle {
-    font-size: 18px;
-    color: var(--text-muted);
+    background-color: #030812;
+    min-height: 100vh;
 }
 
 .projects {
-    padding: var(--spacing-section) 0;
+    padding: 80px 0;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px;
 }
 
 .card {
     border-radius: 12px;
     overflow: hidden;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: var(--transition-normal);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    border-color: rgba(255, 107, 0, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .imageWrapper {
     position: relative;
-    height: 300px;
+    height: 220px;
+    background: #091324;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .imageWrapper img {
+    transform: scale(1.05);
 }
 
 .content {
-    padding: 30px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.content span {
-    font-size: 12px;
+.category {
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-orange);
+    letter-spacing: 1.5px;
+    color: #ff6b00;
     font-weight: 700;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.content h3 {
-    font-size: 24px;
+.title {
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btnGroup {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.btnPrimary, .btnSecondary, .btnDetails {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    flex: 1;
+}
+
+.btnPrimary {
+    background: #ff6b00;
+    color: white;
+    border: 1px solid #ff6b00;
+}
+
+.btnPrimary:hover {
+    background: #ff8533;
+    border-color: #ff8533;
+}
+
+.btnSecondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btnSecondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btnDetails {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btnDetails:hover {
+    border-color: #ff6b00;
+    color: #ff6b00;
 }

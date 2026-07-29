@@ -1,13 +1,12 @@
-import { client } from "@/sanity/lib/client";
-import { groq } from 'next-sanity'
-import { pillarBySlugQuery, serviceBySlugQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { pillarBySlugQuery, serviceBySlugQuery } from "@/lib/queries";
 import PillarTemplate from "@/components/services/PillarTemplate";
 import { pillarServices } from "@/lib/services";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -17,9 +16,8 @@ export async function generateStaticParams() {
   // 1. Get slugs from static registry
   const staticSlugs = Object.keys(pillarServices);
   
-  // 2. Get slugs from Sanity (optional but good for completeness)
-  const sanityPillars = await client.fetch(groq`*[_type == "pillarPage"].slug.current`).catch(() => []);
-  const sanityServices = await client.fetch(groq`*[_type == "service"].slug.current`).catch(() => []);
+  const sanityPillars = await client.fetch('*[_type == "pillarPage"].slug.current').catch(() => []);
+  const sanityServices = await client.fetch('*[_type == "service"].slug.current').catch(() => []);
   
   // Ensure we only process valid non-empty string slugs
   const allSlugs = Array.from(new Set([...staticSlugs, ...sanityPillars, ...sanityServices]))

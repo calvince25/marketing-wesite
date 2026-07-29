@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.css";
-import { client } from "@/sanity/lib/client";
-import { pageContentQuery } from "@/sanity/lib/queries";
+import { client } from "@/lib/client";
+import { pageContentQuery } from "@/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from "next";
 import HeroSection from "@/components/layout/HeroSection";

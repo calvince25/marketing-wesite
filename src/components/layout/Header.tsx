@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import { sanityFetch } from '@/sanity/lib/client';
-import { siteSettingsQuery } from '@/sanity/lib/queries';
-import { urlForImage } from '@/sanity/lib/image';
+import { sanityFetch } from '@/lib/client';
+import { siteSettingsQuery } from '@/lib/queries';
+import { urlForImage } from '@/lib/image';
 import MobileMenu from './MobileMenu';
 
 const Header = async () => {

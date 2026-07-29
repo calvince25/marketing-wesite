@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Facebook, Linkedin, Instagram } from 'lucide-react';
 import styles from './Footer.module.css';
-import { sanityFetch } from '@/sanity/lib/client';
-import { siteSettingsQuery } from '@/sanity/lib/queries';
+import { sanityFetch } from '@/lib/client';
+import { siteSettingsQuery } from '@/lib/queries';
 
 const Footer = async () => {
     const currentYear = new Date().getFullYear();

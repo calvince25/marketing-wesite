@@ -14,7 +14,7 @@ const renderOverview = (content: string) => {
           return <h3 key={i} style={{ color: '#FF6B00', marginTop: '1.8rem', marginBottom: '0.75rem', fontSize: '1.25rem', fontWeight: '700' }}>{line.slice(4)}</h3>;
         }
         if (line.startsWith('## ')) {
-          return <h2 key={i} style={{ color: '#ffffff', marginTop: '2rem', marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700' }}>{line.slice(3)}</h2>;
+          return <h2 key={i} style={{ color: '#0A1F44', marginTop: '2rem', marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700', borderLeft: '4px solid #FF6B00', paddingLeft: '14px' }}>{line.slice(3)}</h2>;
         }
         if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
           return <h3 key={i} style={{ color: '#FF6B00', marginTop: '1.8rem', marginBottom: '0.75rem', fontSize: '1.25rem', fontWeight: '700' }}>{line.slice(2, -2)}</h3>;
@@ -22,7 +22,7 @@ const renderOverview = (content: string) => {
         if (line.trim() === '') {
           return <div key={i} style={{ height: '0.5rem' }} />;
         }
-        return <p key={i} style={{ marginBottom: '0.6rem', color: '#cbd5e1', lineHeight: '1.8' }}>{line}</p>;
+        return <p key={i} style={{ marginBottom: '0.6rem', lineHeight: '1.8' }}>{line}</p>;
       })}
     </div>
   );

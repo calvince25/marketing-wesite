@@ -21,7 +21,7 @@ const renderStaticContent = (content: string) => {
         }
         if (line.startsWith('## ')) {
           return (
-            <h2 key={i} style={{ color: '#ffffff', marginTop: '2.5rem', marginBottom: '1rem', fontSize: '1.6rem', fontWeight: '700' }}>
+            <h2 key={i} style={{ color: '#0A1F44', marginTop: '2.5rem', marginBottom: '1rem', fontSize: '1.6rem', fontWeight: '700', borderLeft: '4px solid #FF6B00', paddingLeft: '16px' }}>
               {line.slice(3)}
             </h2>
           );
@@ -37,7 +37,7 @@ const renderStaticContent = (content: string) => {
           return <div key={i} style={{ height: '0.5rem' }} />;
         }
         return (
-          <p key={i} style={{ marginBottom: '0.6rem', color: '#cbd5e1', lineHeight: '1.8' }}>
+          <p key={i} style={{ marginBottom: '0.6rem', lineHeight: '1.8' }}>
             {line}
           </p>
         );

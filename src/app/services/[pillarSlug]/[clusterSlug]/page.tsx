@@ -24,7 +24,12 @@ export async function generateStaticParams() {
   // 2. Sanity (Optional - pre-render all cluster pages)
   const sanityClusters = await client.fetch(groq`*[_type == "clusterPage"]{ "pillarSlug": parentPillar->slug.current, "clusterSlug": slug.current }`).catch(() => []);
   
-  const allParams = [...params, ...sanityClusters];
+  // Ensure we only process parameters that have valid non-empty string slugs
+  const allParams = [...params, ...sanityClusters].filter(
+    p => p && 
+         typeof p.pillarSlug === 'string' && p.pillarSlug.trim() !== '' &&
+         typeof p.clusterSlug === 'string' && p.clusterSlug.trim() !== ''
+  );
   
   return allParams;
 }

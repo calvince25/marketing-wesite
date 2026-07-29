@@ -21,7 +21,9 @@ export async function generateStaticParams() {
   const sanityPillars = await client.fetch(groq`*[_type == "pillarPage"].slug.current`).catch(() => []);
   const sanityServices = await client.fetch(groq`*[_type == "service"].slug.current`).catch(() => []);
   
-  const allSlugs = Array.from(new Set([...staticSlugs, ...sanityPillars, ...sanityServices]));
+  // Ensure we only process valid non-empty string slugs
+  const allSlugs = Array.from(new Set([...staticSlugs, ...sanityPillars, ...sanityServices]))
+    .filter((slug): slug is string => typeof slug === 'string' && slug.trim() !== '');
   
   return allSlugs.map((slug) => ({
     pillarSlug: slug,

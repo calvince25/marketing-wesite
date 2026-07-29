@@ -1,6 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from '@/lib/db';
 
+const normalizeSlug = (slug: any) => {
+  if (typeof slug === 'string') {
+    return { current: slug };
+  }
+  if (slug && typeof slug === 'object') {
+    return slug;
+  }
+  return { current: '' };
+};
+
+const normalizeService = (s: any) => {
+  if (!s) return s;
+  return {
+    ...s,
+    slug: normalizeSlug(s.slug),
+    clusters: Array.isArray(s.clusters)
+      ? s.clusters.map((c: any) => ({
+          ...c,
+          slug: normalizeSlug(c.slug)
+        }))
+      : []
+  };
+};
+
 export const client = {
   fetch: async <QueryResponse = any>(query: string, params: Record<string, unknown> = {}): Promise<QueryResponse> => {
     // Clean and normalize query
@@ -31,14 +55,14 @@ export const client = {
       // 2. allServicesQuery
       if (q.includes('_type == "service"') && q.includes('order(name asc)')) {
         const services = db.read('services');
-        return services as unknown as QueryResponse;
+        return services.map(normalizeService) as unknown as QueryResponse;
       }
 
       // 3. serviceBySlugQuery
       if (q.includes('_type == "service"') && q.includes('slug.current == $slug')) {
         const slug = params.slug;
         const service = db.findOne('services', (s: any) => (s.slug?.current || s.slug) === slug);
-        return service as unknown as QueryResponse;
+        return normalizeService(service) as unknown as QueryResponse;
       }
 
       // 4. allPostsByCategoryQuery
@@ -95,7 +119,7 @@ export const client = {
       if (q.includes('_type == "pillarPage"') && q.includes('slug.current == $slug')) {
         const slug = params.slug;
         const service = db.findOne('services', (s: any) => (s.slug?.current || s.slug) === slug);
-        return service as unknown as QueryResponse;
+        return normalizeService(service) as unknown as QueryResponse;
       }
 
       // 10. clusterBySlugQuery
@@ -103,11 +127,12 @@ export const client = {
         const slug = params.slug;
         const services = db.read('services');
         for (const s of services) {
-          const cluster = s.clusters?.find((c: any) => c.slug === slug);
+          const cluster = s.clusters?.find((c: any) => (c.slug?.current || c.slug) === slug);
           if (cluster) {
             return {
               ...cluster,
-              parentPillar: { slug: { current: s.slug }, title: s.title || s.name }
+              slug: normalizeSlug(cluster.slug),
+              parentPillar: { slug: normalizeSlug(s.slug), title: s.title || s.name }
             } as unknown as QueryResponse;
           }
         }
@@ -151,10 +176,12 @@ export const client = {
       }
 
       // Default fallback
-      return [] as unknown as QueryResponse;
+      const isSingleObject = q.includes('[0]') || q.endsWith('[0]');
+      return (isSingleObject ? null : []) as unknown as QueryResponse;
     } catch (err) {
       console.error('Error fetching mock database:', err);
-      return [] as unknown as QueryResponse;
+      const isSingleObject = q.includes('[0]') || q.endsWith('[0]');
+      return (isSingleObject ? null : []) as unknown as QueryResponse;
     }
   }
 };

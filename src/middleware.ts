@@ -11,7 +11,7 @@ const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS = 5;
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = (request as any).ip || request.headers.get('x-forwarded-for') || 'anonymous';
 
@@ -35,27 +35,6 @@ export async function proxy(request: NextRequest) {
         JSON.stringify({ error: 'Too many requests. Please try again later.' }),
         { status: 429, headers: { 'Content-Type': 'application/json' } }
       );
-    }
-  }
-  // ... rate limiting logic already has pathname defined above
-
-  // Protect /studio (Sanity Studio) - requires valid admin token
-  if (pathname.startsWith('/studio')) {
-    const token = request.cookies.get('admin_token')?.value;
-    console.log('[Middleware] /studio accessed. Token present:', !!token);
-
-    if (!token) {
-      console.log('[Middleware] No token found, redirecting to login.');
-      return NextResponse.redirect(new URL('/admin/login', request.url));
-    }
-
-    try {
-      await jwtVerify(token, secret);
-      console.log('[Middleware] Token verified successfully.');
-      return NextResponse.next();
-    } catch (error) {
-      console.error('[Middleware] Token verification failed:', error);
-      return NextResponse.redirect(new URL('/admin/login', request.url));
     }
   }
 
@@ -82,5 +61,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/studio/:path*', '/api/admin/:path*'],
+  matcher: ['/admin/:path*', '/api/admin/:path*'],
 };

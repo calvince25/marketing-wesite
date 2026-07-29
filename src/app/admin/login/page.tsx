@@ -32,7 +32,7 @@ export default function LoginPage() {
         throw new Error(data.error || 'Login failed');
       }
 
-      window.location.href = '/studio';
+      window.location.href = '/admin';
     } catch (err: any) {
       setError(err.message);
     } finally {

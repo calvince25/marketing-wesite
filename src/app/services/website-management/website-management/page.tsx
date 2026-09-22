@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Website Management | GrowthLab Limited",
-  description: "Protecting your digital investment.",
+  title: "Website Management & Support Kenya | Updates, Backups & Security",
+  description: "Keep your website updated, backed up, monitored, secure, and supported with a practical website management plan for Kenyan businesses.",
+  alternates: { canonical: '/services/website-management/website-management' },
 };
 
 export default function Page() {

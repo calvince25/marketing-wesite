@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Lead Management Automation | GrowthLab Limited",
+  title: "Lead Management Automation",
   description: "Automate your lead lifecycle from capture to conversion with our intelligent systems.",
+  alternates: { canonical: '/services/business-automation/lead-management-automation' },
 };
 
 export default function Page() {

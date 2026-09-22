@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Business Automation | GrowthLab Limited",
+  title: "Business Automation",
   description: "Streamline your operations and focus on what matters most.",
+  alternates: { canonical: '/services/business-automation/business-automation' },
 };
 
 export default function Page() {

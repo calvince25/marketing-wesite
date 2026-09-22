@@ -6,8 +6,15 @@ import { client } from "@/lib/client";
 import { allPostsQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
 import HeroSection from "@/components/layout/HeroSection";
+import { createPageMetadata } from "@/lib/metadata";
 
 export const dynamic = 'force-dynamic';
+
+export const metadata = createPageMetadata({
+  title: "Digital Growth Insights for Kenyan Businesses",
+  description: "Practical SEO, web development, automation, and AI guidance for businesses growing in Kenya and East Africa.",
+  pathname: '/blog',
+});
 
 export default async function BlogPage() {
   const posts = await client.fetch(allPostsQuery).catch(() => []);

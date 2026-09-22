@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "CRM Automation | GrowthLab Limited",
+  title: "CRM Automation",
   description: "Streamline your sales funnel and customer relationships with advanced CRM automation.",
+  alternates: { canonical: '/services/business-automation/crm-automation' },
 };
 
 export default function Page() {

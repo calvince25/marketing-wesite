@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "AI SEO Services Kenya | GrowthLab Limited",
+  title: "AI SEO Services Kenya",
   description: "Future-proof your online presence with AI-powered SEO optimization.",
+  alternates: { canonical: '/services/seo-digital-marketing/ai-seo-services-kenya' },
 };
 
 export default function Page() {

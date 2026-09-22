@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "AI Systems Integration | GrowthLab Limited Kenya",
-  description: "Leverage artificial intelligence to future-proof your business.",
+  title: "AI Integration Services Kenya | Chatbots & Business Systems",
+  description: "Implement practical AI integrations, chatbots, analytics, and business systems that reduce manual work and improve customer response times.",
+  alternates: { canonical: '/services/ai-systems-integration' },
 };
 
 export default function Page() {

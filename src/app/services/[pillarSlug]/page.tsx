@@ -9,6 +9,7 @@ import Link from "next/link";
 import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl } from "@/lib/site";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -42,16 +43,16 @@ export async function generateMetadata({ params }: PillarPageProps): Promise<Met
 
   const title = (current as any).title || (current as any).name || 'Service Category';
   const description = (current as any).description || (current as any).shortDescription || '';
-  const url = `https://growthlab.co.ke/services/${pillarSlug}`;
+  const url = absoluteUrl(`/services/${pillarSlug}`);
 
   return {
-    title: `${title} | GrowthLab`,
+    title,
     description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title,
+      title: `${title} | GrowthLab Limited`,
       description,
       url,
       type: 'website',
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }: PillarPageProps): Promise<Met
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: `${title} | GrowthLab Limited`,
       description,
     }
   };

@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Ecommerce Solutions | GrowthLab Limited",
-  description: "Scale your online store with our high-converting ecommerce solutions including M-Pesa integration.",
+  title: "E-commerce Website Development Kenya | M-Pesa Stores",
+  description: "Launch an online store in Kenya with mobile-first product pages, secure checkout, M-Pesa payment integration, delivery workflows, and support.",
+  alternates: { canonical: '/services/web-development/ecommerce-solutions' },
 };
 
 export default function Page() {

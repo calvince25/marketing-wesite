@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Technical SEO Audit | GrowthLab Limited",
-  description: "Identify and fix technical issues that block your rankings with our comprehensive SEO audits.",
+  title: "Technical SEO Audit Services Kenya | Crawlability & Core Web Vitals",
+  description: "Find and fix crawlability, indexation, Core Web Vitals, schema, and JavaScript issues with an engineering-led technical SEO audit in Kenya.",
+  alternates: { canonical: '/services/seo-digital-marketing/technical-seo-audit' },
 };
 
 export default function Page() {

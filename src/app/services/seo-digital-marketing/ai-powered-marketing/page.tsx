@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Ai Powered Marketing | GrowthLab Limited",
-  description: "Professional ai powered marketing services.",
+  title: "AI-Powered Marketing Kenya | Data-Driven Growth",
+  description: "Use practical AI, audience analysis, personalisation, and marketing automation to improve campaign decisions and conversion opportunities in Kenya.",
+  alternates: { canonical: '/services/seo-digital-marketing/ai-powered-marketing' },
 };
 
 export default function Page() {

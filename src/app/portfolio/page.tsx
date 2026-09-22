@@ -5,8 +5,15 @@ import { client } from "@/lib/client";
 import { allProjectsQuery } from "@/lib/queries";
 import HeroSection from "@/components/layout/HeroSection";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { createPageMetadata } from "@/lib/metadata";
 
 export const dynamic = 'force-dynamic';
+
+export const metadata = createPageMetadata({
+  title: "Web Development and Digital Growth Case Studies",
+  description: "Explore GrowthLab projects spanning websites, e-commerce, analytics, automation, and digital growth systems.",
+  pathname: '/portfolio',
+});
 
 export default async function PortfolioPage() {
   const displayProjects = await client.fetch(allProjectsQuery).catch(() => []);

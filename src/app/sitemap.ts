@@ -41,24 +41,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ─── STATIC CORE PAGES ────────────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${DOMAIN}`,           lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
-    { url: `${DOMAIN}/services`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${DOMAIN}/blog`,      lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${DOMAIN}/portfolio`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/about`,     lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/contact`,   lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.7 },
-    { url: `${DOMAIN}/faq`,       lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${DOMAIN}/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/industries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/company-profile`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${DOMAIN}/nairobi`,   lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${DOMAIN}/westlands`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/kilimani`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/cbd-nairobi`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/karen`,     lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/upper-hill`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${DOMAIN}/case-studies/mell-fashion-ecommerce`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${DOMAIN}/case-studies/restaurant-pos-optimization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${DOMAIN}`, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${DOMAIN}/services`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${DOMAIN}/blog`, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${DOMAIN}/portfolio`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/about`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/contact`, changeFrequency: 'yearly', priority: 0.7 },
+    { url: `${DOMAIN}/faq`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${DOMAIN}/case-studies`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/industries`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/company-profile`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${DOMAIN}/website-design-cost-kenya`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${DOMAIN}/nairobi`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${DOMAIN}/westlands`, changeFrequency: 'monthly', priority: 0.8 },
+    // Keep neighborhood pages out of the sitemap until each has distinct local proof.
+    { url: `${DOMAIN}/case-studies/mell-fashion-ecommerce`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${DOMAIN}/case-studies/restaurant-pos-optimization`, changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   // ─── PILLAR SERVICE PAGES ──────────────────────────────────────────────────
@@ -70,7 +68,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const pillarPages: MetadataRoute.Sitemap = pillarSlugs.map((slug: string) => ({
     url: `${DOMAIN}/services/${sanitizeSlug(slug)}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
@@ -82,7 +79,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     pillarData.clusters.forEach(cluster => {
       staticClusterPages.push({
         url: `${DOMAIN}/services/${sanitizeSlug(pillarSlug)}/${sanitizeSlug(cluster.slug)}`,
-        lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.7,
       });
@@ -96,7 +92,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const pSlug = cluster.pillarSlug?.current || cluster.pillarSlug;
       return {
         url: `${DOMAIN}/services/${sanitizeSlug(pSlug)}/${sanitizeSlug(cSlug)}`,
-        lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.7,
       };
@@ -113,7 +108,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   const categoryPages: MetadataRoute.Sitemap = allCategorySlugs.map(slug => ({
     url: `${DOMAIN}/blog/${sanitizeSlug(slug)}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
   }));
@@ -155,7 +149,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       };
     });
 
-  return [
+  const allUrls = [
     ...staticPages,
     ...pillarPages,
     ...allClusterPages,
@@ -163,4 +157,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...allBlogPages,
     ...portfolioPages,
   ].filter(item => isSafeUrl(item.url));
+
+  return Array.from(new Map(allUrls.map(item => [item.url, item])).values());
 }

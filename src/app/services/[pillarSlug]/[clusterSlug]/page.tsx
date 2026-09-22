@@ -4,6 +4,7 @@ import { clusterBySlugQuery, pillarBySlugQuery } from "@/lib/queries";
 import SubServiceTemplate from "@/components/services/SubServiceTemplate";
 import { pillarServices } from "@/lib/services";
 import { Metadata } from "next";
+import { absoluteUrl } from "@/lib/site";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -52,16 +53,16 @@ export async function generateMetadata({ params }: ClusterPageProps): Promise<Me
 
   const title = current.title || 'Sub-Service';
   const description = current.description || '';
-  const url = `https://growthlab.co.ke/services/${pillarSlug}/${clusterSlug}`;
+  const url = absoluteUrl(`/services/${pillarSlug}/${clusterSlug}`);
 
   return {
-    title: `${title} | GrowthLab`,
+    title,
     description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title,
+      title: `${title} | GrowthLab Limited`,
       description,
       url,
       type: 'article',
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }: ClusterPageProps): Promise<Me
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: `${title} | GrowthLab Limited`,
       description,
     }
   };

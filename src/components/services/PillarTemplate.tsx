@@ -95,7 +95,7 @@ export default function PillarTemplate({ service }: PillarTemplateProps) {
                       <Link key={idx} href={`/services/${service.slug}/${cluster.slug}`} className={styles.clusterCard}>
                       <h3>{cluster.title}</h3>
                       <p>{cluster.description}</p>
-                      <span className={styles.learnMore}>Read Deep Dive →</span>
+                      <span className={styles.learnMore}>Explore {cluster.title} →</span>
                     </Link>
                   ))}
                 </div>
@@ -138,7 +138,7 @@ export default function PillarTemplate({ service }: PillarTemplateProps) {
                   ))}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
-                  Get Started
+                  Get a {service.title} quote
                 </Link>
               </div>
             </aside>

@@ -10,6 +10,7 @@ import { client } from "@/lib/client";
 import { postBySlugQuery, allPostsQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface PostPageProps {
   params: { category: string; slug: string };
@@ -20,10 +21,18 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const post = await client.fetch(postBySlugQuery, { slug }).catch(() => null) || blogPosts.find(p => p.slug === slug);
   if (!post) return {};
 
-  return {
-    title: `${post.title} | GrowthLab Blog`,
-    description: post.excerpt || post.seo?.metaDescription,
-  };
+  const categorySlug = (await params).category;
+  const image = post.mainImage
+    ? (typeof post.mainImage === 'string' ? post.mainImage : urlForImage(post.mainImage).width(1200).quality(90).url())
+    : post.image;
+
+  return createPageMetadata({
+    title: post.title,
+    description: post.excerpt || post.seo?.metaDescription || 'Practical digital growth insights from GrowthLab Limited.',
+    pathname: `/blog/${categorySlug}/${slug}`,
+    type: 'article',
+    image: image || undefined,
+  });
 }
 
 export const dynamic = 'force-dynamic';
@@ -158,7 +167,6 @@ export default async function PostPage({ params }: PostPageProps) {
     </article>
   );
 }
-
 
 
 

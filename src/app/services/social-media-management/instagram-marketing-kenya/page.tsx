@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Instagram Marketing Kenya | GrowthLab Limited",
-  description: "Professional instagram marketing kenya services.",
+  title: "Instagram Marketing Kenya | Content & Sales Campaigns",
+  description: "Build an Instagram presence with strategy, content, community management, and campaigns designed to generate attention and enquiries in Kenya.",
+  alternates: { canonical: '/services/social-media-management/instagram-marketing-kenya' },
 };
 
 export default function Page() {

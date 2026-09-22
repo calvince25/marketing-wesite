@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Graphic Design & Branding | GrowthLab Limited Kenya",
-  description: "Visual identities that command respect.",
+  title: "Graphic Design & Branding Nairobi | Company Profiles",
+  description: "Create consistent brand identities, logos, company profiles, pitch decks, and digital design assets for Nairobi and Kenyan businesses.",
+  alternates: { canonical: '/services/graphic-design' },
 };
 
 export default function Page() {

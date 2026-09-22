@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Graphic Design | GrowthLab Limited",
+  title: "Graphic Design",
   description: "Visual identities that command respect.",
+  alternates: { canonical: '/services/graphic-design/graphic-design' },
 };
 
 export default function Page() {

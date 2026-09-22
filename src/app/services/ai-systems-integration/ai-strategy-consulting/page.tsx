@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Ai Strategy Consulting | GrowthLab Limited",
-  description: "Professional ai strategy consulting services.",
+  title: "AI Strategy Consulting Kenya | Practical Use Cases & Roadmap",
+  description: "Identify practical AI use cases, data requirements, risks, and implementation priorities for your Kenyan business.",
+  alternates: { canonical: '/services/ai-systems-integration/ai-strategy-consulting' },
 };
 
 export default function Page() {

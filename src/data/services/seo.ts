@@ -155,20 +155,20 @@ A beautiful website that search engines can't understand is a liability, not an 
 
 We don't just give you a "To-Do" list; we provide the technical solutions to fix the problem at the code level.
 
-### Why Technical SEO is the "Unfair Advantage"
+## Why Technical SEO is the "Unfair Advantage"
 Most agencies in Nairobi focus on content and social media. They miss the "under the hood" metrics that drive 2025 rankings. A site that is mechanically perfect will always outrank a "pretty" site that Google finds difficult to crawl. Technical SEO is the process of making your website easy for search engine bots to read and index.
 
-### What's Included: Technical SEO Deliverables
+## What's Included: Technical SEO Deliverables
 - **Core Web Vitals Optimization**: We deep-dive into your Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) scores, optimizing for the 4K/5G and mobile mobile parity that Google demands.
 - **Crawl Budget Analysis**: We analyze your server logs to ensure Google's bots are spending their time on your high-value pages, not wasting it on "junk" URLs or scripts.
 - **Dynamic Rendering & SSR Audit**: Specifically for Next.js, React, and Vue applications, we ensure your client-side code doesn't hide your content from search engines.
 - **JSON-LD Schema Engineering**: We go beyond basic tags to build a full "Knowledge Graph" for your organization using advanced schema markup.
 - **Sitemap & Robots.txt Re-Engineering**: Creating a clean, logical roadmap for Google to follow as it indexes your business.
-- **HTTPS & Security Audit**: Ensuring your site uses the latest security protocols (HSTS) which is a confirmed Google ranking factor.
+- **HTTPS & Security Audit**: Ensuring your site uses HTTPS, secure headers, and sensible transport-security configuration. These controls protect users and support a trustworthy technical foundation; they are not a guaranteed ranking factor.
 - **Mobile Usability & Parity Audit**: Confirming that your mobile site contains the exact same authority signals as your desktop siteâ€”critical for Google's "Mobile-First Indexing."
 - **JavaScript Performance Profiling**: Identifying and removing scripts that are slowing down your site's "Time to Interactive."
 
-### Our Process: The Engineering Deep Dive
+## Our Process: The Engineering Deep Dive
 1. **Log File Analysis**: We look at how Googlebot actually interacts with your server. This is the "Truth" of your SEO health.
 2. **The "Full-Stack" Crawl**: We use enterprise-level tools (Screaming Frog, Botify, SEMrush) to mirror how Google sees your site.
 3. **Code-Level Review**: Our senior developers review your HTML, CSS, and JS structure to identify "Technical Debt" and bloating.
@@ -180,7 +180,7 @@ We are software engineers first. We don't just understand SEO "best practices"â€
 - **Next.js Experts**: We represent the pinnacle of technical SEO for modern, headless web applications.
 - **Data over Opinions**: We provide hard performance metrics before and after the audit to prove the impact.
 
-### Pricing Context
+## Pricing Context
 One-time comprehensive Technical SEO Audits start from **KES 60,000**. This includes the full diagnostic report and a detailed implementation guide for your developers.
 
 ### FAQ
@@ -188,7 +188,7 @@ One-time comprehensive Technical SEO Audits start from **KES 60,000**. This incl
 A: We recommend a deep-dive audit every 6 months, or whenever you make a major change to your website's architecture or CMS.
 
 **Q: My site "feels" fast, do I still need an audit?**
-A: "Perceived Speed" and "Search Engine Speed" are different. Google measures speed in milliseconds of "Total Blocking Time." An audit finds the invisible delays that are hurting your rank.
+A: "Perceived Speed" and measured user experience are different. We review Core Web Vitals such as LCP, INP, and CLS alongside diagnostic metrics such as Total Blocking Time to find delays that affect users and search visibility.
 
 **Q: Do you help with the "Core Web Vitals" on WordPress?**
 A: Yes. While we prefer custom Next.js builds, we have a specific "WordPress Speed Boost" protocol that can fix most technical SEO issues on legacy CMS platforms.

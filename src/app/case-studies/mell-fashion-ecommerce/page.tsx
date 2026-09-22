@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Mell Fashion Next.js E-Commerce Case Study | GrowthLab',
   description: 'Learn how GrowthLab developed a dynamic Next.js e-commerce platform with M-Pesa Daraja integration for Mell Fashion, resulting in a 45% conversion leap.',
+  alternates: { canonical: '/case-studies/mell-fashion-ecommerce' },
 };
 
 export default function MellFashionCaseStudy() {

@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Google Ads Ppc | GrowthLab Limited",
-  description: "Instant ROI with scalable growth.",
+  title: "Google Ads & PPC Management Kenya | GrowthLab",
+  description: "Plan, launch, measure, and optimise Google Ads campaigns with conversion tracking and clear reporting on spend, leads, and sales actions.",
+  alternates: { canonical: '/services/google-ads-ppc/google-ads-ppc' },
 };
 
 export default function Page() {

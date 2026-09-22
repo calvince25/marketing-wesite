@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Workflow Automation | GrowthLab Limited",
+  title: "Workflow Automation",
   description: "Connect your business systems into a unified, efficient workflow with our automation services.",
+  alternates: { canonical: '/services/business-automation/workflow-automation' },
 };
 
 export default function Page() {

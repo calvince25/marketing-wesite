@@ -6,12 +6,23 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { client } from "@/lib/client";
 import { allPostsByCategoryQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface CategoryPageProps {
   params: { category: string };
 }
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: CategoryPageProps) {
+  const { category } = await params;
+  const label = category.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+  return createPageMetadata({
+    title: `${label} Insights`,
+    description: `Practical ${label.toLowerCase()} insights for businesses growing in Kenya and East Africa.`,
+    pathname: `/blog/${category}`,
+  });
+}
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: categorySlug } = await params;

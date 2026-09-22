@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Business Automation | GrowthLab Limited Kenya",
-  description: "Streamline your operations and focus on what matters most.",
+  title: "Business Automation Nairobi | CRM & Workflow Automation",
+  description: "Automate lead management, CRM workflows, reporting, and repetitive operations for growing businesses in Nairobi and across Kenya.",
+  alternates: { canonical: '/services/business-automation' },
 };
 
 export default function Page() {

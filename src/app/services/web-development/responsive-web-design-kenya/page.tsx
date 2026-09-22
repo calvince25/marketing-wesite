@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Responsive Web Design Kenya | GrowthLab Limited",
+  title: "Responsive Web Design Kenya",
   description: "Mobile-first responsive web design for businesses across Kenya.",
+  alternates: { canonical: '/services/web-development/responsive-web-design-kenya' },
 };
 
 export default function Page() {

@@ -51,6 +51,10 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className={styles.formGroup}>
         <label htmlFor="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="John Doe" required disabled={status === 'loading'} />
@@ -62,6 +66,11 @@ export default function ContactForm() {
       </div>
 
       <div className={styles.formGroup}>
+        <label htmlFor="phone">Phone or WhatsApp number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+254 7xx xxx xxx" disabled={status === 'loading'} />
+      </div>
+
+      <div className={styles.formGroup}>
         <label htmlFor="service">Interested Service</label>
         <select id="service" name="service" required disabled={status === 'loading'}>
           <option value="">Select a service</option>
@@ -69,6 +78,22 @@ export default function ContactForm() {
           <option value="seo">SEO & Marketing</option>
           <option value="design">UI/UX Design</option>
           <option value="ai">AI Solutions</option>
+          <option value="automation">Business Automation</option>
+          <option value="ecommerce">E-commerce and M-Pesa</option>
+          <option value="maintenance">Website Maintenance</option>
+          <option value="google-ads">Google Ads / PPC</option>
+        </select>
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="budget">Indicative budget</label>
+        <select id="budget" name="budget" disabled={status === 'loading'}>
+          <option value="">Select a budget range</option>
+          <option value="under-50k">Under KES 50,000</option>
+          <option value="50k-150k">KES 50,000–150,000</option>
+          <option value="150k-300k">KES 150,000–300,000</option>
+          <option value="over-300k">Over KES 300,000</option>
+          <option value="not-sure">I&apos;m not sure yet</option>
         </select>
       </div>
 

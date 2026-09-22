@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SEO & Web Design in Nairobi CBD | GrowthLab Limited',
+  title: 'SEO & Web Design in Nairobi CBD',
   description: 'Helping businesses in Nairobi Central Business District (CBD) maximize their digital footprint through expert web design and marketing services.',
+  alternates: { canonical: '/cbd-nairobi' },
 };
 
 export default function CbdNairobiLocationPage() {

@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Seo Digital Marketing | GrowthLab Limited",
+  title: "Seo Digital Marketing",
   description: "Get found on Google and convert searchers into customers.",
+  alternates: { canonical: '/services/seo-digital-marketing/seo-digital-marketing' },
 };
 
 export default function Page() {

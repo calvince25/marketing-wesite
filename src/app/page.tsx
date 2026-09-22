@@ -15,8 +15,16 @@ import {
 import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 import JsonLd from "@/components/seo/JsonLd";
+import { createPageMetadata } from "@/lib/metadata";
+import { DEFAULT_OG_IMAGE } from "@/lib/site";
 
 export const dynamic = 'force-dynamic';
+
+export const metadata = createPageMetadata({
+  title: "Digital Marketing Agency in Kenya",
+  description: "GrowthLab Limited helps Kenyan businesses grow through high-performance websites, SEO, automation, and AI systems.",
+  pathname: '/',
+});
 
 export default async function Home() {
   const [settings, services, posts, projects, homeContent, faqs] = await Promise.all([
@@ -47,7 +55,7 @@ export default async function Home() {
     "@type": "DigitalMarketingAgency",
     "name": "GrowthLab Limited",
     "url": "https://www.growthlab.co.ke",
-    "logo": "https://www.growthlab.co.ke/media/logo.png",
+    "logo": DEFAULT_OG_IMAGE,
     "description": "Premier digital marketing agency in Kenya specializing in SEO, web development, and AI integration",
     "address": {
       "@type": "PostalAddress",

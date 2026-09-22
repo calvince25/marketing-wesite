@@ -19,13 +19,7 @@ export default function AdminPage() {
   }, []);
 
   const handleLogin = () => {
-    if (password === 'password') {
-      sessionStorage.setItem('adminLoggedIn', 'true');
-      setIsLoggedIn(true);
-      fetchPosts();
-    } else {
-      setError('Invalid password');
-    }
+    setError('This legacy admin portal is disabled. Use the primary admin portal.');
   };
 
   const fetchPosts = async () => {

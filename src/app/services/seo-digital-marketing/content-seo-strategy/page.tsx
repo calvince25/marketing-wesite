@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Content SEO Strategy | GrowthLab Limited",
+  title: "Content SEO Strategy",
   description: "Data-driven content strategies that rank and convert for businesses in Kenya.",
+  alternates: { canonical: '/services/seo-digital-marketing/content-seo-strategy' },
 };
 
 export default function Page() {

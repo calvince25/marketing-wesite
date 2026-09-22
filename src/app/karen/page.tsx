@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Web Development & Marketing Agency in Karen | GrowthLab',
   description: 'Elevate your Karen-based business with premium digital marketing, custom website design, and highly targeted SEO strategies from GrowthLab Limited.',
+  alternates: { canonical: '/karen' },
 };
 
 export default function KarenLocationPage() {

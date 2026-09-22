@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import JsonLd from "@/components/seo/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/site";
 
 export const revalidate = 60;
 
@@ -22,9 +23,6 @@ export const metadata: Metadata = {
   },
   description: "GrowthLab Limited is a premier agency for digital marketing in Kenya and SEO in Nairobi. We specialize in web design, SEO, and AI integration for modern brands.",
   keywords: ["digital marketing services Kenya", "digital marketing Nairobi", "website development Nairobi", "web design Kenya", "SEO services Nairobi", "SEO company in Nairobi"],
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: [
       { url: '/favicon/favicon-512.png', sizes: '32x32', type: 'image/png' },
@@ -48,7 +46,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/og-image.png',
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'GrowthLab Limited Digital Marketing',
@@ -75,9 +73,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "GrowthLab Limited",
-    "image": "https://www.growthlab.co.ke/media/logo.png",
-    "@id": "https://www.growthlab.co.ke",
-    "url": "https://www.growthlab.co.ke",
+    "image": DEFAULT_OG_IMAGE,
+    "@id": SITE_URL,
+    "url": SITE_URL,
     "telephone": "+254 743 990 479",
     "address": {
       "@type": "PostalAddress",

@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "AI Chatbots | GrowthLab Limited",
+  title: "AI Chatbots",
   description: "Intelligent chatbots that handle customer queries around the clock, improving support and conversion.",
+  alternates: { canonical: '/services/ai-systems-integration/ai-chatbots' },
 };
 
 export default function Page() {

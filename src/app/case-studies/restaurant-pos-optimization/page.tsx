@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Restaurant POS & Booking Case Study | GrowthLab',
   description: 'GrowthLab helped a Nairobi restaurant increase online orders by 180% within 90 days by implementing an integrated digital POS and automated booking funnel.',
+  alternates: { canonical: '/case-studies/restaurant-pos-optimization' },
 };
 
 export default function POSCaseStudy() {

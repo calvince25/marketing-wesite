@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Social Media Management | GrowthLab Limited Kenya",
-  description: "Building communities and driving commerce.",
+  title: "Social Media Management Kenya | Content & Lead Generation",
+  description: "Plan, create, publish, and measure social media campaigns that connect Kenyan brands with customers, enquiries, and sales actions.",
+  alternates: { canonical: '/services/social-media-management' },
 };
 
 export default function Page() {

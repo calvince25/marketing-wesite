@@ -40,7 +40,7 @@ class JsonDB {
         const defaultSettings = {
           heroImages: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"],
           contactInfo: {
-            email: "creativemind@stellarleack.co.ke",
+            email: "hello@growthlab.co.ke",
             phone: "+254 743 990 479",
             address: "ABC Place, Westlands, Nairobi"
           },
@@ -503,7 +503,7 @@ export function seedDatabase() {
   db.write('siteSettings', {
     heroImages: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"],
     contactInfo: {
-      email: "creativemind@stellarleack.co.ke",
+      email: "hello@growthlab.co.ke",
       phone: "+254 743 990 479",
       address: "ABC Place, Westlands, Nairobi"
     },

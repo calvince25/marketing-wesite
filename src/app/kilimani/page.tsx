@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Digital Agency in Kilimani, Nairobi | GrowthLab Limited',
+  title: 'Digital Agency in Kilimani, Nairobi',
   description: 'Premium web design, SEO, and digital marketing services for businesses in Kilimani, Nairobi. Grow your local presence with GrowthLab Limitd.',
+  alternates: { canonical: '/kilimani' },
 };
 
 export default function KilimaniLocationPage() {

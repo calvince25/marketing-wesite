@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Maintenance & Support | GrowthLab Limited",
+  title: "Maintenance & Support",
   description: "Keep your website running smoothly with our expert maintenance and support services.",
+  alternates: { canonical: '/services/web-development/maintenance-and-support' },
 };
 
 export default function Page() {

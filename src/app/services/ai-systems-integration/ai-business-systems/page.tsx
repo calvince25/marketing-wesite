@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "AI Business Systems | GrowthLab Limited",
+  title: "AI Business Systems",
   description: "Integrate AI into your core business systems for smarter decision making and operational excellence.",
+  alternates: { canonical: '/services/ai-systems-integration/ai-business-systems' },
 };
 
 export default function Page() {

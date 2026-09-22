@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Case Studies & Success Stories | GrowthLab Limited Nairobi',
   description: 'Explore how GrowthLab has transformed businesses in Kenya through high-performance web development, SEO, and automation. Read our case studies.',
+  alternates: { canonical: '/case-studies' },
 };
 
 export default function CaseStudiesIndex() {

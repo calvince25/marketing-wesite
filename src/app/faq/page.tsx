@@ -3,8 +3,9 @@ import { client } from '@/lib/client';
 import { allFaqsQuery } from '@/lib/queries';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | GrowthLab Limited',
+  title: 'Frequently Asked Questions',
   description: 'How long does SEO take? What is your pricing? Find the answers to the most specific questions about working with GrowthLab.',
+  alternates: { canonical: '/faq' },
 };
 
 export const dynamic = 'force-dynamic';

@@ -5,6 +5,7 @@ import styles from "./SubServiceTemplate.module.css";
 import { PortableText } from "@portabletext/react";
 import React from 'react';
 import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl } from "@/lib/site";
 
 const renderStaticContent = (content: string) => {
   if (!content) return null;
@@ -60,8 +61,8 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Services", "item": "https://growthlab.co.ke/services" },
-        { "@type": "ListItem", "position": 2, "name": pillar.title, "item": `https://growthlab.co.ke/services/${pillar.slug}` },
+        { "@type": "ListItem", "position": 1, "name": "Services", "item": absoluteUrl('/services') },
+        { "@type": "ListItem", "position": 2, "name": pillar.title, "item": absoluteUrl(`/services/${pillar.slug}`) },
         { "@type": "ListItem", "position": 3, "name": subService.title }
       ]
     }
@@ -97,8 +98,8 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
               </div>
 
               <div className={styles.ctaBox}>
-                <h3>Ready to scale your business?</h3>
-                <p>GrowthLab Limited is Nairobi&apos;s leading digital partner. Let&apos;s build your future together.</p>
+                <h3>Ready to improve your digital growth?</h3>
+                <p>Tell us what you need and we will scope the right {subService.title.toLowerCase()} solution for your business in Kenya.</p>
                 <Link href="/contact" className="btn btn-primary">Book Free Consultation</Link>
               </div>
             </article>
@@ -109,7 +110,7 @@ export default function SubServiceTemplate({ pillar, subService }: SubServiceTem
                 <h3>{pillar.title}</h3>
                 <p>Learn how this fits into our broader {pillar.title} strategy.</p>
                 <Link href={`/services/${pillar.slug}`} className={styles.link}>
-                  View Pillar Page →
+                  Explore {pillar.title} services →
                 </Link>
               </div>
 

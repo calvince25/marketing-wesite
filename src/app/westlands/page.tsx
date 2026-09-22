@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing & SEO in Westlands | GrowthLab Limited',
-  description: 'GrowthLab Limited is headquartered in Westlands, Nairobi. We provide premium web design and digital marketing services to Westlands businesses.',
+  title: 'Digital Agency in Westlands Nairobi | Web Design & SEO',
+  description: 'Based in Westlands, GrowthLab provides web design, SEO services, and digital marketing for Nairobi companies, retailers, and professional firms.',
+  alternates: { canonical: '/westlands' },
 };
 
 export default function WestlandsLocationPage() {
@@ -11,7 +12,7 @@ export default function WestlandsLocationPage() {
     <div className="container" style={{ padding: '80px 0' }}>
       <h1>Digital Agency in Westlands, Nairobi</h1>
       <p style={{ maxWidth: '800px', margin: '20px auto 40px', fontSize: '1.2rem', lineHeight: '1.6' }}>
-        Our headquarters are proudly located in Westlands, the prime commercial hub of Nairobi. We offer tailor-made digital strategies for local corporate and retail businesses.
+        Our headquarters are located in Westlands, Nairobi. We provide practical web design, SEO services, and digital marketing for local corporate, retail, hospitality, and professional-service businesses.
       </p>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
@@ -23,8 +24,8 @@ export default function WestlandsLocationPage() {
           <h3>Why Choose Us?</h3>
           <ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
             <li>Local Presence for Easy Meetings</li>
-            <li>Data-Driven Marketing Campaigns</li>
-            <li>High-End Custom Web Development</li>
+            <li><Link href="/services/seo-digital-marketing">SEO services and local search strategy</Link></li>
+            <li><Link href="/services/web-development">Custom web design and development</Link></li>
           </ul>
         </div>
       </div>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Digital Marketing in Upper Hill Nairobi | GrowthLab',
   description: 'Empowering healthcare, financial, and corporate institutions in Upper Hill with enterprise-grade web development and digital marketing.',
+  alternates: { canonical: '/upper-hill' },
 };
 
 export default function UpperHillLocationPage() {

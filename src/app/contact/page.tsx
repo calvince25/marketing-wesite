@@ -5,6 +5,14 @@ import ContactForm from "@/components/contact/ContactForm";
 import { MapPin, Mail, Phone, Facebook, Linkedin, Instagram } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import HeroSection from "@/components/layout/HeroSection";
+import { createPageMetadata } from "@/lib/metadata";
+import { FALLBACK_CONTACT_EMAIL, SITE_URL } from "@/lib/site";
+
+export const metadata = createPageMetadata({
+  title: "Contact a Digital Growth Agency in Kenya",
+  description: "Talk to GrowthLab about web development, SEO, automation, AI systems, or digital marketing for your Kenyan business.",
+  pathname: '/contact',
+});
 
 export default async function ContactPage() {
   const settings = await client.fetch(siteSettingsQuery).catch(() => null);
@@ -14,7 +22,7 @@ export default async function ContactPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "GrowthLab Limited",
-    "url": "https://www.growthlab.co.ke",
+    "url": SITE_URL,
     "telephone": "+254 743 990 479",
     "address": {
       "@type": "PostalAddress",
@@ -59,7 +67,7 @@ export default async function ContactPage() {
                 <span className={styles.icon}><Mail size={24} /></span>
                 <div>
                   <h4>Email</h4>
-                  <p>{contact?.email || 'creativemind@stellarleack.co.ke'}</p>
+                  <p>{contact?.email || FALLBACK_CONTACT_EMAIL}</p>
                 </div>
               </div>
 
@@ -79,12 +87,12 @@ export default async function ContactPage() {
                       if (platform === 'facebook' || platform === 'fb') { Icon = Facebook; }
                       else if (platform.includes('linkedin')) { Icon = Linkedin; }
                       else if (platform.includes('instagram') || platform === 'ig') { Icon = Instagram; }
-                      return Icon ? <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Icon size={24} /></a> : null;
+                      return Icon ? <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`Follow GrowthLab on ${link.platform}`} style={{ color: 'inherit' }}><Icon size={24} aria-hidden="true" /></a> : null;
                   }) : (
                       <>
-                        <a href="https://www.facebook.com/share/1bTmn3gbH5/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Facebook size={24} /></a>
-                        <a href="https://www.linkedin.com/in/calvince-omondi-3351763ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Linkedin size={24} /></a>
-                        <a href="https://instagram.com/growthlablimited" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Instagram size={24} /></a>
+                        <a href="https://www.facebook.com/share/1bTmn3gbH5/" target="_blank" rel="noopener noreferrer" aria-label="Follow GrowthLab on Facebook" style={{ color: 'inherit' }}><Facebook size={24} aria-hidden="true" /></a>
+                        <a href="https://www.linkedin.com/in/calvince-omondi-3351763ba?utm_source=share_via&utm_content=share_via&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Follow GrowthLab on LinkedIn" style={{ color: 'inherit' }}><Linkedin size={24} aria-hidden="true" /></a>
+                        <a href="https://instagram.com/growthlablimited" target="_blank" rel="noopener noreferrer" aria-label="Follow GrowthLab on Instagram" style={{ color: 'inherit' }}><Instagram size={24} aria-hidden="true" /></a>
                       </>
                   )}
                 </div>

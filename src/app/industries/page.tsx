@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | GrowthLab Limited',
+  title: 'Industries We Serve',
   description: 'GrowthLab Limited provides tailored digital marketing, web dev, and SEO solutions across various industries in Kenya including Real Estate, E-commerce, and B2B.',
+  alternates: { canonical: '/industries' },
 };
 
 export default function IndustriesPage() {

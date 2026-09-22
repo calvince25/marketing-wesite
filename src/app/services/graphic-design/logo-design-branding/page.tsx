@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Logo Design Branding | GrowthLab Limited",
-  description: "Professional logo design branding services.",
+  title: "Logo Design & Branding Nairobi | GrowthLab",
+  description: "Develop a memorable logo, visual identity, and practical brand system for your Nairobi or Kenyan business.",
+  alternates: { canonical: '/services/graphic-design/logo-design-branding' },
 };
 
 export default function Page() {

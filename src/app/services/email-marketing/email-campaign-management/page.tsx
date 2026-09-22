@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Email Campaign Management | GrowthLab Limited",
-  description: "Professional email campaign management services.",
+  title: "Email Campaign Management Kenya | GrowthLab",
+  description: "Plan, write, design, send, and measure email campaigns that support customer retention and qualified business enquiries.",
+  alternates: { canonical: '/services/email-marketing/email-campaign-management' },
 };
 
 export default function Page() {

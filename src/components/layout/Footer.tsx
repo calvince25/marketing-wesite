@@ -3,6 +3,7 @@ import { Facebook, Linkedin, Instagram } from 'lucide-react';
 import styles from './Footer.module.css';
 import { sanityFetch } from '@/lib/client';
 import { siteSettingsQuery } from '@/lib/queries';
+import { FALLBACK_CONTACT_EMAIL } from '@/lib/site';
 
 const Footer = async () => {
     const currentYear = new Date().getFullYear();
@@ -28,6 +29,7 @@ const Footer = async () => {
                             <li><Link href="/about" aria-label="About GrowthLab">About Us</Link></li>
                             <li><Link href="/company-profile" aria-label="Company Profile">Company Profile</Link></li>
                             <li><Link href="/portfolio" aria-label="View Projects">Portfolio</Link></li>
+                            <li><Link href="/website-design-cost-kenya" aria-label="Website design cost guide">Website Cost Guide</Link></li>
                             <li><Link href="/blog" aria-label="Read Blog">Blog</Link></li>
                             <li><Link href="/faq" aria-label="FAQ">FAQ</Link></li>
                             <li><Link href="/contact" aria-label="Contact Us">Contact</Link></li>
@@ -58,8 +60,8 @@ const Footer = async () => {
                         <h4>Connect</h4>
                         <ul>
                             <li>
-                                <a href={`mailto:${contact?.email || 'creativemind@stellarleack.co.ke'}`} aria-label="Email GrowthLab">
-                                    {contact?.email || 'creativemind@stellarleack.co.ke'}
+                                <a href={`mailto:${contact?.email || FALLBACK_CONTACT_EMAIL}`} aria-label="Email GrowthLab">
+                                    {contact?.email || FALLBACK_CONTACT_EMAIL}
                                 </a>
                             </li>
                             {contact?.phone && (

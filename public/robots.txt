@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /api
-Disallow: /studio
-
-Sitemap: https://www.growthlab.co.ke/sitemap.xml

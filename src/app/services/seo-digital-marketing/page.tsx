@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "SEO & Digital Marketing | GrowthLab Limited Kenya",
-  description: "Get found on Google and convert searchers into customers.",
+  title: "SEO Services Nairobi & Kenya | GrowthLab Limited",
+  description: "Technical SEO, local SEO, keyword research, content, and reporting that help Kenyan businesses earn qualified Google traffic and enquiries.",
+  alternates: { canonical: '/services/seo-digital-marketing' },
 };
 
 export default function Page() {

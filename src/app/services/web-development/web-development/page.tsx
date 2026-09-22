@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Web Development | GrowthLab Limited",
+  title: "Web Development",
   description: "High-performance websites built for speed, security, and scalability.",
+  alternates: { canonical: '/services/web-development/web-development' },
 };
 
 export default function Page() {

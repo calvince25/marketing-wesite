@@ -6,6 +6,23 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
 
+    if (data.website) {
+      return NextResponse.json({ error: "Unable to process this request." }, { status: 400 });
+    }
+
+    const name = typeof data.name === 'string' ? data.name.trim() : '';
+    const email = typeof data.email === 'string' ? data.email.trim() : '';
+    const service = typeof data.service === 'string' ? data.service.trim() : '';
+    const message = typeof data.message === 'string' ? data.message.trim() : '';
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!name || !emailIsValid || !service || message.length < 10) {
+      return NextResponse.json(
+        { error: "Please provide your name, a valid email, a service, and a message of at least 10 characters." },
+        { status: 400 }
+      );
+    }
+
     // 2. Save to local JSON file (Backup)
     try {
       const submissionsDir = path.join(process.cwd(), 'submissions');
@@ -44,7 +61,7 @@ export async function POST(request: Request) {
             budget: data.budget || '',
             message: data.message,
             submitted_at: new Date().toISOString(),
-            source: 'growthlab.co.ke/contact'
+            source: 'www.growthlab.co.ke/contact'
           })
         });
       } else {

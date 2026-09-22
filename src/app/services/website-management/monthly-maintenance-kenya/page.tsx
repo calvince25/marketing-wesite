@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Monthly Maintenance Kenya | GrowthLab Limited",
-  description: "Professional monthly maintenance kenya services.",
+  title: "Monthly Website Maintenance Kenya | Updates & Backups",
+  description: "Monthly website maintenance in Kenya covering updates, backups, uptime checks, security reviews, and ongoing technical support.",
+  alternates: { canonical: '/services/website-management/monthly-maintenance-kenya' },
 };
 
 export default function Page() {

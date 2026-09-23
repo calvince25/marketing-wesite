@@ -11,6 +11,8 @@ export async function GET(request: Request) {
       return auth.errorResponse!;
     }
 
+    await db.loadTable('projects');
+
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search')?.toLowerCase() || '';
 
@@ -53,6 +55,8 @@ export async function POST(request: Request) {
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('projects');
 
     const body = await request.json();
     const { 

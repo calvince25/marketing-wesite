@@ -128,10 +128,12 @@ export default function BlogsManager() {
         setImage(data.media?.fileUrl || '');
         fetchMedia();
       } else {
-        alert('Image upload failed. Please try again.');
+        const error = await res.json().catch(() => ({}));
+        alert(error.error || `Image upload failed (${res.status}). Please try again.`);
       }
     } catch (e) {
       console.error('Upload error:', e);
+      alert('Image upload failed. Check your connection and try again.');
     } finally {
       setUploadingImage(false);
     }
@@ -207,6 +209,7 @@ export default function BlogsManager() {
       }
     } catch (err) {
       console.error('Error saving post:', err);
+      alert('Could not save the article. Check your connection and try again.');
     }
   }
 

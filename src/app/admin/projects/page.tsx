@@ -130,10 +130,12 @@ export default function ProjectsManager() {
         }
         fetchMedia();
       } else {
-        alert('Image upload failed. Please try again.');
+        const error = await res.json().catch(() => ({}));
+        alert(error.error || `Image upload failed (${res.status}). Please try again.`);
       }
     } catch (e) {
       console.error('Upload error:', e);
+      alert('Image upload failed. Check your connection and try again.');
     } finally {
       setUploadingImage(false);
     }
@@ -231,6 +233,7 @@ export default function ProjectsManager() {
       }
     } catch (err) {
       console.error('Error saving project:', err);
+      alert('Could not save the project. Check your connection and try again.');
     }
   }
 

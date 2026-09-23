@@ -11,6 +11,7 @@ import { postBySlugQuery, allPostsQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
 import { PortableText } from "@portabletext/react";
 import { createPageMetadata } from "@/lib/metadata";
+import { getPublishedAdminPosts, mergeBySlug } from "@/lib/admin-content";
 
 interface PostPageProps {
   params: { category: string; slug: string };
@@ -18,7 +19,8 @@ interface PostPageProps {
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await client.fetch(postBySlugQuery, { slug }).catch(() => null) || blogPosts.find(p => p.slug === slug);
+  const adminPost = (await getPublishedAdminPosts()).find((item: any) => (item.slug?.current || item.slug) === slug);
+  const post = await client.fetch(postBySlugQuery, { slug }).catch(() => null) || adminPost || blogPosts.find(p => p.slug === slug);
   if (!post) return {};
 
   const categorySlug = (await params).category;
@@ -40,9 +42,10 @@ export const dynamic = 'force-dynamic';
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
   const post = await client.fetch(postBySlugQuery, { slug }).catch(() => null);
+  const adminPost = (await getPublishedAdminPosts()).find((item: any) => (item.slug?.current || item.slug) === slug);
   const staticPost = blogPosts.find(p => p.slug === slug);
   
-  const currentPost = post || staticPost;
+  const currentPost = post || adminPost || staticPost;
 
   if (!currentPost) {
     notFound();
@@ -60,7 +63,7 @@ export default async function PostPage({ params }: PostPageProps) {
       : (currentPost.date || ''));
 
   const recentPostsData = await client.fetch(allPostsQuery).catch(() => []);
-  const recentPosts = (recentPostsData && recentPostsData.length > 0) ? recentPostsData : blogPosts;
+  const recentPosts = mergeBySlug(recentPostsData?.length ? recentPostsData : blogPosts, await getPublishedAdminPosts());
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -167,7 +170,6 @@ export default async function PostPage({ params }: PostPageProps) {
     </article>
   );
 }
-
 
 
 

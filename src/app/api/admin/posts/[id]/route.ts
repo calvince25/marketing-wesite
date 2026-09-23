@@ -13,6 +13,8 @@ export async function PUT(
       return auth.errorResponse!;
     }
 
+    await db.loadTable('posts');
+
     const { id } = await params;
     const body = await request.json();
     const { title, content, excerpt, category, image, status, authorName, authorBio, authorImage, seoTitle, seoDescription, scheduledFor } = body;
@@ -87,6 +89,8 @@ export async function DELETE(
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('posts');
 
     const { id } = await params;
     const post = db.findOne('posts', p => p.id === id || p._id === id);

@@ -3,12 +3,19 @@ import { db } from '@/lib/db';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('placeholder') && supabaseUrl !== '');
 
 export const supabase = isSupabaseConfigured 
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
+
+// Prefer the server-only service role for dashboard CRUD when configured.
+const adminSupabase = isSupabaseConfigured && supabaseServiceRoleKey
+  ? createClient(supabaseUrl, supabaseServiceRoleKey, { auth: { autoRefreshToken: false, persistSession: false } })
+  : null;
+const dataClient = adminSupabase || supabase;
 
 // Helpers to normalise slugs and fields
 const normalizeSlug = (slug: any) => {
@@ -22,13 +29,13 @@ const normalizeSlug = (slug: any) => {
 };
 
 export async function getProjects(): Promise<any[]> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     await db.loadTable('projects');
     return db.read('projects');
   }
 
   try {
-    const { data, error } = await supabase
+    const { data, error } = await dataClient
       .from('projects')
       .select('*')
       .order('displayOrder', { ascending: true });
@@ -62,7 +69,7 @@ export async function getProjects(): Promise<any[]> {
           displayOrder: p.displayOrder || 0,
           status: p.status || 'Published'
         }));
-        const { data: inserted, error: insertError } = await supabase
+        const { data: inserted, error: insertError } = await dataClient
           .from('projects')
           .insert(formatted)
           .select();
@@ -92,7 +99,7 @@ export async function getProjects(): Promise<any[]> {
 }
 
 export async function getProjectBySlug(slug: string): Promise<any | null> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     await db.loadTable('projects');
     const proj = db.findOne('projects', (p: any) => (p.slug?.current || p.slug) === slug);
     if (!proj) return null;
@@ -103,7 +110,7 @@ export async function getProjectBySlug(slug: string): Promise<any | null> {
   }
 
   try {
-    const { data, error } = await supabase
+    const { data, error } = await dataClient
       .from('projects')
       .select('*')
       .eq('slug', slug)
@@ -141,7 +148,7 @@ export async function getProjectBySlug(slug: string): Promise<any | null> {
 }
 
 export async function insertProject(project: any): Promise<any> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     await db.loadTable('projects');
     const newProj = {
       ...project,
@@ -169,7 +176,7 @@ export async function insertProject(project: any): Promise<any> {
     seo: project.seo || { metaTitle: `${project.name} Project`, metaDescription: project.description.substring(0, 160) }
   };
 
-  const { data, error } = await supabase
+  const { data, error } = await dataClient
     .from('projects')
     .insert(formatted)
     .select()
@@ -188,7 +195,7 @@ export async function insertProject(project: any): Promise<any> {
 }
 
 export async function updateProject(id: string, updates: any): Promise<any> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     await db.loadTable('projects');
     return db.update('projects', id, updates);
   }
@@ -219,7 +226,7 @@ export async function updateProject(id: string, updates: any): Promise<any> {
   if (updates.status !== undefined) formatted.status = updates.status;
   if (updates.seo !== undefined) formatted.seo = updates.seo;
 
-  const { data, error } = await supabase
+  const { data, error } = await dataClient
     .from('projects')
     .update(formatted)
     .eq('id', id)
@@ -239,14 +246,14 @@ export async function updateProject(id: string, updates: any): Promise<any> {
 }
 
 export async function deleteProject(id: string): Promise<void> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     await db.loadTable('projects');
     const success = db.delete('projects', id);
     if (!success) throw new Error('Project not found');
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await dataClient
     .from('projects')
     .delete()
     .eq('id', id);
@@ -257,7 +264,7 @@ export async function deleteProject(id: string): Promise<void> {
 }
 
 export async function uploadImage(file: Buffer, fileName: string, mimeType: string): Promise<string> {
-  if (!isSupabaseConfigured || !supabase) {
+  if (!isSupabaseConfigured || !dataClient) {
     const fs = require('fs');
     const path = require('path');
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
@@ -272,7 +279,7 @@ export async function uploadImage(file: Buffer, fileName: string, mimeType: stri
 
   const cleanFileName = Date.now() + '_' + fileName.replace(/[^a-zA-Z0-9.-]/g, '_');
   
-  const { data, error } = await supabase.storage
+  const { data, error } = await dataClient.storage
     .from('portfolio')
     .upload(cleanFileName, file, {
       contentType: mimeType,
@@ -285,7 +292,7 @@ export async function uploadImage(file: Buffer, fileName: string, mimeType: stri
     throw new Error(error.message);
   }
 
-  const { data: urlData } = supabase.storage
+  const { data: urlData } = dataClient.storage
     .from('portfolio')
     .getPublicUrl(cleanFileName);
 

@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
 const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback-secret-for-dev-only-change-in-prod'
+  process.env.JWT_SECRET || '08b63914-19d8-41da-8b75-1eb56145f10f'
 );
 
 // Simple in-memory rate limiter for auth routes

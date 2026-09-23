@@ -6,6 +6,8 @@ import { allProjectsQuery } from "@/lib/queries";
 import HeroSection from "@/components/layout/HeroSection";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { createPageMetadata } from "@/lib/metadata";
+import { getProjects } from "@/lib/supabase";
+import { mergeBySlug } from "@/lib/admin-content";
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +18,9 @@ export const metadata = createPageMetadata({
 });
 
 export default async function PortfolioPage() {
-  const displayProjects = await client.fetch(allProjectsQuery).catch(() => []);
+  const sanityProjects = await client.fetch(allProjectsQuery).catch(() => []);
+  const adminProjects = await getProjects().catch(() => []);
+  const displayProjects = mergeBySlug(sanityProjects, adminProjects);
 
   // Filter only published projects (for public view)
   const publishedProjects = displayProjects.filter((p: any) => p.status !== 'Draft');

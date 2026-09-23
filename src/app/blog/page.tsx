@@ -7,6 +7,7 @@ import { allPostsQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
 import HeroSection from "@/components/layout/HeroSection";
 import { createPageMetadata } from "@/lib/metadata";
+import { getPublishedAdminPosts, mergeBySlug } from "@/lib/admin-content";
 
 export const dynamic = 'force-dynamic';
 
@@ -18,7 +19,8 @@ export const metadata = createPageMetadata({
 
 export default async function BlogPage() {
   const posts = await client.fetch(allPostsQuery).catch(() => []);
-  const displayPosts = (posts && posts.length > 0) ? posts : blogPosts;
+  const adminPosts = await getPublishedAdminPosts();
+  const displayPosts = mergeBySlug(posts?.length ? posts : blogPosts, adminPosts);
 
   return (
     <div className={styles.blogPage}>

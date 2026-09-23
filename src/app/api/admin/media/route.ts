@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
+import { isSupabaseConfigured, uploadImage } from '@/lib/supabase';
 import fs from 'fs';
 import path from 'path';
 
@@ -17,6 +18,8 @@ export async function GET(request: Request) {
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('media');
 
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search')?.toLowerCase() || '';
@@ -53,6 +56,8 @@ export async function POST(request: Request) {
       return auth.errorResponse!;
     }
 
+    await db.loadTable('media');
+
     const formData = await request.formData();
     const file = formData.get('file') as File;
 
@@ -73,11 +78,16 @@ export async function POST(request: Request) {
     const uniqueName = `${baseName}-${Date.now()}${ext}`;
     const filePath = path.join(UPLOADS_DIR, uniqueName);
 
-    // Save to disk
-    fs.writeFileSync(filePath, buffer);
+    let fileUrl: string;
+    if (isSupabaseConfigured) {
+      fileUrl = await uploadImage(buffer, uniqueName, file.type || 'application/octet-stream');
+    } else {
+      // Local disk is suitable for development only; production uses Supabase Storage.
+      fs.writeFileSync(filePath, buffer);
+      fileUrl = `/uploads/${uniqueName}`;
+    }
 
     // Save to media db table
-    const fileUrl = `/uploads/${uniqueName}`;
     const mediaAsset = {
       fileName: originalName,
       uniqueName,
@@ -109,6 +119,8 @@ export async function DELETE(request: Request) {
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('media');
 
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');

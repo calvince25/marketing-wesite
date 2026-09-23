@@ -7,6 +7,7 @@ import { client } from "@/lib/client";
 import { allPostsByCategoryQuery } from "@/lib/queries";
 import { urlForImage } from "@/lib/image";
 import { createPageMetadata } from "@/lib/metadata";
+import { getPublishedAdminPosts, mergeBySlug } from "@/lib/admin-content";
 
 interface CategoryPageProps {
   params: { category: string };
@@ -29,11 +30,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   
   // 1. Fetch from Sanity
   const sanityPosts = await client.fetch(allPostsByCategoryQuery, { category: categorySlug }).catch(() => []);
+  const adminPosts = (await getPublishedAdminPosts()).filter((post: any) => post.categorySlug === categorySlug);
   
   // 2. Fallback to static
   const staticPosts = blogPosts.filter(p => p.categorySlug === categorySlug);
   
-  const posts = (sanityPosts && sanityPosts.length > 0) ? sanityPosts : staticPosts;
+  const posts = mergeBySlug(sanityPosts?.length ? sanityPosts : staticPosts, adminPosts);
   
   const categoryName = posts.length > 0 
     ? (posts[0]._id ? (posts[0].categories?.find((c: any) => c.slug.current === categorySlug)?.title || categorySlug) : posts[0].category)

@@ -10,6 +10,8 @@ export async function GET(request: Request) {
       return auth.errorResponse!;
     }
 
+    await db.loadTable('posts');
+
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search')?.toLowerCase() || '';
 
@@ -47,6 +49,8 @@ export async function POST(request: Request) {
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('posts');
 
     const body = await request.json();
     const { title, content, excerpt, category, image, status, authorName, authorBio, authorImage, seoTitle, seoDescription, scheduledFor } = body;

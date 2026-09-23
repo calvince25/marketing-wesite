@@ -14,6 +14,8 @@ export async function PUT(
       return auth.errorResponse!;
     }
 
+    await db.loadTable('projects');
+
     const { id } = await params;
     const body = await request.json();
     const { 
@@ -105,6 +107,8 @@ export async function DELETE(
     if (!auth.authorized) {
       return auth.errorResponse!;
     }
+
+    await db.loadTable('projects');
 
     const { id } = await params;
     
